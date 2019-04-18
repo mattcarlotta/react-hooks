@@ -1,32 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
-import fs from "fs";
-import path from "path";
-import Highlight from "../Highlight";
+import { SyntaxHighlighter } from "../";
 
 const ShowCode = ({ fileName, showCode }) => {
   const [loadedFile, setLoadedFile] = useState("");
 
-  useEffect(() => {
-    const convertFileToText = () => {
+  useLayoutEffect(() => {
+    const setDummyCode = async () => {
       try {
-        const file = fs
-          .readFileSync(path.join(__dirname, `../../DummyCode/${fileName}`))
-          .toString();
-
-        return file;
+        const {
+          default: file
+        } = await import(/* webpackMode: "lazy" */ `../../Code/${fileName}`);
+        setLoadedFile(file);
       } catch (e) {
-        return "Error loading file.";
+        setLoadedFile("Error loading file.");
       }
     };
-
-    const textFile = convertFileToText();
-
-    setLoadedFile(textFile);
+    setDummyCode();
   }, [fileName]);
 
   return showCode ? (
-    <Highlight language="javascript">{loadedFile}</Highlight>
+    <SyntaxHighlighter language="javascript">{loadedFile}</SyntaxHighlighter>
   ) : null;
 };
 

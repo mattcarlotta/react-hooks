@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaTrash } from "react-icons/fa";
 import {
   Button,
@@ -11,10 +11,10 @@ import {
   SubTitle,
   ToolTip
 } from "../../Body";
-import { useToggle } from "../../Hooks";
+import { useEventHandler, useToggle } from "../../Hooks";
 
 const InputExample = () => {
-  const [inputValue, setInputValue] = useState("");
+  const { value, handleChange, resetValue } = useEventHandler("");
   const [showCode, toggleShowCode] = useToggle(false);
 
   return (
@@ -25,11 +25,11 @@ const InputExample = () => {
           <Label>Label:</Label>
           <Input
             placeholder="Type something..."
-            onChange={({ target: { value } }) => setInputValue(value)}
-            value={inputValue}
+            onChange={handleChange}
+            value={value}
           />
           <ToolTip placement="top" overlay={<span>Reset</span>}>
-            <Button onClick={() => setInputValue("")}>
+            <Button onClick={resetValue}>
               <FaTrash />
             </Button>
           </ToolTip>

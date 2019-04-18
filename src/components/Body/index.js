@@ -8,6 +8,7 @@ export { default as NotFoundContainer } from "./NotFoundContainer";
 export { default as Paragraph } from "./Paragraph";
 export { default as ShowCode } from "./ShowCode";
 export { default as ShowCodeButton } from "./ShowCodeButton";
+export { default as SyntaxHighlighter } from "./SyntaxHighlighter";
 export { default as SubTitle } from "./SubTitle";
 export { default as Title } from "./Title";
 export { default as Toggle } from "./Toggle";

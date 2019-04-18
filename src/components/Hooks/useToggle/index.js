@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 const useToggle = initialValue => {
   const [value, setValue] = useState(initialValue);
-  const toggler = useCallback(() => setValue(value => !value));
-  return [value, toggler];
+  const handleChange = useCallback(() => setValue(value => !value));
+  return [value, handleChange];
 };
 
 useToggle.propTypes = {
