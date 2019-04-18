@@ -4,12 +4,8 @@ import { FaToggleOff, FaToggleOn } from "react-icons/fa";
 const Toggle = () => {
   const [toggleState, setToggleState] = useState(false);
 
-  const toggleSwitch = () => {
-    setToggleState(!toggleState);
-  };
-
   return (
-    <span onClick={toggleSwitch}>
+    <span onClick={() => setToggleState(!toggleState)}>
       {!toggleState ? <FaToggleOff /> : <FaToggleOn />}
     </span>
   );

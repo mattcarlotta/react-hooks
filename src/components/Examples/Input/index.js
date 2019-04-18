@@ -9,21 +9,13 @@ import {
   ShowCode,
   ShowCodeButton,
   SubTitle,
-  ToolTip,
-  useToggle
+  ToolTip
 } from "../../Body";
+import { useToggle } from "../../Hooks";
 
 const InputExample = () => {
   const [inputValue, setInputValue] = useState("");
   const [showCode, toggleShowCode] = useToggle(false);
-
-  const handleChange = ({ target: { value } }) => {
-    setInputValue(value);
-  };
-
-  const resetInputValue = () => {
-    setInputValue("");
-  };
 
   return (
     <>
@@ -33,11 +25,11 @@ const InputExample = () => {
           <Label>Label:</Label>
           <Input
             placeholder="Type something..."
-            onChange={handleChange}
+            onChange={({ target: { value } }) => setInputValue(value)}
             value={inputValue}
           />
           <ToolTip placement="top" overlay={<span>Reset</span>}>
-            <Button onClick={resetInputValue}>
+            <Button onClick={() => setInputValue("")}>
               <FaTrash />
             </Button>
           </ToolTip>

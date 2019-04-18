@@ -1,29 +1,21 @@
 import React, { useState } from "react";
 import { FaTrash } from "react-icons/fa";
 
-const Input = () => {
-  const [inputValue, setInputValue] = useState("");
-
-  const handleChange = ({ target: { value } }) => {
-    setInputValue(value);
-  };
-
-  const resetInputValue = () => {
-    setInputValue("");
-  };
+const InputExample = () => {
+  const [inputState, setInputState] = useState("");
 
   return (
-    <>
+    <span>
       <input
         placeholder="Type something..."
-        onChange={handleChange}
-        value={inputValue}
+        onChange={({ target: { value } }) => setInputState(value)}
+        value={inputState}
       />
-      <button onClick={resetInputValue}>
+      <button onClick={() => setInputState("")}>
         <FaTrash style={{ verticalAlign: "middle" }} />
       </button>
-    </>
+    </span>
   );
 };
 
-export default Input;
+export default InputExample;

@@ -11,6 +11,7 @@ const StyledInput = styled(Input)`
   input {
     height: 100%;
     width: 100%;
+    font-size: 16px;
     border: 0;
     padding: 0 10px;
     background: #fff;

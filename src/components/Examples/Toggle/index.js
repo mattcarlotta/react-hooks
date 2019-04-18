@@ -6,9 +6,9 @@ import {
   ShowCode,
   ShowCodeButton,
   SubTitle,
-  Toggle,
-  useToggle
+  Toggle
 } from "../../Body";
+import { useToggle } from "../../Hooks";
 
 const ToggleExample = () => {
   const [toggleState, setToggleState] = useState(false);

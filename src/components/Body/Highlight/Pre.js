@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Pre = styled.pre`
-  background-color: ${props => props.theme.alt};
   border: 1px dashed #e9e9e9;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;

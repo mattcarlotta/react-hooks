@@ -1,24 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import fs from "fs";
 import path from "path";
-import Pre from "./Pre";
-import Code from "./Code";
+import Highlight from "../Highlight";
 
 const ShowCode = ({ fileName, showCode }) => {
-  let file;
-  try {
-    file = fs
-      .readFileSync(path.join(__dirname, `../../DummyCode/${fileName}`))
-      .toString();
-  } catch (e) {
-    file = "Error loading file.";
-  }
+  const [loadedFile, setLoadedFile] = useState("");
+
+  useEffect(() => {
+    const convertFileToText = () => {
+      try {
+        const file = fs
+          .readFileSync(path.join(__dirname, `../../DummyCode/${fileName}`))
+          .toString();
+
+        return file;
+      } catch (e) {
+        return "Error loading file.";
+      }
+    };
+
+    const textFile = convertFileToText();
+
+    setLoadedFile(textFile);
+  }, [fileName]);
 
   return showCode ? (
-    <Pre>
-      <Code>{file}</Code>
-    </Pre>
+    <Highlight language="javascript">{loadedFile}</Highlight>
   ) : null;
 };
 
