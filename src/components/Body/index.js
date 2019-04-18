@@ -6,6 +6,7 @@ export { default as Input } from "./Input";
 export { default as Label } from "./Label";
 export { default as NotFoundContainer } from "./NotFoundContainer";
 export { default as Paragraph } from "./Paragraph";
+export { default as Select } from "./Select";
 export { default as ShowCode } from "./ShowCode";
 export { default as ShowCodeButton } from "./ShowCodeButton";
 export { default as SyntaxHighlighter } from "./SyntaxHighlighter";

@@ -1,7 +1,11 @@
 import React from "react";
 import { MdCode } from "react-icons/md";
 import { Paragraph, Title } from "../../components/Body";
-import { InputExample, ToggleExample } from "../../components/Examples";
+import {
+  InputExample,
+  SelectExample,
+  ToggleExample
+} from "../../components/Examples";
 
 const Examples = () => (
   <>
@@ -12,6 +16,7 @@ const Examples = () => (
     </Paragraph>
     <ToggleExample />
     <InputExample />
+    <SelectExample />
   </>
 );
 
