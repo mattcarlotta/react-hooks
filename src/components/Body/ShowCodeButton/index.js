@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { MdCode, MdSettingsEthernet } from "react-icons/md";
 import { Button, ToolTip } from "../../Body";
 
@@ -13,5 +14,10 @@ const ShowCodeButton = ({ showCode, toggleShowCode }) => (
     </Button>
   </ToolTip>
 );
+
+ShowCodeButton.propTypes = {
+  showCode: PropTypes.bool.isRequired,
+  toggleShowCode: PropTypes.func.isRequired
+};
 
 export default ShowCodeButton;

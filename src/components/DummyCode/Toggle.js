@@ -9,9 +9,9 @@ const Toggle = () => {
   };
 
   return (
-    <button onClick={toggleSwitch}>
+    <span onClick={toggleSwitch}>
       {toggleState ? <FaToggleOff /> : <FaToggleOn />}
-    </button>
+    </span>
   );
 };
 

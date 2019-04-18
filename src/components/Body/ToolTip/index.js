@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ToolTipComponent from "./ToolTipComponent";
+import ToolTip from "./ToolTip";
 
 const setArrowColor = props => {
   switch (props.placement) {
@@ -14,14 +14,11 @@ const setArrowColor = props => {
   }
 };
 
-const StyledToolTip = styled(ToolTipComponent)`
+const StyledToolTip = styled(ToolTip)`
   opacity: 1 !important;
 
   & .rc-tooltip-arrow {
-    ${
-      props => `${setArrowColor(props)} !important};`
-      /* border-top-color: ${props => props.theme.tertiary} !important; */
-    }
+    ${props => `${setArrowColor(props)} !important};`}
 
   & .rc-tooltip-inner {
     color: ${props => props.theme.base};

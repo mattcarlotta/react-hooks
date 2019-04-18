@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { FaToggleOff, FaToggleOn } from "react-icons/fa";
 import {
-  Button,
   Example,
   FlexContainer,
   Label,
   ShowCode,
   ShowCodeButton,
   SubTitle,
+  Toggle,
   useToggle
 } from "../../Body";
 
@@ -25,9 +24,7 @@ const ToggleExample = () => {
       <FlexContainer>
         <Example>
           <Label>Toggle:</Label>
-          <Button style={{ margin: 20 }} onClick={toggleSwitch}>
-            {toggleState ? <FaToggleOff /> : <FaToggleOn />}
-          </Button>
+          <Toggle toggleState={toggleState} toggleSwitch={toggleSwitch} />
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>

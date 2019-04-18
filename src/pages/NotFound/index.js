@@ -1,7 +1,7 @@
 import React from "react";
 import { FaHouseDamage } from "react-icons/fa";
 import { Link } from "../../components/Navigation";
-import { NotFoundContainer } from "../../components/Body";
+import { NotFoundContainer, Title } from "../../components/Body";
 
 const NotFound = () => (
   <NotFoundContainer>

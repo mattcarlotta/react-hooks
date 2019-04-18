@@ -6,6 +6,8 @@ const Pre = styled.pre`
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   height: 400px;
+  width: 100%;
+  max-width: 800px;
   overflow-y: auto;
   margin-top: 0;
 `;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import fs from "fs";
 import path from "path";
 import Pre from "./Pre";
@@ -19,6 +20,11 @@ const ShowCode = ({ fileName, showCode }) => {
       <Code>{file}</Code>
     </Pre>
   ) : null;
+};
+
+ShowCode.propTypes = {
+  fileName: PropTypes.string.isRequired,
+  showCode: PropTypes.bool.isRequired
 };
 
 export default ShowCode;
