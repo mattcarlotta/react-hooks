@@ -7,7 +7,7 @@ const iconStyle = { height: 32, width: 32 };
 
 const Toggle = ({ className, style, toggleState, toggleSwitch }) => (
   <span className={className} style={style} onClick={toggleSwitch}>
-    {toggleState ? (
+    {!toggleState ? (
       <FaToggleOff style={iconStyle} />
     ) : (
       <FaToggleOn style={iconStyle} />

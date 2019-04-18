@@ -11,7 +11,7 @@ import {
 } from "../../Body";
 
 const ToggleExample = () => {
-  const [toggleState, setToggleState] = useState(true);
+  const [toggleState, setToggleState] = useState(false);
   const [showCode, toggleShowCode] = useToggle(false);
 
   const toggleSwitch = () => {
