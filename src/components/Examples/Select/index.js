@@ -1,32 +1,15 @@
-import React, { useState, useCallback } from "react";
-import { FaTrash } from "react-icons/fa";
+import React from "react";
 import {
-  Button,
   Example,
   FlexContainer,
   Label,
+  ResetButton,
   Select,
   ShowCode,
   ShowCodeButton,
-  SubTitle,
-  ToolTip
+  SubTitle
 } from "../../Body";
-import { useToggle } from "../../Hooks";
-
-const useDynamicEventHandler = initialState => {
-  const [values, setValues] = useState(initialState);
-  const handleChange = useCallback(
-    ({ target: { name, value } }) => setValues({ [name]: value }),
-    []
-  );
-  const resetValue = useCallback(() => setValues(initialState), []);
-
-  return {
-    values,
-    handleChange,
-    resetValue
-  };
-};
+import { useToggle, useDynamicEventHandler } from "../../Hooks";
 
 const SelectExample = () => {
   const { values, handleChange, resetValue } = useDynamicEventHandler({
@@ -44,7 +27,7 @@ const SelectExample = () => {
             label="Components"
             name="components"
             value={values.components}
-            placeholder="(default)"
+            placeholder="Select an option..."
             handleChange={handleChange}
             selectOptions={[
               "React.Component",
@@ -53,15 +36,11 @@ const SelectExample = () => {
               "Pure Functions"
             ]}
           />
-          <ToolTip placement="top" overlay={<span>Reset</span>}>
-            <Button onClick={resetValue}>
-              <FaTrash />
-            </Button>
-          </ToolTip>
+          <ResetButton handleClick={resetValue} />
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>
-      <ShowCode showCode={showCode} fileName="Input.js" />
+      <ShowCode showCode={showCode} fileName="Select.js" />
     </>
   );
 };

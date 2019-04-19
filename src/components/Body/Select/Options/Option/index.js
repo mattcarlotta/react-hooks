@@ -3,7 +3,7 @@ import Option from "./Option";
 
 const optionIsActive = (selected, value) =>
   selected === value
-    ? `background-color: #eee;
+    ? `background-color: #dedede;
       color: #0f7ae5;
     `
     : null;

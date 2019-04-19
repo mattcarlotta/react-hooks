@@ -2,10 +2,8 @@ import styled from "styled-components";
 import Input from "./Input";
 
 const StyledInput = styled(Input)`
-  margin: 20px;
   display: inline-block;
   height: 40px;
-  /* width: 100%; */
   width: 300px;
 
   input {

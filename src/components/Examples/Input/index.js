@@ -1,15 +1,13 @@
 import React from "react";
-import { FaTrash } from "react-icons/fa";
 import {
-  Button,
   Example,
   FlexContainer,
   Input,
   Label,
+  ResetButton,
   ShowCode,
   ShowCodeButton,
-  SubTitle,
-  ToolTip
+  SubTitle
 } from "../../Body";
 import { useEventHandler, useToggle } from "../../Hooks";
 
@@ -22,17 +20,13 @@ const InputExample = () => {
       <SubTitle>Input</SubTitle>
       <FlexContainer>
         <Example>
-          <Label>Label:</Label>
+          <Label>Input:</Label>
           <Input
             placeholder="Type something..."
             onChange={handleChange}
             value={value}
           />
-          <ToolTip placement="top" overlay={<span>Reset</span>}>
-            <Button onClick={resetValue}>
-              <FaTrash />
-            </Button>
-          </ToolTip>
+          <ResetButton handleClick={resetValue} />
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Example,
   FlexContainer,
@@ -11,12 +11,8 @@ import {
 import { useToggle } from "../../Hooks";
 
 const ToggleExample = () => {
-  const [toggleState, setToggleState] = useState(false);
+  const [toggleState, toggleSwitch] = useToggle(false);
   const [showCode, toggleShowCode] = useToggle(false);
-
-  const toggleSwitch = () => {
-    setToggleState(!toggleState);
-  };
 
   return (
     <>

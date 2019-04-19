@@ -6,13 +6,13 @@ import {} from "react-icons/md";
 const iconStyle = { height: 32, width: 32 };
 
 const Toggle = ({ className, style, toggleState, toggleSwitch }) => (
-  <span className={className} style={style} onClick={toggleSwitch}>
+  <button className={className} style={style} onClick={toggleSwitch}>
     {!toggleState ? (
       <FaToggleOff style={iconStyle} />
     ) : (
       <FaToggleOn style={iconStyle} />
     )}
-  </span>
+  </button>
 );
 
 Toggle.propTypes = {

@@ -9,14 +9,14 @@ const useToggle = initialValue => {
   return [value, handleChange];
 };
 
-// utilize the custom useToggle hook
+// utilize the custom useToggle hook within a function.
 const Toggle = () => {
   const [toggleState, setToggleState] = useToggle(false);
 
   return (
-    <span onClick={setToggleState}>
+    <button onClick={setToggleState}>
       {!toggleState ? <FaToggleOff /> : <FaToggleOn />}
-    </span>
+    </button>
   );
 };
 

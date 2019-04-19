@@ -19,7 +19,7 @@ const useEventHandler = initialValue => {
   };
 };
 
-// utilize the custom useEventHandler hook
+// utilize the custom useEventHandler hook within a function.
 const Input = () => {
   const { value, handleChange, resetValue } = useEventHandler("");
 
