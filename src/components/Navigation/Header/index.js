@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FaReact } from "react-icons/fa";
+import { FaAdjust, FaReact } from "react-icons/fa";
 import { Link, NavBar, NavContainer, Nav, NavItem, NavTitle } from "../";
 import { Button, ToolTip } from "../../Body";
-import { ThemeBlock } from "../../Themeing";
 
 const Header = ({ onToggleTheme }) => (
   <NavBar>
@@ -21,10 +20,9 @@ const Header = ({ onToggleTheme }) => (
           <Link to="/examples">Examples</Link>
         </NavItem>
       </Nav>
-      <ToolTip placement="bottom" overlay={<span>Change Theme</span>}>
+      <ToolTip placement="left" overlay={<span>Change Theme</span>}>
         <Button onClick={onToggleTheme}>
-          <ThemeBlock />
-          Theme
+          <FaAdjust style={{ verticalAlign: "middle" }} />
         </Button>
       </ToolTip>
     </NavContainer>

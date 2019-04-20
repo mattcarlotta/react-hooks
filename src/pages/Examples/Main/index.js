@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Helmet from "react-helmet";
 import { Paragraph, Title } from "../../../components/Body";
 import { Link, NavBlock } from "../../../components/Navigation";
 
 const Main = ({ match: { url } }) => (
   <>
+    <Helmet title="Examples" />
     <Title>Hook Examples</Title>
     <Paragraph>Below are some examples of using React Hooks.</Paragraph>
     <NavBlock>

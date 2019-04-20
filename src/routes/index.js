@@ -1,16 +1,32 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import Helmet from "react-helmet";
 
 import Home from "../pages/Home";
 import Examples from "../pages/Examples";
 import NotFound from "../pages/NotFound";
 
+const config = {
+  htmlAttributes: { lang: "en" },
+  title: "",
+  titleTemplate: "React Hooks - %s",
+  meta: [
+    {
+      name: "React Hooks",
+      content: "The best app in the world."
+    }
+  ]
+};
+
 const Routes = () => (
-  <Switch>
-    <Route exact path="/" component={Home} />
-    <Route path="/examples" component={Examples} />
-    <Route component={NotFound} />
-  </Switch>
+  <>
+    <Helmet {...config} />
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/examples" component={Examples} />
+      <Route component={NotFound} />
+    </Switch>
+  </>
 );
 
 export default Routes;

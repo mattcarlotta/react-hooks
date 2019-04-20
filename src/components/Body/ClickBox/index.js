@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const ClickBox = styled.div`
   cursor: ${({ cursor }) => cursor || "default"};
-  color: ${({ theme }) => theme.base};
+  color: ${({ theme }) => theme.alt};
+  background-color: #fff;
   height: 50px;
   width: 500px;
   text-align: center;
