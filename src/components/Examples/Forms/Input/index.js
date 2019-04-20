@@ -8,8 +8,8 @@ import {
   ShowCode,
   ShowCodeButton,
   SubTitle
-} from "../../Body";
-import { useEventHandler, useToggle } from "../../Hooks";
+} from "../../../Body";
+import { useEventHandler, useToggle } from "../../../Hooks";
 
 const InputExample = () => {
   const { value, handleChange, resetValue } = useEventHandler("");
@@ -31,7 +31,7 @@ const InputExample = () => {
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>
-      <ShowCode showCode={showCode} fileName="Input.js" />
+      <ShowCode showCode={showCode} fileName="Forms/Input.js" />
     </>
   );
 };

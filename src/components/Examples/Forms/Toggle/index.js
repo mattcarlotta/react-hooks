@@ -9,8 +9,8 @@ import {
   ShowCodeButton,
   SubTitle,
   Toggle
-} from "../../Body";
-import { useToggle } from "../../Hooks";
+} from "../../../Body";
+import { useToggle } from "../../../Hooks";
 
 const ToggleExample = () => {
   const [toggleState, toggleSwitch] = useToggle(false);
@@ -30,7 +30,7 @@ const ToggleExample = () => {
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>
-      <ShowCode showCode={showCode} fileName="Toggle.js" />
+      <ShowCode showCode={showCode} fileName="Forms/Toggle.js" />
     </>
   );
 };

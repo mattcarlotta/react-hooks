@@ -8,8 +8,8 @@ import {
   ShowCode,
   ShowCodeButton,
   SubTitle
-} from "../../Body";
-import { useToggle, useDynamicEventHandler } from "../../Hooks";
+} from "../../../Body";
+import { useToggle, useDynamicEventHandler } from "../../../Hooks";
 
 const SelectExample = () => {
   const { values, handleChange, resetValue } = useDynamicEventHandler({
@@ -40,7 +40,7 @@ const SelectExample = () => {
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>
-      <ShowCode showCode={showCode} fileName="Select.js" />
+      <ShowCode showCode={showCode} fileName="Forms/Select.js" />
     </>
   );
 };
