@@ -22,6 +22,7 @@ const InputExample = () => {
         <Example>
           <Label>Input:</Label>
           <Input
+            type="text"
             placeholder="Type something..."
             onChange={handleChange}
             value={value}

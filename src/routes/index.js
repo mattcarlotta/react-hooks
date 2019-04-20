@@ -8,7 +8,7 @@ import NotFound from "../pages/NotFound";
 const Routes = () => (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route exact path="/examples" component={Examples} />
+    <Route path="/examples" component={Examples} />
     <Route component={NotFound} />
   </Switch>
 );

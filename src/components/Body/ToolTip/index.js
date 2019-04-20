@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import ToolTip from "./ToolTip";
 
-const setArrowColor = props => {
-  switch (props.placement) {
+const setArrowColor = ({ placement, theme }) => {
+  switch (placement) {
     case "top":
-      return `border-top-color: ${props.theme.tertiary}`;
+      return `border-top-color: ${theme.tertiary}`;
     case "bottom":
-      return `border-bottom-color: ${props.theme.tertiary}`;
+      return `border-bottom-color: ${theme.tertiary}`;
     case "left":
-      return `border-left-color: ${props.theme.tertiary}`;
+      return `border-left-color: ${theme.tertiary}`;
     default:
-      return `border-right-color: ${props.theme.tertiary}`;
+      return `border-right-color: ${theme.tertiary}`;
   }
 };
 
@@ -21,8 +21,8 @@ const StyledToolTip = styled(ToolTip)`
     ${props => `${setArrowColor(props)} !important};`}
 
   & .rc-tooltip-inner {
-    color: ${props => props.theme.base};
-    background-color: ${props => props.theme.tertiary};
+    color: ${({ theme }) => theme.base};
+    background-color: ${({ theme }) => theme.tertiary};
     font-size: 16px;
     padding: 8px 16px;
     transition: all 0.2s ease-in-out;

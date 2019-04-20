@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { FaToggleOff, FaToggleOn } from "react-icons/fa";
-import {} from "react-icons/md";
 
 const iconStyle = { height: 32, width: 32 };
 

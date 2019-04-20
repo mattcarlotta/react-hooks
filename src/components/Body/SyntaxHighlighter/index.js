@@ -5,11 +5,11 @@ const StyledHighlighter = styled(Highlighter)`
   color: #ffffff !important;
   background: #191919 !important;
   border-bottom: 1px dashed
-    ${props => (props.theme.name === "dark" ? "#03a9f3" : "transparent")};
+    ${({ theme }) => (theme.name === "dark" ? "#03a9f3" : "transparent")};
   border-right: 1px dashed
-    ${props => (props.theme.name === "dark" ? "#03a9f3" : "transparent")};
+    ${({ theme }) => (theme.name === "dark" ? "#03a9f3" : "transparent")};
   border-left: 1px dashed
-    ${props => (props.theme.name === "dark" ? "#03a9f3" : "transparent")};
+    ${({ theme }) => (theme.name === "dark" ? "#03a9f3" : "transparent")};
   border-radius: 0px !important;
   height: 400px;
   width: 100%;

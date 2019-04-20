@@ -8,8 +8,8 @@ const StyledChevron = styled(Chevron)`
 
   svg {
     vertical-align: middle;
-    transform: ${props =>
-      props.isVisible ? "rotate(90deg)" : "rotate(270deg)"};
+    transform: ${({ isVisible }) =>
+      isVisible ? "rotate(90deg)" : "rotate(270deg)"};
     transition: 0.2s ease-in-out;
     transition-property: transform;
   }

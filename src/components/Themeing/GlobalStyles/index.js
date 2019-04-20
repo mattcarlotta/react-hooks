@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
   body {
    margin: 0;
    height: 100vh;
-   background-color: ${props => props.theme.bg};
+   background-color: ${({ theme }) => theme.bg};
   }
 
   *, ::after, ::before {

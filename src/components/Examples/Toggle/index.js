@@ -1,5 +1,7 @@
 import React from "react";
 import {
+  Checkbox,
+  Divider,
   Example,
   FlexContainer,
   Label,
@@ -12,6 +14,7 @@ import { useToggle } from "../../Hooks";
 
 const ToggleExample = () => {
   const [toggleState, toggleSwitch] = useToggle(false);
+  const [checkboxState, setCheckboxState] = useToggle(false);
   const [showCode, toggleShowCode] = useToggle(false);
 
   return (
@@ -19,8 +22,11 @@ const ToggleExample = () => {
       <SubTitle>Toggle</SubTitle>
       <FlexContainer>
         <Example>
-          <Label>Toggle:</Label>
+          <Label>Switch:</Label>
           <Toggle toggleState={toggleState} toggleSwitch={toggleSwitch} />
+          <Divider />
+          <Label>Checkbox:</Label>
+          <Checkbox value={checkboxState} onChange={setCheckboxState} />
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>

@@ -12,11 +12,20 @@ const useToggle = initialValue => {
 // utilize the custom useToggle hook within a function.
 const Toggle = () => {
   const [toggleState, setToggleState] = useToggle(false);
+  const [checkboxState, setCheckboxState] = useToggle(false);
 
   return (
-    <button onClick={setToggleState}>
-      {!toggleState ? <FaToggleOff /> : <FaToggleOn />}
-    </button>
+    <>
+      <button onClick={setToggleState}>
+        {!toggleState ? <FaToggleOff /> : <FaToggleOn />}
+      </button>
+      <input 
+        checked={checkboxState} 
+        onChange={setCheckboxState} 
+        type="checkbox"
+        value={checkboxState} 
+      />
+    </>
   );
 };
 

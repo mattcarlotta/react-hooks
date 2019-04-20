@@ -6,7 +6,7 @@ const NavBar = styled.nav`
   -ms-flex-align: center;
   align-items: center;
   padding: 20px;
-  background-color: ${props => props.theme.secondary};
+  background-color: ${({ theme }) => theme.secondary};
   -webkit-box-shadow: 0 0.25rem 0.125rem 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 0.25rem 0.125rem 0 rgba(0, 0, 0, 0.05);
 

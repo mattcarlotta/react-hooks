@@ -12,7 +12,7 @@ const DisplayOption = styled.div`
   flex: 1 1 0%;
   padding: 2px 8px;
   overflow: hidden;
-  ${props => (props.value ? "color: #484848 !important;" : null)};
+  ${({ value }) => (value ? "color: #484848 !important;" : null)};
 `;
 
 export default DisplayOption;

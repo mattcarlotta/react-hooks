@@ -10,11 +10,11 @@ const StyledInput = styled(Input)`
     height: 100%;
     width: 100%;
     font-size: 16px;
-    border: 0;
     padding: 0 10px;
     background: #fff;
     color: #666;
     border: 1px solid #e5e5e5;
+    border-radius: 4px;
   }
 `;
 

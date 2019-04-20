@@ -4,7 +4,7 @@ import { FaTrash } from "react-icons/fa";
 // create a custom event handler hook that returns an initial object
 // of values, a callback function to update the values and another
 // callback function to reset the values.
-const useDynamicEventHandler = initialState => {
+const useEventHandler = initialState => {
   const [values, setValues] = useState(initialState);
   const handleChange = useCallback(
     ({ target: { name, value } }) => setValues({ [name]: value }),
@@ -26,9 +26,9 @@ const options = [
   "Pure Function"
 ];
 
-// utilize the custom useDynamicEventHandler hook within a function.
+// utilize the custom useEventHandler hook within a function.
 const Select = () => {
-  const { values, handleChange, resetValue } = useDynamicEventHandler({
+  const { values, handleChange, resetValue } = useEventHandler({
     components: ""
   });
 

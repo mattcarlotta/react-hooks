@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const focused = isVisible =>
+const focused = ({ isVisible }) =>
   isVisible
     ? `outline: -webkit-focus-ring-color auto 1px;
     box-shadow: 0 0 0 1px #2684ff;
@@ -9,7 +9,6 @@ const focused = isVisible =>
 
 const SelectionContainer = styled.div`
   cursor: pointer;
-  /* margin: 0 20px; */
   display: inline-block;
   height: 40px;
   width: 300px;
@@ -20,7 +19,7 @@ const SelectionContainer = styled.div`
   border-radius: 4px;
   border: 1px solid #bdbdbd;
   transition: all 100ms ease 0s;
-  ${props => focused(props.isVisible)};
+  ${props => focused(props)};
 `;
 
 export default SelectionContainer;

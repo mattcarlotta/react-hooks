@@ -4,7 +4,6 @@ const SelectContainer = styled.div`
   display: flex;
   margin: 0 auto;
   width: 100%;
-  /* margin-right: 20px; */
   max-width: 500px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;

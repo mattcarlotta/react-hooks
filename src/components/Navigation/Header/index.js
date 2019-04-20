@@ -15,10 +15,10 @@ const Header = ({ onToggleTheme }) => (
     <NavContainer>
       <Nav>
         <NavItem>
-          <Link link="/">Home</Link>
+          <Link to="/">Home</Link>
         </NavItem>
         <NavItem>
-          <Link link="/examples">Examples</Link>
+          <Link to="/examples">Examples</Link>
         </NavItem>
       </Nav>
       <ToolTip placement="bottom" overlay={<span>Change Theme</span>}>

@@ -1,23 +1,26 @@
 import React from "react";
-import { MdCode } from "react-icons/md";
-import { Paragraph, Title } from "../../components/Body";
-import {
-  InputExample,
-  SelectExample,
-  ToggleExample
-} from "../../components/Examples";
+import PropTypes from "prop-types";
+import { Route, Switch } from "react-router-dom";
+import { Breadcrumb } from "../../components/Navigation";
+import Main from "./Main";
+import Form from "./Form";
+import FormElements from "./FormElements";
+import NotFound from "../NotFound";
 
-const Examples = () => (
+const Examples = ({ match: { url } }) => (
   <>
-    <Title>Examples</Title>
-    <Paragraph>
-      Below are some example of using React Hooks. To view the source code,
-      click the <MdCode style={{ verticalAlign: "middle" }} /> button.
-    </Paragraph>
-    <ToggleExample />
-    <InputExample />
-    <SelectExample />
+    <Breadcrumb />
+    <Switch>
+      <Route exact path={`${url}`} component={Main} />
+      <Route exact path={`${url}/form`} component={Form} />
+      <Route exact path={`${url}/form/elements`} component={FormElements} />
+      <Route component={NotFound} />
+    </Switch>
   </>
 );
+
+Examples.propTypes = {
+  url: PropTypes.string
+};
 
 export default Examples;

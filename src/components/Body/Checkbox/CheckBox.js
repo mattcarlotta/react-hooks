@@ -1,32 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Input = ({
-  className,
-  inputStyle,
-  onChange,
-  placeholder,
-  type,
-  value
-}) => (
+const CheckBox = ({ className, inputStyle, onChange, value }) => (
   <div className={className}>
     <input
-      type={type || "text"}
+      type="checkbox"
       onChange={onChange}
-      placeholder={placeholder}
       value={value}
       style={inputStyle}
+      checked={value}
     />
   </div>
 );
 
-Input.propTypes = {
+CheckBox.propTypes = {
   className: PropTypes.string.isRequired,
   inputStyle: PropTypes.objectOf(PropTypes.string),
   onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
-  type: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.bool
 };
 
-export default Input;
+export default CheckBox;

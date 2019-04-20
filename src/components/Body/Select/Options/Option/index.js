@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Option from "./Option";
 
-const optionIsActive = (selected, value) =>
+const optionIsActive = ({ selected, value }) =>
   selected === value
     ? `background-color: #dedede;
       color: #0f7ae5;
@@ -14,6 +14,7 @@ const StyledOption = styled(Option)`
   font-size: 16px;
   padding: 8px 12px;
   width: 100%;
+  font-weight: bold;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -22,7 +23,7 @@ const StyledOption = styled(Option)`
   box-sizing: border-box;
   border-bottom: 1px dotted pink;
   text-align: left;
-  ${props => optionIsActive(props.selected, props.value)};
+  ${props => optionIsActive(props)};
 
   &::hover {
     color: #0f7ae5;
