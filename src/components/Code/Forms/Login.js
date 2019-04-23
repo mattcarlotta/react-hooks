@@ -1,5 +1,4 @@
 export default `import React, { useCallback, useState } from "react";
-import { FaTrash } from "react-icons/fa";
 
 // create a custom useFormHandler hook that returns initial values
 // and a handleChange function to update the values.
