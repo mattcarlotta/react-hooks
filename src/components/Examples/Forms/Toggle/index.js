@@ -23,10 +23,14 @@ const ToggleExample = () => {
       <FlexContainer>
         <Example>
           <Label>Switch:</Label>
-          <Toggle toggleState={toggleState} toggleSwitch={toggleSwitch} />
+          <Toggle value={toggleState} handleClick={toggleSwitch} />
           <Divider />
           <Label>Checkbox:</Label>
-          <Checkbox value={checkboxState} onChange={setCheckboxState} />
+          <Checkbox
+            inputStyle={{ height: "20px", width: "20px", marginTop: "10px" }}
+            value={checkboxState}
+            handleChange={setCheckboxState}
+          />
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>

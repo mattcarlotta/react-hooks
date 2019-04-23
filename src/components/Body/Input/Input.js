@@ -3,15 +3,18 @@ import PropTypes from "prop-types";
 
 const Input = ({
   className,
+  containerStyle,
   inputStyle,
+  name,
   onChange,
   placeholder,
   type,
   value
 }) => (
-  <div className={className}>
+  <div className={className} style={containerStyle}>
     <input
       type={type || "text"}
+      name={name || ""}
       onChange={onChange}
       placeholder={placeholder}
       value={value}
@@ -22,7 +25,9 @@ const Input = ({
 
 Input.propTypes = {
   className: PropTypes.string.isRequired,
+  containerStyle: PropTypes.objectOf(PropTypes.string),
   inputStyle: PropTypes.objectOf(PropTypes.string),
+  name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   type: PropTypes.string,

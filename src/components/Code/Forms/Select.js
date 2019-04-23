@@ -34,6 +34,7 @@ const Select = () => {
 
   return (
     <>
+      <label htmlFor="components">Select:</label>
       <select
         name="components"
         placeholder="Type something..."

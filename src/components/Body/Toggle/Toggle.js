@@ -4,9 +4,9 @@ import { FaToggleOff, FaToggleOn } from "react-icons/fa";
 
 const iconStyle = { height: 32, width: 32 };
 
-const Toggle = ({ className, style, toggleState, toggleSwitch }) => (
-  <button className={className} style={style} onClick={toggleSwitch}>
-    {!toggleState ? (
+const Toggle = ({ className, handleClick, value, style }) => (
+  <button className={className} style={style} onClick={handleClick}>
+    {!value ? (
       <FaToggleOff style={iconStyle} />
     ) : (
       <FaToggleOn style={iconStyle} />
@@ -17,8 +17,8 @@ const Toggle = ({ className, style, toggleState, toggleSwitch }) => (
 Toggle.propTypes = {
   className: PropTypes.string.isRequired,
   style: PropTypes.objectOf(PropTypes.string),
-  toggleState: PropTypes.bool.isRequired,
-  toggleSwitch: PropTypes.func.isRequired
+  value: PropTypes.bool.isRequired,
+  handleClick: PropTypes.func.isRequired
 };
 
 export default Toggle;

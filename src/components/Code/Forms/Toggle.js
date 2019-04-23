@@ -16,10 +16,13 @@ const Toggle = () => {
 
   return (
     <>
+      <span>Switch:</span>
       <button onClick={setToggleState}>
         {!toggleState ? <FaToggleOff /> : <FaToggleOn />}
       </button>
+      <label htmlFor="example">Checkbox:</label>
       <input 
+        name="example"
         checked={checkboxState} 
         onChange={setCheckboxState} 
         type="checkbox"

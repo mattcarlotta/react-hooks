@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const CheckBox = ({ className, inputStyle, onChange, value }) => (
+const CheckBox = ({ className, handleChange, inputStyle, value }) => (
   <div className={className}>
     <input
       type="checkbox"
-      onChange={onChange}
+      onChange={handleChange}
       value={value}
       style={inputStyle}
       checked={value}
@@ -15,8 +15,8 @@ const CheckBox = ({ className, inputStyle, onChange, value }) => (
 
 CheckBox.propTypes = {
   className: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
   inputStyle: PropTypes.objectOf(PropTypes.string),
-  onChange: PropTypes.func.isRequired,
   value: PropTypes.bool
 };
 

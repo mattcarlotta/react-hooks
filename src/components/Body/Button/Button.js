@@ -9,8 +9,7 @@ const StyledButton = ({ className, children, type, ...rest }) => (
 
 StyledButton.propTypes = {
   className: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
-  style: PropTypes.objectOf(PropTypes.string)
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired
 };
 
 export default StyledButton;

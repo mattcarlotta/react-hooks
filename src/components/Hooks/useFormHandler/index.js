@@ -1,23 +1,24 @@
 import { useState, useCallback } from "react";
 import PropTypes from "prop-types";
 
-const useDynamicEventHandler = initialState => {
+const useFormHandler = initialState => {
   const [values, setValues] = useState(initialState);
   const handleChange = useCallback(
-    ({ name, value }) => setValues({ [name]: value }),
+    ({ target: { name, value } }) =>
+      setValues(prevState => ({ ...prevState, [name]: value })),
     []
   );
   const resetValue = useCallback(() => setValues(initialState), [initialState]);
 
   return {
-    values,
     handleChange,
-    resetValue
+    resetValue,
+    values
   };
 };
 
-useDynamicEventHandler.propTypes = {
-  initialState: PropTypes.objectOf(PropTypes.string)
+useFormHandler.propTypes = {
+  initialState: PropTypes.any
 };
 
-export default useDynamicEventHandler;
+export default useFormHandler;

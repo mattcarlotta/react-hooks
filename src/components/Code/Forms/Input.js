@@ -25,8 +25,10 @@ const Input = () => {
 
   return (
     <>
+      <label htmlFor="example">Input:</label>
       <input
         type="text"
+        name="example"
         placeholder="Type something..."
         onChange={handleChange}
         value={value}
