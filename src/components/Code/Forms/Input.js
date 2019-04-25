@@ -1,4 +1,4 @@
-export default `import React, { useCallback, useState } from "react";
+export default `import React, { Fragment, useCallback, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 
 // create a custom event handler hook that returns an initial value, 
@@ -24,19 +24,19 @@ const Input = () => {
   const { value, handleChange, resetValue } = useEventHandler("");
 
   return (
-    <>
-      <label htmlFor="example">Input:</label>
-      <input
-        type="text"
-        name="example"
-        placeholder="Type something..."
-        onChange={handleChange}
-        value={value}
-      />
-      <button onClick={resetValue}>
-        <FaTrash />
-      </button>
-    </>
+    <Fragment>
+              <label htmlFor="example">Input:</label>
+              <input
+                  type="text"
+                  name="example"
+                  placeholder="Type something..."
+                  onChange={handleChange}
+                  value={value}
+              />
+              <button onClick={resetValue}>
+                <FaTrash />
+              </button>
+        </Fragment>
   );
 };
 

@@ -28,15 +28,8 @@ const styles = {
   button: {
     width: "100%"
   },
-  column1: {
-    flex: "0 0 75%",
-    maxWidth: "75%"
-  },
   column2: {
-    alignSelf: "flex-end",
-    padding: "20px 0",
-    flex: "0 0 25%",
-    maxWidth: "25%"
+    padding: "20px 0"
   },
   dummyLink: {
     float: "right",
@@ -70,7 +63,7 @@ const LoginExample = () => {
       <SubTitle>Login Form</SubTitle>
       <BlockContainer>
         <Row>
-          <Column style={styles.column1}>
+          <Column width="75%">
             <Form onSubmit={handleSubmit}>
               <Input
                 type="text"
@@ -103,7 +96,7 @@ const LoginExample = () => {
               </Button>
             </Form>
           </Column>
-          <Column style={styles.column2}>
+          <Column width="25%" align="flex-end" style={styles.column2}>
             <ShowCodeButton
               style={styles.showCodeButton}
               showCode={showCode}

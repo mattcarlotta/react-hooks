@@ -3,6 +3,7 @@ import styled from "styled-components";
 const DisplayOption = styled.div`
   color: #bbb;
   font-size: 16px;
+  font-family: "Arial", sans-serif;
   -webkit-box-align: center;
   align-items: center;
   display: flex;

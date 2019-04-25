@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
    background-color: ${({ theme }) => theme.bg};
   }
 
+  * {
+    font-family: "Arial", sans-serif;
+  }
+
   *, ::after, ::before {
     box-sizing: border-box;
   }

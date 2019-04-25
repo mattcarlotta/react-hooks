@@ -16,7 +16,13 @@ const SelectOptionsContainer = ({
       dataset: { name, value }
     }
   }) => {
-    handleOptionSelect({ name, value });
+    const e = {
+      target: {
+        name,
+        value
+      }
+    };
+    handleOptionSelect(e);
   };
 
   return (

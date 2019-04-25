@@ -5,9 +5,10 @@ const Column = styled.div`
   flex-basis: 0;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  max-width: 100%;
+  max-width: ${({ width }) => width || "100%"};
+  flex: ${({ width }) => `0 0 ${width || "100%"}`};
+  align-self: ${({ align }) => align || "auto"};
   position: relative;
-  width: 100%;
 `;
 
 export default Column;

@@ -1,4 +1,4 @@
-export default `import React, { useCallback, useState } from "react";
+export default `import React, { Fragment, useCallback, useState } from "react";
 import { FaToggleOff, FaToggleOn } from "react-icons/fa";
 
 // create a custom toggle hook that returns an initial value and 
@@ -15,20 +15,20 @@ const Toggle = () => {
   const [checkboxState, setCheckboxState] = useToggle(false);
 
   return (
-    <>
-      <span>Switch:</span>
-      <button onClick={setToggleState}>
-        {!toggleState ? <FaToggleOff /> : <FaToggleOn />}
-      </button>
-      <label htmlFor="example">Checkbox:</label>
-      <input 
-        name="example"
-        checked={checkboxState} 
-        onChange={setCheckboxState} 
-        type="checkbox"
-        value={checkboxState} 
-      />
-    </>
+    <Fragment>
+            <span>Switch:</span>
+            <button onClick={setToggleState}>
+              {!toggleState ? <FaToggleOff /> : <FaToggleOn />}
+            </button>
+            <label htmlFor="example">Checkbox:</label>
+            <input 
+                name="example"
+                checked={checkboxState} 
+                onChange={setCheckboxState} 
+                type="checkbox"
+                value={checkboxState} 
+            />
+        </Fragment>
   );
 };
 

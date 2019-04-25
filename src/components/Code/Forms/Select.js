@@ -1,4 +1,4 @@
-export default `import React, { useCallback, useState } from "react";
+export default `import React, { Fragment, useCallback, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 
 // create a custom event handler hook that returns an initial object
@@ -33,24 +33,24 @@ const Select = () => {
   });
 
   return (
-    <>
-      <label htmlFor="components">Select:</label>
-      <select
-        name="components"
-        placeholder="Type something..."
-        onChange={handleChange}
-        value={values.component}
-      >
-        {options.map(value => (
+    <Fragment>
+            <label htmlFor="components">Select:</label>
+            <select
+                name="components"
+                placeholder="Type something..."
+                onChange={handleChange}
+                value={values.component}
+            >
+                {options.map(value => (
           <option key={value} value={value}>
-            {value}
-          </option>
+                          {value}
+                      </option>
         ))}
-      </select>
-      <button onClick={resetValue}>
-        <FaTrash />
-      </button>
-    </>
+            </select>
+            <button onClick={resetValue}>
+              <FaTrash />
+            </button>
+        </Fragment>
   );
 };
 

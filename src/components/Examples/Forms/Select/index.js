@@ -35,6 +35,7 @@ const SelectExample = () => {
               "React.StatelessComponent",
               "Pure Functions"
             ]}
+            width="300px"
           />
           <ResetButton handleClick={resetValue} />
         </Example>

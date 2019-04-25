@@ -5,8 +5,14 @@ import DisplayOption from "../DisplayOption";
 import SelectionContainer from "../SelectionContainer";
 import SelectText from "../SelectText";
 
-const Selection = ({ handleSelectClick, isVisible, placeholder, value }) => (
-  <SelectionContainer isVisible={isVisible}>
+const Selection = ({
+  handleSelectClick,
+  isVisible,
+  placeholder,
+  value,
+  width
+}) => (
+  <SelectionContainer isVisible={isVisible} width={width}>
     <SelectText handleSelectClick={handleSelectClick}>
       <DisplayOption value={value}>
         {!value ? placeholder : value}
@@ -20,7 +26,8 @@ Selection.propTypes = {
   handleSelectClick: PropTypes.func.isRequired,
   isVisible: PropTypes.bool.isRequired,
   value: PropTypes.string,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  width: PropTypes.string
 };
 
 export default Selection;

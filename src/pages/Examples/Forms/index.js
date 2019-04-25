@@ -4,7 +4,10 @@ import Helmet from "react-helmet";
 import { MdCode } from "react-icons/md";
 import { Paragraph, Title } from "../../../components/Body";
 import { Link, NavBlock } from "../../../components/Navigation";
-import { LoginExample } from "../../../components/Examples";
+import {
+  LoginExample,
+  RegistrationExample
+} from "../../../components/Examples";
 
 const Forms = ({ match: { url } }) => (
   <>
@@ -18,6 +21,7 @@ const Forms = ({ match: { url } }) => (
       <Link to={`${url}/elements`}>Form Elements</Link>
     </NavBlock>
     <LoginExample />
+    <RegistrationExample />
   </>
 );
 

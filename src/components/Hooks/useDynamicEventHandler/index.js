@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const useDynamicEventHandler = initialState => {
   const [values, setValues] = useState(initialState);
   const handleChange = useCallback(
-    ({ name, value }) => setValues({ [name]: value }),
+    ({ target: { name, value } }) => setValues({ [name]: value }),
     []
   );
   const resetValue = useCallback(() => setValues(initialState), [initialState]);
