@@ -5,6 +5,7 @@ import { MdCode } from "react-icons/md";
 import { Paragraph, Title } from "../../../components/Body";
 import { Link, NavBlock } from "../../../components/Navigation";
 import {
+  DynamicFieldExample,
   LoginExample,
   RegistrationExample
 } from "../../../components/Examples";
@@ -22,6 +23,7 @@ const Forms = ({ match: { url } }) => (
     </NavBlock>
     <LoginExample />
     <RegistrationExample />
+    <DynamicFieldExample />
   </>
 );
 

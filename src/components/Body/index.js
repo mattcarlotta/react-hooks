@@ -1,3 +1,4 @@
+export { default as AddField } from "./AddField";
 export { default as Block } from "./Block";
 export { default as BlockContainer } from "./BlockContainer";
 export { default as Button } from "./Button";
@@ -17,6 +18,7 @@ export { default as Input } from "./Input";
 export { default as Label } from "./Label";
 export { default as NotFoundContainer } from "./NotFoundContainer";
 export { default as Paragraph } from "./Paragraph";
+export { default as RemoveableField } from "./RemoveableField";
 export { default as ResetButton } from "./ResetButton";
 export { default as Row } from "./Row";
 export { default as Select } from "./Select";

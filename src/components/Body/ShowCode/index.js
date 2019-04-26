@@ -13,7 +13,7 @@ const ShowCode = ({ fileName, showCode }) => {
         } = await import(/* webpackMode: "lazy" */ `../../Code/${fileName}`);
         setLoadedFile(file);
       } catch (e) {
-        setLoadedFile(`Error loading file: ${e.toString()}`);
+        setLoadedFile(`Error loading file:\n ${e.toString()}`);
       }
     };
     setDummyCode();
