@@ -31,12 +31,9 @@ const useDynamicFieldHandler = initialState => {
   const handleChange = useCallback(({ target: { name, value } }) => {
     updateFields(prevState => ({
       ...prevState,
-      fields: prevState.fields.map((field, key) => {
-        const position = key + 1;
-        return field.name === name
-          ? { ...field, position, value }
-          : { ...field, position };
-      })
+      fields: prevState.fields.map((field, key) =>
+        field.name === name ? { ...field, value } : field
+      )
     }));
   }, []);
 

@@ -3,12 +3,12 @@ import random from "lodash/random";
 const stringGenerator = (str, tlen) => {
   const arr = [...str];
   const max = arr.length - 1;
-  let token = "";
+  let string = "";
   for (let i = 0; i < tlen; i += 1) {
     const int = random(max);
-    token += arr[int];
+    string += arr[int];
   }
-  return token;
+  return string;
 };
 
 export const createRandomString = () =>

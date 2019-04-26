@@ -67,8 +67,7 @@ const DynamicFieldExample = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const formProps = { ...values };
-    alert(JSON.stringify(formProps, null, 4));
+    alert(JSON.stringify(values, null, 4));
   };
 
   return (
@@ -100,7 +99,7 @@ const DynamicFieldExample = () => {
           </Column>
         </Row>
       </BlockContainer>
-      <ShowCode showCode={showCode} fileName="Forms/Registration.js" />
+      <ShowCode showCode={showCode} fileName="Forms/DynamicField.js" />
     </>
   );
 };

@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { MdClose } from "react-icons/md";
 import Input from "../Input";
 import Button from "../Button";
+import Row from "../Row";
+import Column from "../Column";
 
 const RemoveableField = ({
   fields,
@@ -10,24 +12,26 @@ const RemoveableField = ({
   handleChange,
   deleteField
 }) => {
-  const containerStyle =
-    fieldsCount > 1 ? { width: "82%", marginRight: "10px" } : { width: "100%" };
   return fields.map(({ name, value }, key) => (
-    <div key={name} style={{ marginBottom: 20 }}>
-      <Input
-        type="text"
-        name={name}
-        placeholder="Type something..."
-        onChange={handleChange}
-        value={value}
-        containerStyle={containerStyle}
-      />
+    <Row key={name} style={{ marginBottom: 20 }}>
+      <Column width={`${fieldsCount > 1 ? "85%" : "100%"}`}>
+        <Input
+          type="text"
+          name={name}
+          placeholder="Type something..."
+          onChange={handleChange}
+          value={value}
+          containerStyle={{ width: "100%" }}
+        />
+      </Column>
       {fieldsCount > 1 && (
-        <Button onClick={() => deleteField(name)} disabled={fieldsCount === 1}>
-          <MdClose style={{ verticalAlign: "middle" }} />
-        </Button>
+        <Column width="15%" align="flex-end">
+          <Button style={{ float: "right" }} onClick={() => deleteField(name)}>
+            <MdClose style={{ verticalAlign: "middle" }} />
+          </Button>
+        </Column>
       )}
-    </div>
+    </Row>
   ));
 };
 
