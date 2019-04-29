@@ -41,9 +41,14 @@ const inputFields = [
   { name: "zip", placeholder: "Zip/Postal Code" }
 ];
 
-const options = [
+const selectOptions = [
   "Canada", 
   "United States", 
+];
+
+const addressTypes = [
+  "Residential",
+  "Business"
 ];
 
 // utilize the custom useFormHandler and useToggle hooks within 
@@ -59,7 +64,8 @@ const RegistrationForm = () => {
     city: "",
     state: "",
     zip: "",
-    country: ""
+    country: "",
+    addressType: ""
   });
   
   const [toggleState, toggleSwitch] = useToggle(false);
@@ -88,12 +94,25 @@ const RegistrationForm = () => {
                 onChange={handleChange}
                 value={values.country}
             >
-              {options.map(value => (
-        <option key={value} value={value}>
-                      {value}
-                  </option>
-       ))}
+                {selectOptions.map(value => (
+          <option key={value} value={value}>
+                        {value}
+                    </option>
+        ))}
             </select>
+            {addressTypes.map(type => (
+        <span key={type}>
+                        <input 
+                              type="radio" 
+                              id={type}
+                              name="addressType"
+                              value={type}
+                              onChange={handleChange}
+                              checked={type === values.addressType}
+                        />
+                        <label htmlFor={type}/>{type}</label>
+                  </span>
+      ))}
             <button type="button" onClick={setToggleState}>
                 {!toggleState ? <FaToggleOff /> : <FaToggleOn />}
             </button>

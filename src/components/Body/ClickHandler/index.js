@@ -4,19 +4,19 @@ import PropTypes from "prop-types";
 const ClickHandler = ({ children }) => {
   const wrapperRef = createRef();
 
-  const handleClick = ({ target }) => {
-    if (wrapperRef && wrapperRef.current.contains(target)) {
-      alert("You clicked me.");
-    }
-  };
-
   useEffect(() => {
+    const handleClick = ({ target }) => {
+      if (wrapperRef && wrapperRef.current.contains(target)) {
+        alert("You clicked me.");
+      }
+    };
+
     document.addEventListener("mousedown", handleClick);
 
     return () => {
       document.removeEventListener("mousedown", handleClick);
     };
-  }, [handleClick]);
+  }, [wrapperRef]);
 
   return <div ref={wrapperRef}>{children}</div>;
 };

@@ -5,15 +5,15 @@ import { FaTrash } from "react-icons/fa";
 // of values, a callback function to update the values and another
 // callback function to reset the values.
 const useEventHandler = initialState => {
-  const [values, setValues] = useState(initialState);
+  const [value, setValue] = useState(initialState);
   const handleChange = useCallback(
-    ({ target: { name, value } }) => setValues({ [name]: value }),
+    ({ target: { name, value } }) => setValue({ [name]: value }),
     []
   );
-  const resetValue = useCallback(() => setValues(initialState), []);
+  const resetValue = useCallback(() => setValue(initialState), []);
 
   return {
-    values,
+    value,
     handleChange,
     resetValue
   };
@@ -28,7 +28,7 @@ const options = [
 
 // utilize the custom useEventHandler hook within a function.
 const Select = () => {
-  const { values, handleChange, resetValue } = useEventHandler({
+  const { value, handleChange, resetValue } = useEventHandler({
     components: ""
   });
 
@@ -39,7 +39,7 @@ const Select = () => {
                 name="components"
                 placeholder="Type something..."
                 onChange={handleChange}
-                value={values.component}
+                value={value.component}
             >
                 {options.map(value => (
           <option key={value} value={value}>

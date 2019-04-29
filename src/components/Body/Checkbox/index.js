@@ -6,9 +6,6 @@ const StyledCheckBox = styled(CheckBox)`
 
   input {
     cursor: pointer;
-    font-size: 16px;
-    background: #fff;
-    color: #666;
   }
 `;
 

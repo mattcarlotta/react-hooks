@@ -7,6 +7,7 @@ import {
   Form,
   Label,
   Input,
+  Radio,
   Row,
   Select,
   ShowCode,
@@ -17,14 +18,15 @@ import {
 import { useFormHandler, useToggle } from "../../../Hooks";
 
 const styles = {
+  addressTypeStyle: {
+    margin: "20px 0",
+    fontSize: "16px",
+    padding: 0
+  },
   containerStyle: {
     display: "block",
     marginBottom: "24px",
     width: "100%"
-  },
-  blockContainer: {
-    padding: "0px",
-    marginBottom: "20px"
   },
   button: {
     width: "100%"
@@ -41,6 +43,10 @@ const styles = {
     position: "relative",
     top: "-10px",
     marginLeft: "5px"
+  },
+  sameAsStyle: {
+    padding: "0px",
+    marginBottom: "20px"
   },
   showCodeButton: {
     float: "right"
@@ -84,6 +90,8 @@ const inputFields = [
   }
 ];
 
+const options = ["Residential", "Business"];
+
 const RegistrationExample = () => {
   const { values, handleChange } = useFormHandler({
     email: "",
@@ -94,14 +102,15 @@ const RegistrationExample = () => {
     city: "",
     state: "",
     zip: "",
-    country: ""
+    country: "",
+    addressType: ""
   });
   const [toggleState, toggleSwitch] = useToggle(false);
   const [showCode, toggleShowCode] = useToggle(false);
 
   const handleSubmit = e => {
     e.preventDefault();
-    const formProps = { ...values, sameAsBillingAddr: toggleState };
+    const formProps = { sameAsBillingAddr: toggleState, ...values };
     alert(JSON.stringify(formProps, null, 4));
   };
 
@@ -112,6 +121,14 @@ const RegistrationExample = () => {
         <Row>
           <Column width="75%">
             <Form onSubmit={handleSubmit}>
+              <BlockContainer style={styles.sameAsStyle}>
+                <Toggle
+                  style={{ marginTop: "10px" }}
+                  value={toggleState}
+                  handleClick={toggleSwitch}
+                />
+                <Label style={styles.label}>Same as billing address</Label>
+              </BlockContainer>
               {inputFields.map(({ name, type, placeholder }) => (
                 <Input
                   key={name}
@@ -132,13 +149,16 @@ const RegistrationExample = () => {
                 selectOptions={["Canada", "United States"]}
                 style={{ width: "100%" }}
               />
-              <BlockContainer style={styles.blockContainer}>
-                <Toggle
-                  style={{ marginTop: "10px" }}
-                  value={toggleState}
-                  handleClick={toggleSwitch}
-                />
-                <Label style={styles.label}>Same as billing address</Label>
+              <BlockContainer style={styles.addressTypeStyle}>
+                {options.map(type => (
+                  <Radio
+                    key={type}
+                    name="addressType"
+                    value={type}
+                    handleChange={handleChange}
+                    checked={type === values.addressType}
+                  />
+                ))}
               </BlockContainer>
               <Button style={styles.button} type="submit">
                 <FaUserPlus style={styles.icon} />
