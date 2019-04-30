@@ -8,6 +8,12 @@ const BlockContainer = styled.div`
   width: 100%;
   max-width: 800px;
   display: block;
+
+  &:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
 `;
 
 export default BlockContainer;

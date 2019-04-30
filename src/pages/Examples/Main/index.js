@@ -15,6 +15,9 @@ const Main = ({ match: { url } }) => (
     <NavBlock>
       <Link to={`${url}/forms`}>Forms</Link>
     </NavBlock>
+    <NavBlock>
+      <Link to={`${url}/misc`}>Miscelleanous</Link>
+    </NavBlock>
   </>
 );
 
