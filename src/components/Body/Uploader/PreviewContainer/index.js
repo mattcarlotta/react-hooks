@@ -3,8 +3,8 @@ import PreviewContainer from "./PreviewContainer";
 
 const StyledPreviewContainer = styled(PreviewContainer)`
   text-align: center;
-  color: ${({ theme }) => theme.accent};
-  background-color: #f1f1f1;
+  color: ${({ theme }) => theme.alt};
+  background-color: #fff;
   height: ${({ height }) => height || "100%"};
   width: ${({ width }) => width || "100%"};
   border-radius: 5px;

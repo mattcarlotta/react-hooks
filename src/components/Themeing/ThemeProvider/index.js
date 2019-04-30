@@ -7,12 +7,12 @@ import { Header } from "../../Navigation";
 
 export const lightTheme = {
   name: "light",
-  bg: "#f3f3f3",
+  bg: "#fcfcfc",
   base: "#fff",
   accent: "#03a9f3",
   hover: "#0f7ae5",
   secondary: "#fff",
-  tertiary: "#1c2022",
+  tertiary: "#333" /*1c2022 */,
   alt: "#03a9f3",
   altHover: "#0f7ae5",
   button: {

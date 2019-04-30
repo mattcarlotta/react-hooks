@@ -15,6 +15,10 @@ const StyledInput = styled(Input)`
     color: #666;
     border: 1px solid #e5e5e5;
     border-radius: 4px;
+
+    &::placeholder {
+      color: #bbb;
+    }
   }
 `;
 
