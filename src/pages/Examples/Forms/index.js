@@ -7,7 +7,8 @@ import { Link, NavBlock } from "../../../components/Navigation";
 import {
   DynamicFieldExample,
   LoginExample,
-  RegistrationExample
+  RegistrationExample,
+  UploadFileExample
 } from "../../../components/Examples";
 
 const Forms = ({ match: { url } }) => (
@@ -24,6 +25,7 @@ const Forms = ({ match: { url } }) => (
     <LoginExample />
     <RegistrationExample />
     <DynamicFieldExample />
+    <UploadFileExample />
   </>
 );
 

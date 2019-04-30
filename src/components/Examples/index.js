@@ -9,3 +9,4 @@ export { default as RegistrationExample } from "./Forms/Registration";
 export { default as SelectExample } from "./Forms/Select";
 export { default as SliderExample } from "./Forms/Slider";
 export { default as ToggleExample } from "./Forms/Toggle";
+export { default as UploadFileExample } from "./Forms/UploadFile";
