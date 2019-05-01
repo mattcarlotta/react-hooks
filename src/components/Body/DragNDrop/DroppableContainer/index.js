@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Droppable } from "react-beautiful-dnd";
 import { FaThumbtack } from "react-icons/fa";
-import Border from "../Border";
+import TaskContainer from "../TaskContainer";
 import Title from "../Title";
 import NoData from "../NoData";
 import DraggableItem from "../DraggableItem";
@@ -12,7 +12,7 @@ const DroppableContainer = ({ droppableId, title, data }) => (
   <Container>
     <Droppable droppableId={droppableId}>
       {({ innerRef, droppableProps, placeholder }, { isDraggingOver }) => (
-        <Border
+        <TaskContainer
           ref={innerRef}
           isDraggingOver={isDraggingOver}
           {...droppableProps}
@@ -35,7 +35,7 @@ const DroppableContainer = ({ droppableId, title, data }) => (
             </NoData>
           )}
           {placeholder}
-        </Border>
+        </TaskContainer>
       )}
     </Droppable>
   </Container>

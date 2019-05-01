@@ -3,15 +3,10 @@ import PropTypes from "prop-types";
 import ToolTip from "../ToolTip";
 
 const Slider = ({ className, handleChange, max, min, name, value, unit }) => (
-  <span className={className}>
-    <sub>
-      {min || 0}
-      {unit}
-    </sub>
-    <div className="filled-bar" />
+  <div className={className}>
     <ToolTip
       align={{
-        offset: [value * 2.28 - 114, -20]
+        offset: [value * 3.9 - 195, -20]
       }}
       placement="top"
       trigger={["hover", "click"]}
@@ -31,11 +26,18 @@ const Slider = ({ className, handleChange, max, min, name, value, unit }) => (
         onChange={handleChange}
       />
     </ToolTip>
-    <sub>
-      {max || 100}
-      {unit}
-    </sub>
-  </span>
+    <div className="filled-bar" />
+    <div className="units">
+      <span className="start">
+        {min || 0}
+        {unit}
+      </span>
+      <span className="end">
+        {max || 100}
+        {unit}
+      </span>
+    </div>
+  </div>
 );
 
 Slider.propTypes = {

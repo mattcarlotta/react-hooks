@@ -6,12 +6,13 @@ const thumb = () => `
   width: 14px;
   border-radius: 50%;
   background-color: #fff;
-  border: solid 2px #1890ff;
+  border: 2px solid #1890ff;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -6px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  z-index: 1000;
 `;
 
 const focusThumb = () => `
@@ -34,6 +35,7 @@ const hoverTrack = () => `
 
 const StyledSlider = styled(Slider)`
   width: 400px;
+  margin: 0 20px;
   position: relative;
 
   sub {
@@ -44,7 +46,7 @@ const StyledSlider = styled(Slider)`
 
   input {
     -webkit-appearance: none;
-    width: 60%;
+    width: 100%;
 
     &:focus {
       outline: none;
@@ -105,10 +107,38 @@ const StyledSlider = styled(Slider)`
     /* ------ */
   }
 
+  & .units {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  & .start,
+  & .end {
+    transform: translateX(-50%);
+    position: absolute;
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.45);
+    text-align: center;
+    word-break: keep-all;
+  }
+
+  & .start {
+    left: 0%;
+    color: rgba(0, 0, 255, 0.57);
+  }
+
+  & .end {
+    left: 100%;
+    color: rgba(255, 0, 0, 0.57);
+  }
+
   & .filled-bar {
     top: 14px;
-    left: 36px;
-    width: ${({ value }) => `calc(${value * 2.28}px)`};
+    left: 0;
+    width: ${({ value }) => `calc(${value * 3.9}px)`};
     position: absolute;
     background-color: #03a9f3;
     border-radius: 4px;

@@ -13,6 +13,7 @@ const DraggableProp = styled.span`
   border-radius: 3px;
   margin-bottom: 5px;
   width: 100%;
+  word-wrap: break-word;
 `;
 
 export default DraggableProp;
