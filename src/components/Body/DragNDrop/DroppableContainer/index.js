@@ -11,8 +11,12 @@ import Container from "../Container";
 const DroppableContainer = ({ droppableId, title, data }) => (
   <Container>
     <Droppable droppableId={droppableId}>
-      {provided => (
-        <Border ref={provided.innerRef} {...provided.droppableProps}>
+      {({ innerRef, droppableProps, placeholder }, { isDraggingOver }) => (
+        <Border
+          ref={innerRef}
+          isDraggingOver={isDraggingOver}
+          {...droppableProps}
+        >
           <Title>{title}</Title>
           {data && data.length > 0 ? (
             data.map((item, key) => (
@@ -25,7 +29,7 @@ const DroppableContainer = ({ droppableId, title, data }) => (
               No Items
             </NoData>
           )}
-          {provided.placeholder}
+          {placeholder}
         </Border>
       )}
     </Droppable>

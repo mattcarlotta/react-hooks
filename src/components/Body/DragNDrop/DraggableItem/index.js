@@ -2,19 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Draggable } from "react-beautiful-dnd";
 import DraggableProp from "./DraggableProp";
-
-const styles = {
-  columnStyles: {
-    flex: " 0 0 100%",
-    maxWidth: "100%",
-    position: "relative",
-    padding: "0 15px"
-  },
-  rowStyles: {
-    display: "flex",
-    flexWrap: "wrap"
-  }
-};
+import Row from "../../Row";
+import Column from "../../Column";
 
 const DraggableItem = ({ item, index }) => (
   <Draggable
@@ -25,17 +14,12 @@ const DraggableItem = ({ item, index }) => (
     })}
     index={index}
   >
-    {provided => (
-      <div
-        style={styles.rowStyles}
-        {...provided.draggableProps}
-        {...provided.dragHandleProps}
-        ref={provided.innerRef}
-      >
-        <div style={styles.columnStyles}>
-          <DraggableProp>{item.name}</DraggableProp>
-        </div>
-      </div>
+    {({ draggableProps, dragHandleProps, innerRef }, { isDragging }) => (
+      <Row ref={innerRef} {...draggableProps} {...dragHandleProps}>
+        <Column>
+          <DraggableProp isDragging={isDragging}>{item.name}</DraggableProp>
+        </Column>
+      </Row>
     )}
   </Draggable>
 );
