@@ -10,7 +10,7 @@ const DraggableContainer = ({ tasks, columns, handleChange }) => (
     <Container>
       <Row style={{ margin: "0 auto" }}>
         {Object.values(columns).map(({ id, title, taskIds }) => (
-          <Column width={`${100 / columns.length}%`} key={id}>
+          <Column width={`${100 / Object.keys(columns).length}%`} key={id}>
             <DroppableContainer
               droppableId={id}
               title={title}

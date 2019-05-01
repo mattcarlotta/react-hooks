@@ -19,8 +19,13 @@ const DroppableContainer = ({ droppableId, title, data }) => (
         >
           <Title>{title}</Title>
           {data && data.length > 0 ? (
-            data.map((item, key) => (
-              <DraggableItem key={item.id} item={item} index={key} />
+            data.map(({ id, description }, index) => (
+              <DraggableItem
+                key={id}
+                id={id}
+                description={description}
+                index={index}
+              />
             ))
           ) : (
             <NoData>

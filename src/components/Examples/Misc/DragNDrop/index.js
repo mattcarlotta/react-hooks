@@ -14,10 +14,9 @@ import { useDragDropHandler, useToggle } from "../../../Hooks";
 const styles = {
   containerStyle: {
     padding: "20px 20px 0 10px",
-    background: "#fff",
+    background: "#4c9aff",
     margin: "10px",
-    borderRadius: "4px",
-    border: "1px dashed #03a9f3"
+    borderRadius: "4px"
   },
   column: {
     padding: "10px 0"

@@ -5,14 +5,12 @@ import DraggableProp from "./DraggableProp";
 import Row from "../../Row";
 import Column from "../../Column";
 
-const DraggableItem = ({ item, index }) => (
-  <Draggable key={item.id} draggableId={item.id} index={index}>
+const DraggableItem = ({ id, description, index }) => (
+  <Draggable key={id} draggableId={id} index={index}>
     {({ draggableProps, dragHandleProps, innerRef }, { isDragging }) => (
       <Row ref={innerRef} {...draggableProps} {...dragHandleProps}>
         <Column>
-          <DraggableProp isDragging={isDragging}>
-            {item.description}
-          </DraggableProp>
+          <DraggableProp isDragging={isDragging}>{description}</DraggableProp>
         </Column>
       </Row>
     )}
@@ -20,10 +18,8 @@ const DraggableItem = ({ item, index }) => (
 );
 
 DraggableItem.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    description: PropTypes.string
-  })
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  description: PropTypes.string
 };
 
 export default DraggableItem;
