@@ -10,7 +10,6 @@ const Container = styled.div`
   }
 
   min-height: 300px;
-  text-align: center;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;

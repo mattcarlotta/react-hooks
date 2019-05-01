@@ -6,18 +6,13 @@ import Row from "../../Row";
 import Column from "../../Column";
 
 const DraggableItem = ({ item, index }) => (
-  <Draggable
-    key={item.id}
-    draggableId={JSON.stringify({
-      nodeId: item.id,
-      type: "DragItem"
-    })}
-    index={index}
-  >
+  <Draggable key={item.id} draggableId={item.id} index={index}>
     {({ draggableProps, dragHandleProps, innerRef }, { isDragging }) => (
       <Row ref={innerRef} {...draggableProps} {...dragHandleProps}>
         <Column>
-          <DraggableProp isDragging={isDragging}>{item.name}</DraggableProp>
+          <DraggableProp isDragging={isDragging}>
+            {item.description}
+          </DraggableProp>
         </Column>
       </Row>
     )}
@@ -27,7 +22,7 @@ const DraggableItem = ({ item, index }) => (
 DraggableItem.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    name: PropTypes.string
+    description: PropTypes.string
   })
 };
 

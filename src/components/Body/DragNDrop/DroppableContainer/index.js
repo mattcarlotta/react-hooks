@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Droppable } from "react-beautiful-dnd";
-import { FaDatabase } from "react-icons/fa";
+import { FaThumbtack } from "react-icons/fa";
 import Border from "../Border";
 import Title from "../Title";
 import NoData from "../NoData";
@@ -24,9 +24,9 @@ const DroppableContainer = ({ droppableId, title, data }) => (
             ))
           ) : (
             <NoData>
-              <FaDatabase />
+              <FaThumbtack />
               <br />
-              No Items
+              No Tasks
             </NoData>
           )}
           {placeholder}
@@ -42,7 +42,7 @@ DroppableContainer.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-      name: PropTypes.string
+      description: PropTypes.string
     })
   ).isRequired
 };

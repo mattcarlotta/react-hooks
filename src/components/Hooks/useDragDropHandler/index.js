@@ -1,22 +1,50 @@
-import cloneDeep from "lodash/cloneDeep";
 import { useState, useCallback } from "react";
 import PropTypes from "prop-types";
 
 const useDragDropHandler = initialState => {
   const [values, setValues] = useState(initialState);
-  const handleChange = useCallback(({ destination, source }) => {
+  const handleChange = useCallback(({ destination, source, draggableId }) => {
     if (destination && source) {
       setValues(prevState => {
-        const newData = cloneDeep(prevState);
+        const sourceIndex = source.index;
+        const destinationIndex = destination.index;
+        const sourceContainer = prevState.columns[source.droppableId];
+        const destinationContainer = prevState.columns[destination.droppableId];
+        const sourceIds = Array.from(sourceContainer.taskIds);
+        const destinationIds = Array.from(destinationContainer.taskIds);
+        const isSameContainer = sourceContainer === destinationContainer;
 
-        newData[destination.droppableId].splice(
-          destination.index,
-          0,
-          ...newData[source.droppableId].splice(source.index, 1)
-        );
+        sourceIds.splice(sourceIndex, 1);
+
+        if (isSameContainer) {
+          sourceIds.splice(destinationIndex, 0, draggableId);
+        } else {
+          destinationIds.splice(destinationIndex, 0, draggableId);
+        }
+
+        const newSourceContainer = {
+          ...sourceContainer,
+          taskIds: sourceIds
+        };
+
+        const newDestinationContainer = {
+          ...destinationContainer,
+          taskIds: destinationIds
+        };
+
+        const updatedColumns = isSameContainer
+          ? { [newSourceContainer.id]: newSourceContainer }
+          : {
+              [newSourceContainer.id]: newSourceContainer,
+              [newDestinationContainer.id]: newDestinationContainer
+            };
 
         return {
-          ...newData
+          ...prevState,
+          columns: {
+            ...prevState.columns,
+            ...updatedColumns
+          }
         };
       });
     }
@@ -33,12 +61,21 @@ const useDragDropHandler = initialState => {
 };
 
 useDragDropHandler.propTypes = {
-  initialState: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-      name: PropTypes.string
-    })
-  ).isRequired
+  initialState: PropTypes.shape({
+    tasks: PropTypes.objectOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired
+      })
+    ),
+    columns: PropTypes.objectOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        taskIds: PropTypes.arrayOf(PropTypes.string)
+      })
+    )
+  }).isRequired
 };
 
 export default useDragDropHandler;

@@ -1,9 +1,9 @@
 import React from "react";
 import {
   BlockContainer,
+  Button,
   Column,
   DragNDrop,
-  ResetButton,
   Row,
   ShowCode,
   ShowCodeButton,
@@ -32,50 +32,50 @@ const styles = {
   }
 };
 
-const data = {
-  container1: [
-    { id: 1, name: "item 1" },
-    { id: 2, name: "item 2" },
-    { id: 3, name: "item 3" },
-    { id: 4, name: "item 4" },
-    { id: 5, name: "item 5" },
-    { id: 6, name: "item 6" }
-  ],
-
-  container2: [
-    { id: 101, name: "other 1" },
-    { id: 102, name: "other 2" },
-    { id: 103, name: "other 3" },
-    { id: 104, name: "other 4" }
-  ]
+const initialData = {
+  tasks: {
+    "task-1": { id: "task-1", description: "Create an upload microservice." },
+    "task-2": {
+      id: "task-2",
+      description: "Add top-level notifications."
+    },
+    "task-3": {
+      id: "task-3",
+      description: "Integrate Redux for authentication."
+    },
+    "task-4": {
+      id: "task-4",
+      description: "Prioritize email support by ticketing."
+    },
+    "task-5": {
+      id: "task-5",
+      description: "Ability to update account details."
+    },
+    "task-6": {
+      id: "task-6",
+      description: "Create a messager service."
+    },
+    "task-7": {
+      id: "task-7",
+      description: "Invite friends to events."
+    }
+  },
+  columns: {
+    "column-1": {
+      id: "column-1",
+      title: "To Do",
+      taskIds: ["task-1", "task-2", "task-3", "task-4"]
+    },
+    "column-2": {
+      id: "column-2",
+      title: "Done",
+      taskIds: ["task-5", "task-6", "task-7"]
+    }
+  }
 };
 
-// const initialData = {
-//   tasks: {
-//     'task-1': { id: 'task-1', description: "Create an upload microservice."},
-//     'task-2': { id: 'task-2', description: "Add a top-level notification component."},
-//     'task-3': { id: 'task-3', description: "Integrate Redux for authentication."},
-//     'task-4': { id: 'task-4', description: "Prioritize email support by ticketing."},
-//   },
-//   columns: {
-//     'column-1': {
-//       id: 'column-1',
-//       title: 'To Do',
-//       taskIds: ['task-1', 'task-2', 'task-3', 'task-4']
-//     },
-//     'column-2': {
-//       id: 'column-2',
-//       title: 'Done',
-//       taskIds: []
-//     }
-//   },
-//   columnOrder: ['column-1', 'column-2']
-// }
-
-const UploadFileExample = () => {
-  const { values, handleChange, resetValues } = useDragDropHandler({
-    ...data
-  });
+const DragNDropExample = () => {
+  const { values, handleChange, resetValues } = useDragDropHandler(initialData);
 
   const [showCode, toggleShowCode] = useToggle(false);
 
@@ -86,13 +86,15 @@ const UploadFileExample = () => {
         <Row>
           <Column width="75%">
             <BlockContainer style={styles.containerStyle}>
-              <DragNDrop data={values} handleChange={handleChange} />
+              <DragNDrop
+                columns={values.columns}
+                tasks={values.tasks}
+                handleChange={handleChange}
+              />
             </BlockContainer>
-            <ResetButton
-              handleClick={resetValues}
-              style={styles.reset}
-              text="Reset"
-            />
+            <Button onClick={resetValues} style={styles.reset}>
+              Reset
+            </Button>
           </Column>
           <Column width="25%" align="flex-end" style={styles.column}>
             <ShowCodeButton
@@ -108,4 +110,4 @@ const UploadFileExample = () => {
   );
 };
 
-export default UploadFileExample;
+export default DragNDropExample;

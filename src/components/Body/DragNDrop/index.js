@@ -5,16 +5,16 @@ import Container from "./Container";
 import DroppableContainer from "./DroppableContainer";
 import { Column, Row } from "../";
 
-const DraggableContainer = ({ data, handleChange }) => (
+const DraggableContainer = ({ tasks, columns, handleChange }) => (
   <DragDropContext onDragEnd={handleChange}>
     <Container>
       <Row style={{ margin: "0 auto" }}>
-        {Object.keys(data).map((container, key) => (
-          <Column width={`${100 / Object.keys(data).length}%`} key={key}>
+        {Object.values(columns).map(({ id, title, taskIds }) => (
+          <Column width={`${100 / columns.length}%`} key={id}>
             <DroppableContainer
-              droppableId={container}
-              title={container}
-              data={data[container]}
+              droppableId={id}
+              title={title}
+              data={taskIds.map(id => tasks[id])}
             />
           </Column>
         ))}
@@ -24,14 +24,19 @@ const DraggableContainer = ({ data, handleChange }) => (
 );
 
 DraggableContainer.propTypes = {
-  data: PropTypes.objectOf(
-    PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        name: PropTypes.string
-      })
-    )
-  ).isRequired
+  tasks: PropTypes.objectOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired
+    })
+  ),
+  columns: PropTypes.objectOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      taskIds: PropTypes.arrayOf(PropTypes.string)
+    })
+  )
 };
 
 export default DraggableContainer;
