@@ -12,18 +12,18 @@ export const lightTheme = {
   base: "#fff",
   accent: "#03a9f3",
   hover: "#0f7ae5",
-  secondary: "#fff",
-  tertiary: "#333" /*1c2022 */,
+  secondary: "#0f7ae5",
+  tertiary: "#282c34" /*1c2022 */,
   alt: "#03a9f3",
   altHover: "#0f7ae5",
   button: {
     primary: {
-      color: "#ffffff",
-      bg: "#03a9f3",
+      color: "#eee",
+      bg: "transparent",
       border: "#03a9f3",
-      colorHover: "#ffffff",
-      bgHover: "#0f7ae5",
-      borderHover: "transparent"
+      colorHover: "#fcfcfc",
+      bgHover: "transparent",
+      borderHover: "#fcfcfc"
     },
     secondary: {
       color: "#ffffff",
@@ -56,12 +56,12 @@ export const darkTheme = {
   altHover: "#eee",
   button: {
     primary: {
-      color: "#eee",
+      color: "#a5a5a5",
       bg: "transparent",
-      border: "transparent",
-      colorHover: "#eee",
-      bgHover: "#545454",
-      borderHover: "transparent"
+      border: "#a5a5a5",
+      colorHover: "#e4e4e4",
+      bgHover: "transparent",
+      borderHover: "#e4e4e4"
     },
     secondary: {
       color: "#eee",
