@@ -8,6 +8,7 @@ export { default as ClickHandler } from "./ClickHandler";
 export { default as Column } from "./Column";
 export { default as Container } from "./Container";
 export { default as DragNDrop } from "./DragNDrop";
+export { default as DisplayCounter } from "./DisplayCounter";
 export { default as Divider } from "./Divider";
 export { default as DummyLink } from "./DummyLink";
 export { default as Example } from "./Example";

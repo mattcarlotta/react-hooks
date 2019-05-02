@@ -11,4 +11,5 @@ export { default as SliderExample } from "./Forms/Slider";
 export { default as ToggleExample } from "./Forms/Toggle";
 export { default as UploadFileExample } from "./Forms/UploadFile";
 
+export { default as CounterExample } from "./Misc/Counter";
 export { default as DragNDropExample } from "./Misc/DragNDrop";
