@@ -33,7 +33,10 @@ const styles = {
 
 const initialData = {
   tasks: {
-    "task-1": { id: "task-1", description: "Create an upload microservice." },
+    "task-1": {
+      id: "task-1",
+      description: "Create an upload microservice."
+    },
     "task-2": {
       id: "task-2",
       description: "Add top-level notifications."
@@ -67,7 +70,7 @@ const initialData = {
     },
     "column-2": {
       id: "column-2",
-      title: "Done",
+      title: "Completed",
       taskIds: ["task-5", "task-6", "task-7"]
     }
   }

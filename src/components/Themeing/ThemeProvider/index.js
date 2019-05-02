@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../GlobalStyles";
 import { Container } from "../../Body";
 import { Header } from "../../Navigation";
+import { useLocalStorage } from "../../Hooks";
 
 export const lightTheme = {
   name: "light",
@@ -82,11 +83,10 @@ export const darkTheme = {
 };
 
 const Theme = ({ children }) => {
-  const [selectedTheme, setTheme] = useState(darkTheme);
+  const [selectedTheme, setTheme] = useLocalStorage("theme", darkTheme);
 
   const toggleTheme = () => {
-    const theme = selectedTheme.name === "dark" ? lightTheme : darkTheme;
-    setTheme(theme);
+    setTheme(selectedTheme.name === "dark" ? lightTheme : darkTheme);
   };
 
   return (

@@ -22,7 +22,7 @@ const initialData = {
     },
     "column-2": {
       id: "column-2",
-      title: "Done",
+      title: "Completed",
       taskIds: ["task-2"]
     }
   }
