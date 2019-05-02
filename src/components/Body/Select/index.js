@@ -6,8 +6,8 @@ import SelectBox from "./SelectBox";
 import SelectContainer from "./SelectContainer";
 import Options from "./Options";
 
-const Select = ({ handleChange, name, selectOptions, value, ...props }) => (
-  <ClickHandler handleChange={handleChange} selectOptions={selectOptions}>
+const Select = ({ name, selectOptions, value, ...props }) => (
+  <ClickHandler selectOptions={selectOptions} {...props}>
     {handlers => (
       <SelectContainer>
         <SelectBox>
@@ -25,7 +25,6 @@ const Select = ({ handleChange, name, selectOptions, value, ...props }) => (
 );
 
 Select.propTypes = {
-  handleChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   selectOptions: PropTypes.arrayOf(PropTypes.string.isRequired),

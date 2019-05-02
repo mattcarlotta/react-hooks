@@ -1,7 +1,8 @@
 import React, { createRef, useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
+import InlineBlockContainer from "../../InlineBlockContainer";
 
-const ClickHandler = ({ children, handleChange }) => {
+const ClickHandler = ({ children, handleChange, width }) => {
   const wrapperRef = createRef();
   const [isVisible, setVisible] = useState(false);
 
@@ -32,19 +33,20 @@ const ClickHandler = ({ children, handleChange }) => {
   }, [handleClickOutside]);
 
   return (
-    <div ref={wrapperRef}>
+    <InlineBlockContainer width={width} ref={wrapperRef}>
       {children({
         isVisible,
         handleSelectClick,
         handleOptionSelect
       })}
-    </div>
+    </InlineBlockContainer>
   );
 };
 
 ClickHandler.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  children: PropTypes.func.isRequired
+  children: PropTypes.func.isRequired,
+  width: PropTypes.string
 };
 
 export default ClickHandler;

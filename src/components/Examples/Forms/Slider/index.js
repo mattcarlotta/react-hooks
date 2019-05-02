@@ -21,7 +21,7 @@ const SliderExample = () => {
       <SubTitle>Slider</SubTitle>
       <FlexContainer>
         <Example>
-          <Label style={{ marginRight: "5px" }}>Tempature:</Label>
+          <Label style={{ marginRight: "5px" }}>Slider:</Label>
           <Slider
             min="0"
             max="100"

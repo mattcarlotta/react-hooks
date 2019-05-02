@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import PropTypes from "prop-types";
 
 const useLocalStorage = (key, initialValue) => {
@@ -11,14 +11,17 @@ const useLocalStorage = (key, initialValue) => {
     }
   });
 
-  const setValue = value => {
-    try {
-      setStoredValue(value);
-      window.localStorage.setItem(key, JSON.stringify(value));
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  const setValue = useCallback(
+    value => {
+      try {
+        window.localStorage.setItem(key, JSON.stringify(value));
+        setStoredValue(value);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    [key]
+  );
 
   return [storedValue, setValue];
 };

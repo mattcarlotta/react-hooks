@@ -10,6 +10,7 @@ const optionIsActive = ({ selected, value }) =>
 
 const StyledOption = styled(Option)`
   cursor: pointer;
+  color: #282c34;
   display: block;
   font-size: 16px;
   padding: 8px 12px;

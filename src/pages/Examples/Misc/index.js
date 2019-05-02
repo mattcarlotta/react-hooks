@@ -2,7 +2,11 @@ import React from "react";
 import Helmet from "react-helmet";
 import { MdCode } from "react-icons/md";
 import { Paragraph, Title } from "../../../components/Body";
-import { CounterExample, DragNDropExample } from "../../../components/Examples";
+import {
+  CounterExample,
+  DragNDropExample,
+  LocalStorageExample
+} from "../../../components/Examples";
 
 const Misc = () => (
   <>
@@ -14,6 +18,7 @@ const Misc = () => (
     </Paragraph>
     <CounterExample />
     <DragNDropExample />
+    <LocalStorageExample />
   </>
 );
 
