@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import { MdCode } from "react-icons/md";
 import { Paragraph, Title } from "../../../components/Body";
 import {
+  ContextExample,
   CounterExample,
   DragNDropExample,
   LocalStorageExample,
@@ -21,6 +22,7 @@ const Misc = () => (
     <TimerExample />
     <DragNDropExample />
     <LocalStorageExample />
+    <ContextExample />
   </>
 );
 

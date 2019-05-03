@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../GlobalStyles";
 import { Container } from "../../Body";
 import { Header } from "../../Navigation";
-import { useLocalStorage } from "../../Hooks";
+import { Provider, useLocalStorage } from "../../Hooks";
 
 export const lightTheme = {
   name: "light",
@@ -94,7 +94,9 @@ const Theme = ({ children }) => {
       <>
         <GlobalStyles />
         <Header onToggleTheme={toggleTheme} />
-        <Container>{children}</Container>
+        <Container>
+          <Provider>{children}</Provider>
+        </Container>
       </>
     </ThemeProvider>
   );

@@ -7,5 +7,7 @@ export { default as useFileHandler } from "./useFileHandler";
 export { default as useFormHandler } from "./useFormHandler";
 export { default as useLocalEventStorage } from "./useLocalEventStorage";
 export { default as useLocalStorage } from "./useLocalStorage";
+export { default as useProvider } from "./useProvider";
+export { Provider } from "./useProvider";
 export { default as useTimer } from "./useTimer";
 export { default as useToggle } from "./useToggle";
