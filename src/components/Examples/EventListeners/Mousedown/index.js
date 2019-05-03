@@ -19,7 +19,7 @@ const MousedownExample = () => {
       <FlexContainer>
         <Example>
           <ClickHandler>
-            <ClickBox cursor="pointer">Click me!</ClickBox>
+            <ClickBox cursor="default">Click me!</ClickBox>
           </ClickHandler>
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />

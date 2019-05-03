@@ -5,7 +5,8 @@ import { Paragraph, Title } from "../../../components/Body";
 import {
   CounterExample,
   DragNDropExample,
-  LocalStorageExample
+  LocalStorageExample,
+  TimerExample
 } from "../../../components/Examples";
 
 const Misc = () => (
@@ -17,6 +18,7 @@ const Misc = () => (
       code, click the <MdCode style={{ verticalAlign: "middle" }} /> button.
     </Paragraph>
     <CounterExample />
+    <TimerExample />
     <DragNDropExample />
     <LocalStorageExample />
   </>

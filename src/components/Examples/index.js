@@ -14,3 +14,4 @@ export { default as UploadFileExample } from "./Forms/UploadFile";
 export { default as CounterExample } from "./Misc/Counter";
 export { default as DragNDropExample } from "./Misc/DragNDrop";
 export { default as LocalStorageExample } from "./Misc/LocalStorage";
+export { default as TimerExample } from "./Misc/Timer";
