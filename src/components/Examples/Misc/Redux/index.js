@@ -29,7 +29,7 @@ const styles = {
     padding: "0"
   },
   row: {
-    padding: "0 105px 5px 108px"
+    padding: "0 0 5px 0"
   },
   showCodeButton: {
     float: "right"
@@ -46,7 +46,7 @@ const ReduxExample = ({ setMessage }) => {
   const handleSubmit = useCallback(
     e => {
       e.preventDefault();
-      if (value) {
+      if (value && value.length <= 150) {
         setMessage(value);
         resetValue();
       }
@@ -66,7 +66,7 @@ const ReduxExample = ({ setMessage }) => {
                   <Label>Message:</Label>
                   <Input
                     type="text"
-                    placeholder="Add a message..."
+                    placeholder="Add a message (max 150 characters)..."
                     onChange={handleChange}
                     value={value}
                   />

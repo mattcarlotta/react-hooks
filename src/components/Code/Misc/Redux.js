@@ -82,7 +82,7 @@ let MessageForm = ({ setMessage }) => {
   const handleSubmit = useCallback(
     e => {
       e.preventDefault();
-      if (value) {
+      if (value && value.length <= 150) {
         setMessage(value);
         resetValue();
       }

@@ -22,5 +22,6 @@ styles and themes, and working with CSS flex-boxes across multiplatform devices 
 - <a href="https://github.com/react-icons/react-icons">React Icons</a>
 - <a href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom">React Router Dom</a>
 - <a href="https://github.com/conorhastings/react-syntax-highlighter">React Syntax Highlighter</a>
+- <a href="https://github.com/reactjs/react-transition-group">React Transition Group</a>
 - <a href="https://github.com/reduxjs/redux">Redux</a>
 - <a href="https://github.com/styled-components/styled-components">Stylized Components</a>

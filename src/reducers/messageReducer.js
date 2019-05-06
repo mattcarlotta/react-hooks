@@ -1,11 +1,18 @@
 import * as types from "../types";
 
-const messageReducer = (state = "", { payload, type }) => {
+const initialState = {
+  message: "",
+  show: false
+};
+
+const messageReducer = (state = initialState, { payload, type }) => {
   switch (type) {
     case types.RESET_MESSAGE:
-      return "";
+      return { ...state, message: "" };
+    case types.HIDE_MESSAGE:
+      return { ...state, show: false };
     case types.SET_MESSAGE:
-      return payload;
+      return { message: payload, show: true };
     default:
       return state;
   }
