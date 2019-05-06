@@ -41,9 +41,8 @@ const LocalStorageExample = () => {
         <Row>
           <Column width="75%">
             <BlockContainer style={styles.column1}>
-              <Label>Shirt Size:</Label>
+              <Label>Shirt:</Label>
               <Select
-                label="Size"
                 name="size"
                 value={storedValue.size}
                 placeholder="Select a size..."

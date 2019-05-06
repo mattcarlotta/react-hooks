@@ -4,9 +4,9 @@ export const hideMessage = () => ({
   type: types.HIDE_MESSAGE
 });
 
-export const setMessage = message => ({
+export const setMessage = ({ message, type }) => ({
   type: types.SET_MESSAGE,
-  payload: message
+  payload: { message, type }
 });
 
 export const resetMessage = () => ({

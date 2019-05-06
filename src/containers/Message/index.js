@@ -1,7 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { FaBell } from "react-icons/fa";
+import {
+  FaBell,
+  FaExclamationTriangle,
+  FaSkullCrossbones
+} from "react-icons/fa";
 import { Transition } from "react-transition-group";
 import { hideMessage, resetMessage } from "../../actions/messageActions";
 import MessageContainer from "./MessageContainer";
@@ -11,7 +15,18 @@ import TextContainer from "./TextContainer";
 import ButtonContainer from "./ButtonContainer";
 import CloseButton from "./CloseButton";
 
-const Message = ({ hideMessage, message, resetMessage, show }) => (
+const alertType = type => {
+  switch (type) {
+    case "alert":
+      return <FaBell />;
+    case "warning":
+      return <FaExclamationTriangle />;
+    default:
+      return <FaSkullCrossbones />;
+  }
+};
+
+const Message = ({ hideMessage, message, resetMessage, show, type }) => (
   <Transition
     mountOnEnter
     unmountOnExit
@@ -21,10 +36,8 @@ const Message = ({ hideMessage, message, resetMessage, show }) => (
   >
     {state => (
       <WindowContainer state={state}>
-        <MessageContainer>
-          <AlertContainer>
-            <FaBell />
-          </AlertContainer>
+        <MessageContainer type={type}>
+          <AlertContainer>{alertType(type)}</AlertContainer>
           <TextContainer>{message}</TextContainer>
           <ButtonContainer>
             <CloseButton handleClick={hideMessage} />
@@ -39,10 +52,15 @@ Message.propTypes = {
   hideMessage: PropTypes.func.isRequired,
   message: PropTypes.string,
   resetMessage: PropTypes.func.isRequired,
-  show: PropTypes.bool
+  show: PropTypes.bool,
+  type: PropTypes.string
 };
 
 export default connect(
-  state => ({ message: state.messages.message, show: state.messages.show }),
+  ({ messages }) => ({
+    message: messages.message,
+    show: messages.show,
+    type: messages.type
+  }),
   { hideMessage, resetMessage }
 )(Message);

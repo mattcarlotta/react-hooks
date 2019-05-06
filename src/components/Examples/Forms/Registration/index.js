@@ -141,7 +141,6 @@ const RegistrationExample = () => {
                 />
               ))}
               <Select
-                label="Country"
                 name="country"
                 value={values.country}
                 placeholder="Select a country..."

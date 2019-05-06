@@ -82,7 +82,7 @@ let MessageForm = ({ setMessage }) => {
   const handleSubmit = useCallback(
     e => {
       e.preventDefault();
-      if (value && value.length <= 150) {
+      if (value) {
         setMessage(value);
         resetValue();
       }
@@ -97,7 +97,7 @@ let MessageForm = ({ setMessage }) => {
                 <input
                     type="text"
                     name="example"
-                    placeholder="Type something..."
+                    placeholder="Add a message..."
                     onChange={handleChange}
                     value={value}
                 />

@@ -3,7 +3,7 @@ import CloseButton from "./CloseButton";
 
 const StyledCloseButton = styled(CloseButton)`
   cursor: pointer;
-  color: #176dc2;
+  color: rgba(0, 0, 0, 0.2);
   opacity: 0.5;
   background: transparent;
   border: 0;

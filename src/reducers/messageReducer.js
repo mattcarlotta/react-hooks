@@ -2,17 +2,18 @@ import * as types from "../types";
 
 const initialState = {
   message: "",
-  show: false
+  show: false,
+  type: ""
 };
 
 const messageReducer = (state = initialState, { payload, type }) => {
   switch (type) {
     case types.RESET_MESSAGE:
-      return { ...state, message: "" };
+      return { ...state, message: "", type: "" };
     case types.HIDE_MESSAGE:
       return { ...state, show: false };
     case types.SET_MESSAGE:
-      return { message: payload, show: true };
+      return { message: payload.message, show: true, type: payload.type };
     default:
       return state;
   }

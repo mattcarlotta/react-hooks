@@ -24,7 +24,6 @@ const SelectExample = () => {
         <Example>
           <Label>Select:</Label>
           <Select
-            label="Components"
             name="components"
             value={values.components}
             placeholder="Select an option..."

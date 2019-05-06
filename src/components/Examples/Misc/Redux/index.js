@@ -47,9 +47,19 @@ const ReduxExample = ({ setMessage }) => {
     e => {
       e.preventDefault();
       if (value && value.length <= 150) {
-        setMessage(value);
-        resetValue();
+        setMessage({ message: value, type: "alert" });
+      } else if (value.length > 150) {
+        setMessage({
+          message: "Aaawwwhhh, you killed it! You killed my component...",
+          type: "error"
+        });
+      } else {
+        setMessage({
+          message: "You need to add a message!",
+          type: "warning"
+        });
       }
+      resetValue();
     },
     [resetValue, setMessage, value]
   );
@@ -66,7 +76,7 @@ const ReduxExample = ({ setMessage }) => {
                   <Label>Message:</Label>
                   <Input
                     type="text"
-                    placeholder="Add a message (max 150 characters)..."
+                    placeholder="Add a message..."
                     onChange={handleChange}
                     value={value}
                   />
