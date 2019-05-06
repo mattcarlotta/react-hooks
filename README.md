@@ -17,8 +17,10 @@ styles and themes, and working with CSS flex-boxes across multiplatform devices 
 - <a href="https://github.com/PrismJS/prism">PrismJS</a>
 - <a href="https://github.com/react-component/tooltip">RC Tooltip</a>
 - <a href="https://github.com/facebook/react">React</a>
+- <a href="https://github.com/atlassian/react-beautiful-dnd">React Beautiful Drag and Drop</a>
 - <a href="https://github.com/nfl/react-helmet">React Helmet</a>
 - <a href="https://github.com/react-icons/react-icons">React Icons</a>
 - <a href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom">React Router Dom</a>
 - <a href="https://github.com/conorhastings/react-syntax-highlighter">React Syntax Highlighter</a>
+- <a href="https://github.com/reduxjs/redux">Redux</a>
 - <a href="https://github.com/styled-components/styled-components">Stylized Components</a>

@@ -5,6 +5,7 @@ import GlobalStyles from "../GlobalStyles";
 import { Container } from "../../Body";
 import { Header } from "../../Navigation";
 import { Provider, useLocalStorage } from "../../Hooks";
+import { Message } from "../../../containers";
 
 export const lightTheme = {
   name: "light",
@@ -97,6 +98,7 @@ const Theme = ({ children }) => {
         <Container>
           <Provider>{children}</Provider>
         </Container>
+        <Message />
       </>
     </ThemeProvider>
   );

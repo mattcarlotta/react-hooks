@@ -1,5 +1,4 @@
 export default `import React, { createRef, useEffect } from "react";
-import PropTypes from "prop-types";
 
 // utilize createRef and useEffect with an event listener that
 // calls a function.
@@ -7,7 +6,7 @@ import PropTypes from "prop-types";
 // note: if you update state while the mousedown listener is active,
 // then you must include the handleClick function as a 
 // useEffect [dependency] to persist the event listener OR you
-// can include the handleClick function inside of useEffect.
+// can move the handleClick function inside of useEffect.
 const ClickHandler = ({ children }) => {
   const wrapperRef = createRef();
 
@@ -26,10 +25,6 @@ const ClickHandler = ({ children }) => {
   }, [handleClick]);
 
   return <div ref={wrapperRef}>{children}</div>;
-};
-
-ClickHandler.propTypes = {
-  children: PropTypes.any.isRequired
 };
 
 export default ClickHandler;

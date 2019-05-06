@@ -1,13 +1,6 @@
 import styled from "styled-components";
 import Option from "./Option";
 
-const optionIsActive = ({ selected, value }) =>
-  selected === value
-    ? `background-color: #dedede;
-      color: #0f7ae5;
-    `
-    : null;
-
 const StyledOption = styled(Option)`
   cursor: pointer;
   color: #282c34;
@@ -24,10 +17,13 @@ const StyledOption = styled(Option)`
   box-sizing: border-box;
   border-bottom: 1px dotted pink;
   text-align: left;
-  ${props => optionIsActive(props)};
+  ${({ selected, value }) =>
+    selected === value ? `background-color: #dedede;  color: #0f7ae5;` : null};
 
-  &::hover {
-    color: #0f7ae5;
+  &:hover {
+    color: #0f7ae5 !important;
+    ${({ selected, value }) =>
+      selected !== value ? "background: #eee !important;" : null};
   }
 `;
 

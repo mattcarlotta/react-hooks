@@ -23,7 +23,7 @@ const ContextExample = () => {
           <Label>Input:</Label>
           <Input
             type="text"
-            placeholder="Type something..."
+            placeholder="Add some text to persist..."
             onChange={handleChange}
             value={value}
           />

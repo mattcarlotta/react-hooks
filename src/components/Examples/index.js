@@ -15,4 +15,5 @@ export { default as ContextExample } from "./Misc/Context";
 export { default as CounterExample } from "./Misc/Counter";
 export { default as DragNDropExample } from "./Misc/DragNDrop";
 export { default as LocalStorageExample } from "./Misc/LocalStorage";
+export { default as ReduxExample } from "./Misc/Redux";
 export { default as TimerExample } from "./Misc/Timer";

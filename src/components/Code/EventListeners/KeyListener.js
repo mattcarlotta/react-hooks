@@ -1,5 +1,4 @@
 export default `import React, { createRef, useEffect } from "react";
-import PropTypes from "prop-types";
 
 // utilize createRef and useEffect with an event listener that
 // calls a function.

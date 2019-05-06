@@ -7,6 +7,7 @@ import {
   CounterExample,
   DragNDropExample,
   LocalStorageExample,
+  ReduxExample,
   TimerExample
 } from "../../../components/Examples";
 
@@ -23,6 +24,7 @@ const Misc = () => (
     <DragNDropExample />
     <LocalStorageExample />
     <ContextExample />
+    <ReduxExample />
   </>
 );
 
