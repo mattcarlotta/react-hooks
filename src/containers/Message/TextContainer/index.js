@@ -5,6 +5,7 @@ const TextContainer = styled.div`
   display: -ms-flexbox;
   display: flex;
   padding: 6px;
+  word-break: break-word;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -ms-flex-align: center;

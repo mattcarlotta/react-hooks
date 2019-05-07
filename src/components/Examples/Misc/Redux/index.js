@@ -15,8 +15,9 @@ import {
   ShowCodeButton,
   SubTitle
 } from "../../../Body";
-import { useEventHandler, useToggle } from "../../../Hooks";
+import { useToggle } from "../../../Hooks";
 import { setMessage } from "../../../../actions/messageActions";
+import { resetInput, updateInput } from "../../../../actions/inputActions";
 
 const styles = {
   column1: {
@@ -39,34 +40,40 @@ const styles = {
   }
 };
 
-const ReduxExample = ({ setMessage }) => {
-  const { value, handleChange, resetValue } = useEventHandler("");
+const ReduxExample = ({ inputValue, resetInput, setMessage, updateInput }) => {
   const [showCode, toggleShowCode] = useToggle(false);
+
+  const handleChange = useCallback(
+    ({ target: { value } }) => {
+      updateInput(value);
+    },
+    [updateInput]
+  );
 
   const handleSubmit = useCallback(
     e => {
       e.preventDefault();
-      if (value && value.length <= 150) {
-        setMessage({ message: value, type: "alert" });
-      } else if (value.length > 150) {
-        setMessage({
-          message: "Aaawwwhhh, you killed it! You killed my component...",
-          type: "error"
-        });
-      } else {
+      if (inputValue && inputValue.length <= 150) {
+        setMessage({ message: inputValue, type: "alert" });
+      } else if (!inputValue) {
         setMessage({
           message: "You need to add a message!",
           type: "warning"
         });
+      } else {
+        setMessage({
+          message: "Aaawwwhhh, you killed it! You killed my component...",
+          type: "error"
+        });
       }
-      resetValue();
+      resetInput();
     },
-    [resetValue, setMessage, value]
+    [inputValue, resetInput, setMessage]
   );
 
   return (
     <>
-      <SubTitle>Redux</SubTitle>
+      <SubTitle>Redux Persistence</SubTitle>
       <BlockContainer>
         <Row>
           <Column width="75%">
@@ -78,9 +85,9 @@ const ReduxExample = ({ setMessage }) => {
                     type="text"
                     placeholder="Add a message..."
                     onChange={handleChange}
-                    value={value}
+                    value={inputValue}
                   />
-                  <ResetButton handleClick={resetValue} />
+                  <ResetButton handleClick={resetInput} />
                 </BlockContainer>
                 <BlockContainer style={styles.row}>
                   <Button type="submit" style={styles.submit}>
@@ -105,10 +112,13 @@ const ReduxExample = ({ setMessage }) => {
 };
 
 ReduxExample.propTypes = {
-  setMessage: PropTypes.func.isRequired
+  inputValue: PropTypes.string,
+  resetInput: PropTypes.func.isRequired,
+  setMessage: PropTypes.func.isRequired,
+  updateInput: PropTypes.func.isRequired
 };
 
 export default connect(
-  null,
-  { setMessage }
+  state => ({ inputValue: state.input }),
+  { resetInput, setMessage, updateInput }
 )(ReduxExample);

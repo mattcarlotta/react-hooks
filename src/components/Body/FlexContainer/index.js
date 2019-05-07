@@ -13,7 +13,7 @@ const FlexContainer = styled.div`
   align-items: center;
   height: 80px;
 
-  &::after {
+  &:after {
     display: block;
     clear: both;
     content: "";

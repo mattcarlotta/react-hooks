@@ -9,25 +9,9 @@ import { FaBell, FaTrash, FaPaperPlane, FaTimes } from "react-icons/fa";
 // separate files: actions, components, containers, reducers, and types.
 // For ease of reading, these have been grouped into one.
 
-// create a custom event handler hook that returns an initial value, 
-// a callback function to update the value and another callback 
-// function to reset the value.
-const useEventHandler = initialValue => {
-  const [value, setValue] = useState(initialValue);
-  const handleChange = useCallback(
-    ({ target: { value } }) => setValue(value),
-    []
-  );
-  const resetValue = useCallback(() => setValue(""), []);
-
-  return {
-    value,
-    handleChange,
-    resetValue
-  };
-};
-
 // create types that will be used to dispatch an action.
+const UPDATE_INPUT = "UPDATE_INPUT";
+const RESET_INPUT = "RESET_INPUT";
 const SET_MESSAGE = "SET_MESSAGE";
 const RESET_MESSAGE = "RESET_MESSAGE";
 
@@ -46,8 +30,8 @@ const resetMessage = () => ({
   type: RESET_MESSAGE
 });
 
-// create a reducer to handle the "action", "type" and "payload"
-// that was returned by one of the actions above.
+// create a messageReducer to handle the "action", "type" and "payload"
+// that was returned by one of the message actions above.
 const messageReducer = (state = "", { payload, type }) => {
   switch (type) {
     case RESET_MESSAGE:
@@ -62,32 +46,74 @@ const messageReducer = (state = "", { payload, type }) => {
   }
 };
 
+// create 2 actions that return a "type" and a "payload" (if needed)
+// one to update the input and one to reset it.
+
+// updateInput accepts a "value" parameter to be sent to the reducer
+// as "payload".
+export const updateInput = value => ({
+  type: types.UPDATE_INPUT,
+  payload: value
+});
+
+// resetInput just returns a type to be sent to the reducer.
+export const resetInput = () => ({
+  type: types.RESET_INPUT
+});
+
+// create an inputReducer to handle the "action", "type" and "payload"
+// that was returned by one of the input actions above.
+const inputReducer = (state = "", { payload, type }) => {
+  switch (type) {
+    case types.UPDATE_INPUT:
+      // sets state.input = payload ("value" returned from "updateInput")
+      return payload;
+    case types.RESET_INPUT:
+      // sets state.input = "";
+      return "";
+    default:
+      // returns default/updated state.input 
+      return state;
+  }
+};
+
 // combine all reducers to be used with "store" (defined below)
 // "combineReducers" comes from redux and accepts an object.
 // for example: { test: exampleReducer } which stores in redux
 // as: state.test: value
 const reducers = combineReducers({
+  // stored in redux as "state.input": "value" -- the value that
+  // will be returned from the "inputReducer" cases.
+  input: inputReducer,
   // stored in redux as "state.message": "value" -- the value that
   // will be returned from the "messageReducer" cases.
   message: messageReducer
 });
 
 // create a "MessageForm" container component that connects to the redux store
-// "MessageForm" accepts a prepended dispatchable "setMessage" action.
-let MessageForm = ({ setMessage }) => {
-  const { value, handleChange, resetValue } = useEventHandler("");
- 
-  // when form has been submitted, if there's a value, dispatch
-  // "setMessage" with the input's "value"
+// "MessageForm" and accepts an "inputValue" (state.input) and dispatchable 
+// redux actions: "resetInput", "setMessage", and "updateInput".
+let MessageForm = ({ inputValue, resetInput, setMessage, updateInput }) => {
+  // when the input has been changed, retrieve the "event.target.value" and
+  // update the "inputValue" (state.input) via "updateInput" redux action.
+  const handleChange = useCallback(
+    ({ target: { value } }) => {
+      updateInput(value);
+    },
+    [updateInput]
+  );
+
+  // when the form has been submitted, if there's an "inputValue", dispatch
+  // "setMessage" with the input's "value" to update "state.message".
   const handleSubmit = useCallback(
     e => {
       e.preventDefault();
-      if (value) {
-        setMessage(value);
-        resetValue();
+      if (inputValue) {
+        setMessage(inputValue);
+        resetInput();
       }
     },
-    [resetValue, setMessage, value]
+    [inputValue, resetInput, setMessage]
   );
 
   return (
@@ -99,9 +125,9 @@ let MessageForm = ({ setMessage }) => {
                     name="example"
                     placeholder="Add a message..."
                     onChange={handleChange}
-                    value={value}
+                    value={inputValue}
                 />
-                <button type="button" onClick={resetValue}>
+                <button type="button" onClick={resetInput}>
                     <FaTrash />
                 </button>
                 <button type="submit">
@@ -112,8 +138,13 @@ let MessageForm = ({ setMessage }) => {
   );
 };
 
-// connect and prepend "setMessage" as a redux dispatchable action.
-MessageForm = connect(null, { setMessage })(MessageForm);
+// connect to the redux store to retrieve "state.input" and 
+// prepend "resetInput", "setMessage", and "updateInput" as 
+// redux dispatchable actions.
+MessageForm = connect(
+  state => ({ inputValue: state.input }),
+  { resetInput, setMessage, updateInput }
+)(MessageForm);
 
 // create a "Message" container component that connects to redux and 
 // displays what's currently set in redux's "state.message". the 
