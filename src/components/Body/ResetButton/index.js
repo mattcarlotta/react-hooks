@@ -12,7 +12,8 @@ const ResetButton = ({ handleClick, style, text }) => (
       }}
       onClick={handleClick}
     >
-      <FaTrash /> {text}
+      <FaTrash style={{ position: "relative", top: "2px", fontSize: "20px" }} />{" "}
+      {text}
     </Button>
   </ToolTip>
 );

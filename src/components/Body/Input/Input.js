@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 const Input = ({
   className,
   containerStyle,
+  errors,
   inputStyle,
   name,
   onChange,
@@ -20,6 +21,7 @@ const Input = ({
       value={value}
       style={inputStyle}
     />
+    {errors && <p>{errors}</p>}
   </div>
 );
 

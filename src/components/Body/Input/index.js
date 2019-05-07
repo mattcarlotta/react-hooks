@@ -20,6 +20,12 @@ const StyledInput = styled(Input)`
       color: #bbb;
     }
   }
+
+  p {
+    margin: 0;
+    padding: 0;
+    color: #f56342;
+  }
 `;
 
 export default StyledInput;

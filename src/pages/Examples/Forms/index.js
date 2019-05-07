@@ -8,7 +8,8 @@ import {
   DynamicFieldExample,
   LoginExample,
   RegistrationExample,
-  UploadFileExample
+  UploadFileExample,
+  ValidateFieldExample
 } from "../../../components/Examples";
 
 const Forms = ({ match: { url } }) => (
@@ -25,6 +26,7 @@ const Forms = ({ match: { url } }) => (
     <LoginExample />
     <RegistrationExample />
     <DynamicFieldExample />
+    <ValidateFieldExample />
     <UploadFileExample />
   </>
 );

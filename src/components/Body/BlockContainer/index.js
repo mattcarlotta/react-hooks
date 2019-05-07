@@ -9,7 +9,7 @@ const BlockContainer = styled.div`
   max-width: 800px;
   display: block;
 
-  &:after {
+  &::after {
     content: "";
     clear: both;
     display: table;

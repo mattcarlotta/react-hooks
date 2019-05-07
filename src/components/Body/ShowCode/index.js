@@ -1,9 +1,35 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, {
+  useState,
+  useLayoutEffect,
+  useCallback,
+  useEffect
+} from "react";
 import PropTypes from "prop-types";
-import { SyntaxHighlighter } from "../";
+import copy from "copy-to-clipboard";
+import { BlockContainer, CopyButton, SyntaxHighlighter } from "../index";
+
+const styles = {
+  container: {
+    borderRadius: 0
+  }
+};
 
 const ShowCode = ({ fileName, showCode }) => {
   const [loadedFile, setLoadedFile] = useState("");
+  const [copied, setCopied] = useState(false);
+
+  const handleClick = useCallback(() => {
+    setCopied(true);
+    copy(loadedFile, {
+      format: "text/plain"
+    });
+  }, [loadedFile]);
+
+  useEffect(() => {
+    if (!showCode) {
+      setCopied(false);
+    }
+  }, [showCode]);
 
   useLayoutEffect(() => {
     const setDummyCode = async () => {
@@ -20,7 +46,10 @@ const ShowCode = ({ fileName, showCode }) => {
   }, [fileName]);
 
   return showCode ? (
-    <SyntaxHighlighter language="javascript">{loadedFile}</SyntaxHighlighter>
+    <BlockContainer style={styles.container}>
+      <SyntaxHighlighter language="javascript">{loadedFile}</SyntaxHighlighter>
+      <CopyButton copied={copied} onClick={handleClick} />
+    </BlockContainer>
   ) : null;
 };
 
