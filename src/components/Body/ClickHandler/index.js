@@ -1,22 +1,25 @@
-import React, { createRef, useEffect } from "react";
+import React, { useRef, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 
 const ClickHandler = ({ children }) => {
-  const wrapperRef = createRef();
+  const wrapperRef = useRef();
 
-  useEffect(() => {
-    const handleClick = ({ target }) => {
+  const handleClick = useCallback(
+    ({ target }) => {
       if (wrapperRef && wrapperRef.current.contains(target)) {
         alert("You clicked me.");
       }
-    };
+    },
+    [wrapperRef]
+  );
 
+  useEffect(() => {
     document.addEventListener("mousedown", handleClick);
 
     return () => {
       document.removeEventListener("mousedown", handleClick);
     };
-  }, [wrapperRef]);
+  }, [handleClick]);
 
   return <div ref={wrapperRef}>{children}</div>;
 };

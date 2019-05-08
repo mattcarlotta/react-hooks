@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 
 const KeyListener = () => {
-  const handleKeyDown = ({ keyCode }) => {
+  const handleKeyDown = useCallback(({ keyCode }) => {
     if (keyCode === 13) alert("You pressed the enter key.");
-  };
+  }, []);
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
@@ -11,7 +11,7 @@ const KeyListener = () => {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [handleKeyDown]);
 
   return null;
 };

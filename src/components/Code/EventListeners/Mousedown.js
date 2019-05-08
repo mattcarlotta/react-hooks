@@ -1,20 +1,19 @@
-export default `import React, { createRef, useEffect } from "react";
+export default `import React, { useCallback, useEffect, useRef } from "react";
 
-// utilize createRef and useEffect with an event listener that
-// calls a function.
+// utilize useEffect and useRef with an event listener that
+// calls a useCallback function.
 
-// note: if you update state while the mousedown listener is active,
-// then you must include the handleClick function as a 
-// useEffect [dependency] to persist the event listener OR you
-// can move the handleClick function inside of useEffect.
 const ClickHandler = ({ children }) => {
-  const wrapperRef = createRef();
+  const wrapperRef = useRef();
 
-  const handleClick = ({ target }) => {
-    if (wrapperRef && wrapperRef.current.contains(target)) {
-      alert("Hi.");
-    }
-  };
+  const handleClick = useCallback(
+    ({ target }) => {
+      if (wrapperRef && wrapperRef.current.contains(target)) {
+        alert("You clicked me.");
+      }
+    },
+    [wrapperRef]
+  );
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClick);
@@ -25,6 +24,10 @@ const ClickHandler = ({ children }) => {
   }, [handleClick]);
 
   return <div ref={wrapperRef}>{children}</div>;
+};
+
+ClickHandler.propTypes = {
+  children: PropTypes.any.isRequired
 };
 
 export default ClickHandler;
