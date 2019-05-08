@@ -70,26 +70,26 @@ const IntervalTimer = () => {
 
   return (
     <Fragment>
-              <p>Timer:</p>
-              {isRunning 
+      <p>Timer:</p>
+      {isRunning 
         ? <button onClick={pauseTimer}>
-                          <FaPause />
-                      </button>
+            <FaPause />
+          </button>
         : <button onClick={startTimer}>
-                          <FaPlay />
-                      </button>
+            <FaPlay />
+          </button>
        )}
-              <div>
-                  <span>0:</span>
-                  <span>
-                      {currentTime < 10 ? \`0\${currentTime}\` : currentTime}
-                  </span>
-                  <span>s</span>
-              </div>
-              <button onClick={resetTimer}>
-                  <FaTrash />
-              </button>
-        </Fragment>
+      <div>
+        <span>0:</span>
+        <span>
+          {currentTime < 10 ? \`0\${currentTime}\` : currentTime}
+        </span>
+        <span>s</span>
+      </div>
+      <button onClick={resetTimer}>
+        <FaTrash />
+      </button>
+    </Fragment>
   );
 };
 

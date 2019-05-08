@@ -100,38 +100,38 @@ const useDragDropHandler = initialState => {
 // tasks, columns and a handleChange function
 const DragDrop = ({ tasks, columns, handleChange }) => (
   <DragDropContext onDragEnd={handleChange}>
-        {Object.values(columns).map(({ id, title, taskIds }) => (
+    {Object.values(columns).map(({ id, title, taskIds }) => (
       <Droppable key={id} droppableId={droppableId}>
-                  {({ innerRef, droppableProps, placeholder }) => (
+        {({ innerRef, droppableProps, placeholder }) => (
           <div
-                            ref={innerRef}
-                            {...droppableProps}
-                        >
-                            <h5>{title}</h5>
-                            {taskIds && taskIds.length > 0 
-                ? taskIds.map((task, index) => (
-                    <Draggable key={task.id} draggableId={task.id} index={index}>
-                                                {({ draggableProps, dragHandleProps, innerRef }) => (
-                         <div ref={innerRef} {...draggableProps} {...dragHandleProps}>
-                                                            <div>
-                                                              {task.description}
-                                                            </div>
-                                                      </div>
+            ref={innerRef}
+            {...droppableProps}
+          >
+            <h5>{title}</h5>
+            {taskIds && taskIds.length > 0 
+              ? taskIds.map((task, index) => (
+                  <Draggable key={task.id} draggableId={task.id} index={index}>
+                     {({ draggableProps, dragHandleProps, innerRef }) => (
+                        <div ref={innerRef} {...draggableProps} {...dragHandleProps}>
+                          <div>
+                            {task.description}
+                          </div>
+                        </div>
                       )}
-                                          </Draggable>
-                  ))
-                : <div>
-                                            <FaThumbtack />
-                                            <br />
-                                            No Tasks
-                                      </div>
-              )}
-                            {placeholder}
-                      </div>
+                  </Draggable>
+                ))
+              : <div>
+                  <FaThumbtack />
+                  <br />
+                  No Tasks
+                </div>
+            )}
+            {placeholder}
+          </div>
         )}
-            </Droppable>
+      </Droppable>
     ))}
-    </DragDropContext>
+  </DragDropContext>
 );
 
 // utilize the custom useDragDropHandler hook and the "DragDrop" reuseable component
@@ -141,15 +141,15 @@ const DragDropExample = () => {
 
   return (
     <Fragment>      
-              <DragDrop
-                    columns={values.columns}
-                    tasks={values.tasks}
-                    handleChange={handleChange}
-              />
-              <button onClick={resetValues}>
-                    Reset
-              </button>
-        </Fragment>
+      <DragDrop
+        columns={values.columns}
+        tasks={values.tasks}
+        handleChange={handleChange}
+      />
+      <button onClick={resetValues}>
+        Reset
+      </button>
+    </Fragment>
   );
 };
 

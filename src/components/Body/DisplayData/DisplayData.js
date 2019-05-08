@@ -1,10 +1,11 @@
 import React, { Fragment } from "react";
+import isEmpty from "lodash/isEmpty";
 import PropTypes from "prop-types";
 import { FaHeartBroken } from "react-icons/fa";
 
 const DisplayData = ({ className, error, photos }) => (
   <div className={className}>
-    {error ? (
+    {error || isEmpty(photos) ? (
       <div className="error-container">
         <h3>
           <FaHeartBroken /> Uh oh, something went wrong.

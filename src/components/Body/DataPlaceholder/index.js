@@ -22,20 +22,20 @@ const DataPlaceholder = styled(Placeholder)`
     height: 35px;
     width: 200px;
     margin-bottom: 20px;
-    animation: pulse 1.4s infinite;
+    animation: pulse 1.6s infinite;
   }
 
   & .title {
     height: 32px;
     width: 100%;
     margin-bottom: 20px;
-    animation: pulse 1.2s infinite;
+    animation: pulse 1.6s infinite;
   }
 
   & .url {
     height: 32px;
     width: 100%;
-    animation: pulse 1s infinite;
+    animation: pulse 1.6s infinite;
   }
 `;
 

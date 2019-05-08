@@ -43,23 +43,23 @@ const UploadFile = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-            <input
-                accept="image/jpeg, image/png, image/gif, image/bmp"
-                type="file"
-                multiple={false}
-                name="imageFile"
-                onChange={handleChange}
-            />           
-            {values.imageFile && values.imageFile.length > 0
+      <input
+        accept="image/jpeg, image/png, image/gif, image/bmp"
+        type="file"
+        multiple={false}
+        name="imageFile"
+        onChange={handleChange}
+      />           
+      {values.imageFile && values.imageFile.length > 0
         ? values.imageFile.map({ name, preview, size }) => (
             <Fragment key={name}>
-                                <img src={preview} />
-                                <p>{name} - {(size / 1024000).toFixed(2)}MB</p>
-                            </Fragment>
+              <img src={preview} />
+              <p>{name} - {(size / 1024000).toFixed(2)}MB</p>
+            </Fragment>
           ))
         : null
       }
-       </form>
+    </form>
   );
 };
 

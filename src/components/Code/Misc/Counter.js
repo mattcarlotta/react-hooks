@@ -39,18 +39,18 @@ const Counter = () => {
 
   return (
     <Fragment>
-              <label htmlFor="example">Counter:</label>
-              <button onClick={decValue}>
-                  <FaMinus />
-              </button>
-              <div>{value}</div>
-              <button onClick={incValue}>
-                  <FaMinus />
-              </button>
-              <button onClick={resetValue}>
-                  <FaTrash />
-              </button>
-        </Fragment>
+      <label htmlFor="example">Counter:</label>
+      <button onClick={decValue}>
+        <FaMinus />
+      </button>
+      <div>{value}</div>
+      <button onClick={incValue}>
+        <FaMinus />
+      </button>
+      <button onClick={resetValue}>
+        <FaTrash />
+      </button>
+    </Fragment>
   );
 };
 

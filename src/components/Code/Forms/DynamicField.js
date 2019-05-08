@@ -110,25 +110,25 @@ const DynamicFieldForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-           {values.fields.map(({ name, value }, key) => (
+      {values.fields.map(({ name, value }, key) => (
         <div key={name}>
-                      <input
-                          type="text"
-                          name={name}
-                          placeholder="Type something..."
-                          onChange={handleChange}
-                          value={value}
-                      />
-                      {fieldsCount > 1 && (
-            <Button onClick={() => deleteField(name)}>
-                              <MdClose />
-                          </Button>
-          )}
-                  </div>
+          <input
+            type="text"
+            name={name}
+            placeholder="Type something..."
+            onChange={handleChange}
+            value={value}
+          />
+            {fieldsCount > 1 && (
+              <Button onClick={() => deleteField(name)}>
+                <MdClose />
+              </Button>
+            )}
+        </div>
       ))}
-            <button type="button"><MdAdd/> Add Field</button>
-            <button type="submit">Submit</button>
-        </form>
+      <button type="button"><MdAdd/> Add Field</button>
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 

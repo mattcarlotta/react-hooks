@@ -20,7 +20,7 @@ const useFetchData = () => {
       await new Promise(res => {
         setTimeout(() => {
           res();
-        }, 800);
+        }, 300);
       });
 
       setData({ photos: res.data, error: "", isLoading: false });

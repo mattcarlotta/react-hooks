@@ -5,6 +5,7 @@ const StyledDisplayData = styled(DisplayData)`
   height: 100%;
   width: 100%;
   text-align: center;
+  color: #282c34;
 
   & .error-container {
     padding-top: 20%;

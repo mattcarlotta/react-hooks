@@ -27,21 +27,21 @@ const RadioGroup = () => {
 
   return (
     <Fragment>
-            <p>Favorite:</p>
-            {options.map(color => (
+      <p>Favorite:</p>
+      {options.map(color => (
         <span key={color}>
-                        <input 
-                            type="radio" 
-                            id={color}
-                            name="favoriteColor"
-                            value={color}
-                            onChange={handleChange}
-                            checked={color === value.favoriteColor}
-                        />
-                        <label htmlFor={color}/>{color}</label>
-                  </span>
+          <input 
+            type="radio" 
+            id={color}
+            name="favoriteColor"
+            value={color}
+            onChange={handleChange}
+            checked={color === value.favoriteColor}
+          />
+          <label htmlFor={color}/>{color}</label>
+        </span>
       ))}
-        </Fragment>
+    </Fragment>
   );
 };
 

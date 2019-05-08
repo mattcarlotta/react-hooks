@@ -103,26 +103,26 @@ const ValidatedFields = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-              {values.fields.map(({fieldName, error, value }) => (
+      {values.fields.map(({fieldName, error, value }) => (
         <div key={fieldName}>
-                      <label htmlFor={fieldName}>{fieldName}</label>
-                      <input
-                          type="text"
-                          name={fieldName}
-                          placeholder="Type something..."
-                          onChange={handleChange}
-                          value={value}
-                      />
-                      {error && <p>{error}</p>}
-                  </div>
+          <label htmlFor={fieldName}>{fieldName}</label>
+          <input
+            type="text"
+            name={fieldName}
+            placeholder="Type something..."
+            onChange={handleChange}
+            value={value}
+          />
+          {error && <p>{error}</p>}
+        </div>
        ))}
-              <button type="reset" onClick={resetValue}>
-                  <FaTrash />
-              </button>
-              <button type="submit">
-                  <FaRegCalendarCheck />
-              </button>
-        </form>
+      <button type="reset" onClick={resetValue}>
+        <FaTrash />
+      </button>
+      <button type="submit">
+         <FaRegCalendarCheck />
+      </button>
+    </form>
   );
 };
 

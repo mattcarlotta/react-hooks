@@ -49,8 +49,8 @@ const Provider = ({ children, initialValue }) => {
   // "value" property.
   return (
     <Context.Provider value={{ ...props }}>
-            {children}
-        </Context.Provider>
+      {children}
+    </Context.Provider>
   );
 };
 
@@ -62,18 +62,18 @@ const Input = () => {
 
   return (
     <Fragment>
-              <label htmlFor="example">Input:</label>
-              <input
-                  type="text"
-                  name="example"
-                  placeholder="Type something..."
-                  onChange={handleChange}
-                  value={value}
-              />
-              <button onClick={resetValue}>
-                <FaTrash />
-              </button>
-        </Fragment>
+      <label htmlFor="example">Input:</label>
+      <input
+        type="text"
+        name="example"
+        placeholder="Type something..."
+        onChange={handleChange}
+        value={value}
+      />
+      <button onClick={resetValue}>
+        <FaTrash />
+      </button>
+    </Fragment>
   );
 };
 

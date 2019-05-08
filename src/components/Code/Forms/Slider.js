@@ -24,17 +24,17 @@ const Slider = () => {
 
   return (
     <span>
-          <sub>0°F</sub>
-          <input
-              type="range"
-              min="0"
-              max="100"
-              name="temperature"
-              value={value.temperature}
-              onChange={handleChange}
-          />
-          <sub>100°F</sub>
-      </span>
+      <sub>0°F</sub>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        name="temperature"
+        value={value.temperature}
+        onChange={handleChange}
+      />
+      <sub>100°F</sub>
+    </span>
   );
 };
 

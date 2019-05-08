@@ -70,23 +70,23 @@ const LocalStorageSelect = () => {
 
   return (
     <Fragment>
-            <label htmlFor="size">Select:</label>
-            <select
-                name="size"
-                placeholder="Select a size..."
-                onChange={handleChange}
-                value={storedValue.size}
-            >
-                {options.map(value => (
+      <label htmlFor="size">Select:</label>
+      <select
+        name="size"
+        placeholder="Select a size..."
+        onChange={handleChange}
+        value={storedValue.size}
+      >
+        {options.map(value => (
           <option key={value} value={value}>
-                          {value}
-                      </option>
+            {value}
+          </option>
         ))}
-            </select>
-            <button onClick={resetValue}>
-              <FaTrash />
-            </button>
-        </Fragment>
+      </select>
+      <button onClick={resetValue}>
+        <FaTrash />
+      </button>
+    </Fragment>
   );
 };
 

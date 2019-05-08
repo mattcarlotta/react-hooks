@@ -1,4 +1,3 @@
-import isEmpty from "lodash/isEmpty";
 import React, { useEffect } from "react";
 import { FaRedoAlt } from "react-icons/fa";
 import {
@@ -42,10 +41,10 @@ const FetchDataExample = () => {
   const [showCode, toggleShowCode] = useToggle(false);
 
   useEffect(() => {
-    if (isEmpty(data.photos)) {
+    if (data.isLoading) {
       fetchData();
     }
-  }, [data.photos, fetchData]);
+  }, [data.isLoading, fetchData]);
 
   return (
     <>
@@ -56,7 +55,7 @@ const FetchDataExample = () => {
             <BlockContainer style={styles.column1}>
               <BlockContainer style={styles.column2}>
                 <DataContainer>
-                  {isEmpty(data.photos) ? (
+                  {data.isLoading ? (
                     <DataPlaceholder />
                   ) : (
                     <DisplayData {...data} />

@@ -78,48 +78,48 @@ const RegistrationForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-            {inputFields.map(({ name, type, placeholder }) => (
+      {inputFields.map(({ name, type, placeholder }) => (
         <input
-                      key={name}
-                      type={type || "text"}
-                      name={name}
-                      placeholder={placeholder}
-                      onChange={handleChange}
-                      value={values[name]}
-                  />
+          key={name}
+          type={type || "text"}
+          name={name}
+          placeholder={placeholder}
+          onChange={handleChange}
+          value={values[name]}
+        />
       ))}
-            <select
-                name="country"
-                placeholder="Select a country..."
-                onChange={handleChange}
-                value={values.country}
-            >
-                {selectOptions.map(value => (
+      <select
+        name="country"
+        placeholder="Select a country..."
+        onChange={handleChange}
+        value={values.country}
+      >
+        {selectOptions.map(value => (
           <option key={value} value={value}>
-                        {value}
-                    </option>
+            {value}
+          </option>
         ))}
-            </select>
-            {addressTypes.map(type => (
+      </select>
+      {addressTypes.map(type => (
         <span key={type}>
-                        <input 
-                              type="radio" 
-                              id={type}
-                              name="addressType"
-                              value={type}
-                              onChange={handleChange}
-                              checked={type === values.addressType}
-                        />
-                        <label htmlFor={type}/>{type}</label>
-                  </span>
+          <input 
+            type="radio" 
+            id={type}
+            name="addressType"
+            value={type}
+            onChange={handleChange}
+            checked={type === values.addressType}
+          />
+          <label htmlFor={type}/>{type}</label>
+        </span>
       ))}
-            <button type="button" onClick={setToggleState}>
-                {!toggleState ? <FaToggleOff /> : <FaToggleOn />}
-            </button>
-            <button type="submit">
-               <FaUserPlus/> Register
-            </button>
-        </form>
+      <button type="button" onClick={setToggleState}>
+        {!toggleState ? <FaToggleOff /> : <FaToggleOn />}
+      </button>
+      <button type="submit">
+        <FaUserPlus/> Register
+      </button>
+    </form>
   );
 };
 

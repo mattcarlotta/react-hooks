@@ -118,23 +118,23 @@ let MessageForm = ({ inputValue, resetInput, setMessage, updateInput }) => {
 
   return (
     <Fragment>
-              <form onSubmit={handleSubmit}>
-                <label htmlFor="example">Message:</label>
-                <input
-                    type="text"
-                    name="example"
-                    placeholder="Add a message..."
-                    onChange={handleChange}
-                    value={inputValue}
-                />
-                <button type="button" onClick={resetInput}>
-                    <FaTrash />
-                </button>
-                <button type="submit">
-                    <FaPaperPlane /> Dispatch Message
-                </button>
-              </form>
-        </Fragment>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="example">Message:</label>
+        <input
+          type="text"
+          name="example"
+          placeholder="Add a message..."
+          onChange={handleChange}
+          value={inputValue}
+        />
+        <button type="button" onClick={resetInput}>
+          <FaTrash />
+        </button>
+        <button type="submit">
+          <FaPaperPlane /> Dispatch Message
+        </button>
+      </form>
+    </Fragment>
   );
 };
 
@@ -153,14 +153,14 @@ MessageForm = connect(
 let Message = ({ message, resetMessage }) => (
   message 
     ? <div>
-                <div>
-                    <FaBell />
-                    {message}
-                </div>
-                <button onClick={resetMessage}>
-                    <FaTimes />
-                </button>
-             </div>
+        <div>
+          <FaBell />
+          {message}
+        </div>
+        <button onClick={resetMessage}>
+          <FaTimes />
+        </button>
+      </div>
     : null
 );
 
@@ -184,9 +184,9 @@ const store = createStore(reducers);
 // stays mounted despite its children changing.
 const App = () => (
   <Provider store={store}>
-        <Message />
-        <MessageForm />
-    </Provider>
+    <Message />
+    <MessageForm />
+  </Provider>
 );
 
 // render the "App" component defined above.

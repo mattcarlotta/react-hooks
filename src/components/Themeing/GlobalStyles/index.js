@@ -20,10 +20,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  * {
-    font-family: "Arial", sans-serif;
-  }
-
   *, ::after, ::before {
     box-sizing: border-box;
   }

@@ -34,23 +34,23 @@ const Select = () => {
 
   return (
     <Fragment>
-            <label htmlFor="components">Select:</label>
-            <select
-                name="components"
-                placeholder="Type something..."
-                onChange={handleChange}
-                value={value.component}
-            >
-                {options.map(value => (
+      <label htmlFor="components">Select:</label>
+      <select
+        name="components"
+        placeholder="Type something..."
+        onChange={handleChange}
+        value={value.component}
+      >
+        {options.map(value => (
           <option key={value} value={value}>
-                          {value}
-                      </option>
+            {value}
+          </option>
         ))}
-            </select>
-            <button onClick={resetValue}>
-              <FaTrash />
-            </button>
-        </Fragment>
+      </select>
+      <button onClick={resetValue}>
+        <FaTrash />
+      </button>
+    </Fragment>
   );
 };
 
