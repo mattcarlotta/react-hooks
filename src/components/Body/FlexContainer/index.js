@@ -5,9 +5,9 @@ const FlexContainer = styled.div`
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   padding: 5px 30px;
-  display: -ms-flexbox;
   width: 100%;
   max-width: 800px;
+  display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
   align-items: center;

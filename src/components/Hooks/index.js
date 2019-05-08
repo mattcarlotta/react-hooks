@@ -3,6 +3,7 @@ export { default as useDragDropHandler } from "./useDragDropHandler";
 export { default as useDynamicEventHandler } from "./useDynamicEventHandler";
 export { default as useDynamicFieldHandler } from "./useDynamicFieldHandler";
 export { default as useEventHandler } from "./useEventHandler";
+export { default as useFetchData } from "./useFetchData";
 export { default as useFieldValidator } from "./useFieldValidator";
 export { default as useFileHandler } from "./useFileHandler";
 export { default as useFormHandler } from "./useFormHandler";

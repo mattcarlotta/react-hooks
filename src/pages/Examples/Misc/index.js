@@ -6,6 +6,7 @@ import {
   ContextExample,
   CounterExample,
   DragNDropExample,
+  FetchDataExample,
   LocalStorageExample,
   ReduxExample,
   TimerExample
@@ -25,6 +26,7 @@ const Misc = () => (
     <LocalStorageExample />
     <ContextExample />
     <ReduxExample />
+    <FetchDataExample />
   </>
 );
 

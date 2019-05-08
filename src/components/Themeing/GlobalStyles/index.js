@@ -8,6 +8,18 @@ const GlobalStyle = createGlobalStyle`
    background-color: ${({ theme }) => theme.bg};
   }
 
+  @keyframes pulse {
+    0% {
+      background-color: #eee;
+    }
+    50% {
+      background-color: #e4e4e4;
+    }
+    100% {
+      background-color: #eee;
+    }
+  }
+
   * {
     font-family: "Arial", sans-serif;
   }

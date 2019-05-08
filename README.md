@@ -14,6 +14,7 @@ styles and themes, and working with CSS flex-boxes across multiplatform devices 
 
 ## Packages Incorporated
 
+- <a href="https://github.com/axios/axios">Axios</a>
 - <a href="https://github.com/sudodoki/copy-to-clipboard">Copy To Clipboard</a>
 - <a href="https://github.com/PrismJS/prism">PrismJS</a>
 - <a href="https://github.com/react-component/tooltip">RC Tooltip</a>
