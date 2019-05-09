@@ -57,7 +57,7 @@ const ReduxExample = ({ inputValue, resetInput, setMessage, updateInput }) => {
         setMessage({ message: inputValue, type: "alert" });
       } else if (!inputValue) {
         setMessage({
-          message: "You need to add a message!",
+          message: "You need to add a message first!",
           type: "warning"
         });
       } else {

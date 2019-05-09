@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../GlobalStyles";
 import { Container } from "../../Body";
-import { Header } from "../../Navigation";
+import { Header, Menu } from "../../Navigation";
 import { Provider, useLocalStorage } from "../../Hooks";
 import { Message } from "../../../containers";
 
@@ -13,7 +13,7 @@ export const lightTheme = {
   base: "#fff",
   accent: "#03a9f3",
   hover: "#0f7ae5",
-  secondary: "#0f7ae5",
+  secondary: "#282c34",
   tertiary: "#282c34" /*1c2022 */,
   alt: "#03a9f3",
   altHover: "#0f7ae5",
@@ -97,6 +97,7 @@ const Theme = ({ children }) => {
         <Header onToggleTheme={toggleTheme} />
         <Container>
           <Provider>{children}</Provider>
+          <Menu />
         </Container>
         <Message />
       </>

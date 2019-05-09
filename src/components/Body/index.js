@@ -3,6 +3,7 @@ export { default as Block } from "./Block";
 export { default as BlockContainer } from "./BlockContainer";
 export { default as Button } from "./Button";
 export { default as Checkbox } from "./Checkbox";
+export { default as ChevronIcon } from "./ChevronIcon";
 export { default as ClickBox } from "./ClickBox";
 export { default as ClickHandler } from "./ClickHandler";
 export { default as Column } from "./Column";

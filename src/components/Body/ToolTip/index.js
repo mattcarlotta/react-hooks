@@ -4,13 +4,13 @@ import ToolTip from "./ToolTip";
 const setArrowColor = ({ placement, theme }) => {
   switch (placement) {
     case "top":
-      return `border-top-color: ${theme.tertiary}`;
+      return `border-top-color: ${theme.accent}`;
     case "bottom":
-      return `border-bottom-color: ${theme.tertiary}`;
+      return `border-bottom-color: ${theme.accent}`;
     case "left":
-      return `border-left-color: ${theme.tertiary}`;
+      return `border-left-color: ${theme.accent}`;
     default:
-      return `border-right-color: ${theme.tertiary}`;
+      return `border-right-color: ${theme.accent}`;
   }
 };
 
@@ -21,8 +21,8 @@ const StyledToolTip = styled(ToolTip)`
     ${props => `${setArrowColor(props)} !important};`}
 
   & .rc-tooltip-inner {
-    color: ${({ theme }) => theme.base};
-    background-color: ${({ theme }) => theme.tertiary};
+    color: #fff;
+    background-color: ${({ theme }) => theme.accent};
     font-size: 16px;
     padding: 8px 16px;
     transition: all 0.2s ease-in-out;

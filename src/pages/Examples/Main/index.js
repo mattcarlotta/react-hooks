@@ -7,7 +7,7 @@ import { Link, NavBlock } from "../../../components/Navigation";
 const Main = ({ match: { url } }) => (
   <>
     <Helmet title="Examples" />
-    <Title>Hook Examples</Title>
+    <Title>Examples</Title>
     <Paragraph>Below are some examples of using React Hooks.</Paragraph>
     <NavBlock>
       <Link to={`${url}/events`}>Event Listeners</Link>

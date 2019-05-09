@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ChevronIcon from "../ChevronIcon";
+import ChevronIcon from "../../ChevronIcon";
 import DisplayOption from "../DisplayOption";
 import SelectionContainer from "../SelectionContainer";
 import SelectText from "../SelectText";
