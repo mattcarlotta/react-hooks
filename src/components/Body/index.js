@@ -40,3 +40,4 @@ export { default as Title } from "./Title";
 export { default as Toggle } from "./Toggle";
 export { default as ToolTip } from "./ToolTip";
 export { default as Uploader } from "./Uploader";
+export { default as Wrapper } from "./Wrapper";

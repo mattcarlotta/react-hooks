@@ -21,9 +21,9 @@ const FormElements = () => (
     </Paragraph>
     <ToggleExample />
     <RadioGroupExample />
+    <SelectExample />
     <SliderExample />
     <InputExample />
-    <SelectExample />
   </>
 );
 
