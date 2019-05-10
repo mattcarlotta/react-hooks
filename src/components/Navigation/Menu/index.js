@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCodeBranch, FaFileCode, FaLandmark } from "react-icons/fa";
+import { FaCodeBranch, FaFileCode, FaMonument } from "react-icons/fa";
 import MenuContainer from "./MenuContainer";
 import SubMenu from "./SubMenu";
 import MenuItem from "./MenuItem";
@@ -9,7 +9,7 @@ const Menu = () => (
     <SubMenu
       title={
         <span>
-          <FaLandmark /> Index
+          <FaMonument /> Index
         </span>
       }
     >
@@ -41,7 +41,7 @@ const Menu = () => (
         </span>
       }
     >
-      <MenuItem to="/examples/misc">Context Persistence</MenuItem>
+      <MenuItem to="/examples/misc">Context</MenuItem>
       <MenuItem to="/examples/misc">Drag and Drop</MenuItem>
       <MenuItem to="/examples/forms">Dynamic Form</MenuItem>
       <MenuItem to="/examples/misc">Fetching Data</MenuItem>
@@ -53,7 +53,7 @@ const Menu = () => (
       <MenuItem to="/examples/forms">Login Form</MenuItem>
       <MenuItem to="/examples/events">Mouse Down</MenuItem>
       <MenuItem to="/examples/forms/elements">Radio Group</MenuItem>
-      <MenuItem to="/examples/misc">Redux Persistence</MenuItem>
+      <MenuItem to="/examples/misc">Redux</MenuItem>
       <MenuItem to="/examples/forms">Registration Form</MenuItem>
       <MenuItem to="/examples/forms/elements">Select</MenuItem>
       <MenuItem to="/examples/forms/elements">Slider</MenuItem>

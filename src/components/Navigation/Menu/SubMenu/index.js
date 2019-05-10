@@ -13,12 +13,13 @@ const StyledSubMenu = styled(SubMenu)`
   -ms-flex-align: center;
   align-items: center;
   transition: all 0.2s ease-in-out;
-  color: ${({ theme }) =>
-    theme.name === "dark" ? theme.accent : theme.secondary};
+  color: ${({ theme }) => (theme.name === "dark" ? theme.accent : "#6d6d6d")};
   cursor: pointer;
   margin-bottom: 10px;
 
   & .sub-menu {
+    text-transform: uppercase;
+    font-weight: bold;
     display: -ms-flexbox;
     display: flex;
     flex-direction: row;
@@ -31,6 +32,7 @@ const StyledSubMenu = styled(SubMenu)`
     align-items: center;
     padding-left: 0px;
     margin: 0px auto 0px 0px;
+    letter-spacing: 1px;
   }
 
   svg {
