@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
 const Column = styled.div`
+  @media (max-width: 576px) {
+    margin-top: ${({ mt }) => (mt ? "175px" : "0")};
+  }
+
+  @media (max-width: 992px) {
+    max-width: ${({ lg }) => lg || "100%"};
+    flex: ${({ lg }) => `0 0 ${lg || "100%"}`};
+  }
+
   -ms-flex-preferred-size: 0;
   flex-basis: 0;
   -ms-flex-positive: 1;

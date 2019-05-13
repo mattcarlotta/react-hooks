@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCodeBranch, FaFileCode, FaMonument } from "react-icons/fa";
+import { FaCodeBranch, FaCode, FaMonument } from "react-icons/fa";
 import MenuContainer from "./MenuContainer";
 import SubMenu from "./SubMenu";
 import MenuItem from "./MenuItem";
@@ -37,7 +37,7 @@ const Menu = () => (
     <SubMenu
       title={
         <span>
-          <FaFileCode /> Examples
+          <FaCode /> Examples
         </span>
       }
     >

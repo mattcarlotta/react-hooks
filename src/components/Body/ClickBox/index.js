@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
 const ClickBox = styled.div`
+  @media (max-width: 576px) {
+    margin-right: 10px;
+  }
+
+  @media (max-width: 768px) {
+    width: 300px;
+  }
+
   cursor: ${({ cursor }) => cursor || "default"};
   color: ${({ theme }) => theme.alt};
   background-color: #fff;

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../GlobalStyles";
-import { Container, Column, Row } from "../../Body";
+import { Container, Column, MenuContainer, Row } from "../../Body";
 import { Header, Menu } from "../../Navigation";
 import { Provider, useLocalStorage } from "../../Hooks";
 import { Message } from "../../../containers";
@@ -86,18 +86,6 @@ export const darkTheme = {
 const Theme = ({ children }) => {
   const [selectedTheme, setTheme] = useLocalStorage("theme", lightTheme);
 
-  const styles = {
-    column2: {
-      height: "calc(100vh - 60px)",
-      position: "fixed",
-      top: "60px",
-      right: "0px",
-      zIndex: "500",
-      width: "100%",
-      background: `${selectedTheme.name === "dark" ? "#1c2022" : "#f5f5f5"}`
-    }
-  };
-
   const toggleTheme = () => {
     setTheme(selectedTheme.name === "dark" ? lightTheme : darkTheme);
   };
@@ -109,12 +97,12 @@ const Theme = ({ children }) => {
         <Header onToggleTheme={toggleTheme} />
         <Container>
           <Row>
-            <Column width="75%">
+            <Column width="75%" mt>
               <Provider>{children}</Provider>
             </Column>
-            <Column style={styles.column2} width="25%">
+            <MenuContainer>
               <Menu />
-            </Column>
+            </MenuContainer>
             <Message />
           </Row>
         </Container>

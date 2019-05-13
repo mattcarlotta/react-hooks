@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 const NavItem = styled.li`
+  @media (max-width: 576px) {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
   display: inline-block;
 `;
 

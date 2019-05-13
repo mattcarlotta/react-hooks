@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 const NavContainer = styled.div`
-  display: -ms-flexbox !important;
-  display: flex !important;
+  @media (max-width: 576px) {
+    display: block;
+  }
+
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-preferred-size: auto;
   flex-basis: auto;
   -ms-flex-preferred-size: 100%;

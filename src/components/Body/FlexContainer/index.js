@@ -12,7 +12,7 @@ const FlexContainer = styled.div`
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-  height: 80px;
+  min-height: 80px;
 
   &:after {
     display: block;
