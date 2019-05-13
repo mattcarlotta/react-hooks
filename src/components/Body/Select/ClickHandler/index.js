@@ -24,13 +24,16 @@ const ClickHandler = ({ children, handleChange, width }) => {
     handleChange(e);
   };
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+  useEffect(
+    () => {
+      document.addEventListener("mousedown", handleClickOutside);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [handleClickOutside]);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    },
+    [handleClickOutside]
+  );
 
   return (
     <InlineBlockContainer width={width} ref={wrapperRef}>

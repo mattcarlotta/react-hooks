@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 const MenuContainer = styled.div`
   @media (max-width: 992px) {
-    max-width: ${({ lg }) => lg || "100%"};
-    flex: ${({ lg }) => `0 0 ${lg || "100%"}`};
+    max-width: 100%;
+    flex: 0 0 100%;
     display: ${({ showMenu }) => (showMenu ? "block" : "none")};
   }
 

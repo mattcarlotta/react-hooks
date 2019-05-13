@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Radio = ({ className, checked, handleChange, name, value }) => (
-  <span className={className}>
+  <div className={className}>
     <input
       type="radio"
       id={value}
@@ -14,7 +14,7 @@ const Radio = ({ className, checked, handleChange, name, value }) => (
     <label className={className} htmlFor={value}>
       {value}
     </label>
-  </span>
+  </div>
 );
 
 Radio.propTypes = {

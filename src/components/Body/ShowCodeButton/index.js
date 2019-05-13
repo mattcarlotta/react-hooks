@@ -7,6 +7,7 @@ const ShowCodeButton = ({ showCode, style, toggleShowCode }) => (
   <ToolTip
     placement="top"
     trigger={["hover"]}
+    align={{ offset: [0, -7] }}
     overlay={<span>{showCode ? "Hide" : "Show"} Source</span>}
   >
     <Button style={style} onClick={toggleShowCode}>

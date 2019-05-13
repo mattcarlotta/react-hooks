@@ -22,7 +22,7 @@ const DisplayData = ({ className, error, photos }) => (
           </p>
           <p className="url">
             <strong>URL: </strong>
-            <a href={url} target="_blank">
+            <a href={url} target="_blank" rel="noopener noreferrer">
               {url}
             </a>
           </p>

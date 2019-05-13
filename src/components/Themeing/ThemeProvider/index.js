@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../GlobalStyles";
-import { Container, Column, MenuContainer, Row } from "../../Body";
+import {
+  Container,
+  Column,
+  MenuContainer,
+  Row,
+  ShowMenuButton
+} from "../../Body";
 import { Header, Menu } from "../../Navigation";
 import { Provider, useLocalStorage } from "../../Hooks";
 import { Message } from "../../../containers";
@@ -85,10 +91,22 @@ export const darkTheme = {
 
 const Theme = ({ children }) => {
   const [selectedTheme, setTheme] = useLocalStorage("theme", lightTheme);
+  const [showMenu, setMenu] = useState(false);
 
-  const toggleTheme = () => {
-    setTheme(selectedTheme.name === "dark" ? lightTheme : darkTheme);
-  };
+  const toggleTheme = useCallback(
+    () => {
+      setTheme(selectedTheme.name === "dark" ? lightTheme : darkTheme);
+    },
+    [selectedTheme.name]
+  );
+
+  const displayMenu = useCallback(() => {
+    setMenu(true);
+  }, []);
+
+  const hideMenu = useCallback(() => {
+    setMenu(false);
+  }, []);
 
   return (
     <ThemeProvider theme={selectedTheme}>
@@ -100,9 +118,13 @@ const Theme = ({ children }) => {
             <Column width="75%" mt>
               <Provider>{children}</Provider>
             </Column>
-            <MenuContainer>
-              <Menu />
+            <MenuContainer showMenu={showMenu}>
+              <Menu hideMenu={hideMenu} />
             </MenuContainer>
+            <ShowMenuButton
+              handleClick={showMenu ? hideMenu : displayMenu}
+              showMenu={showMenu}
+            />
             <Message />
           </Row>
         </Container>

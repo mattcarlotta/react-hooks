@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Column = styled.div`
   @media (max-width: 576px) {
-    margin-top: ${({ mt }) => (mt ? "175px" : "0")};
+    margin-top: ${({ mt }) => (mt ? "85px" : "0")};
   }
 
   @media (max-width: 992px) {

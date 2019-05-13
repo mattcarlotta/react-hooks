@@ -4,7 +4,11 @@ import { FaTrash } from "react-icons/fa";
 import { Button, ToolTip } from "../";
 
 const ResetButton = ({ handleClick, style, text }) => (
-  <ToolTip placement="top" overlay={<span>Reset</span>}>
+  <ToolTip
+    align={{ offset: [0, -7] }}
+    placement="top"
+    overlay={<span>Reset</span>}
+  >
     <Button
       style={{
         marginLeft: "20px",

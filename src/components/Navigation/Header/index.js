@@ -8,9 +8,10 @@ import {
   NavContainer,
   Nav,
   NavItem,
-  NavTitle
-} from "../";
-import { Button, ToolTip } from "../../Body";
+  NavTitle,
+  ThemeButtonContainer
+} from "../index.js";
+import { ToolTip, ThemeButton } from "../../Body";
 
 const Header = ({ onToggleTheme }) => (
   <NavBarContainer>
@@ -38,11 +39,17 @@ const Header = ({ onToggleTheme }) => (
             </Link>
           </NavItem>
         </Nav>
-        <ToolTip placement="left" overlay={<span>Change Theme</span>}>
-          <Button onClick={onToggleTheme}>
-            <FaAdjust style={{ verticalAlign: "middle" }} />
-          </Button>
-        </ToolTip>
+        <ThemeButtonContainer>
+          <ToolTip
+            align={{ offset: [0, 7] }}
+            placement="bottom"
+            overlay={<span>Change Theme</span>}
+          >
+            <ThemeButton onClick={onToggleTheme}>
+              <FaAdjust style={{ verticalAlign: "middle" }} />
+            </ThemeButton>
+          </ToolTip>
+        </ThemeButtonContainer>
       </NavContainer>
     </NavBar>
   </NavBarContainer>

@@ -11,7 +11,7 @@ const SelectionContainer = styled.div`
   cursor: pointer;
   display: inline-block;
   height: 40px;
-  width: ${({ width }) => width || "100%"};
+  width: 100%;
   background-color: white;
   display: flex;
   min-height: 38px;

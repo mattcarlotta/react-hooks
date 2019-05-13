@@ -5,6 +5,7 @@ import {
   Label,
   ResetButton,
   Select,
+  SelectContainer,
   ShowCode,
   ShowCodeButton,
   SubTitle
@@ -23,19 +24,20 @@ const SelectExample = () => {
       <FlexContainer>
         <Example>
           <Label>Select:</Label>
-          <Select
-            name="components"
-            value={values.components}
-            placeholder="Select an option..."
-            handleChange={handleChange}
-            selectOptions={[
-              "React.Component",
-              "React.PureComponent",
-              "React.StatelessComponent",
-              "Pure Functions"
-            ]}
-            width="300px"
-          />
+          <SelectContainer>
+            <Select
+              name="components"
+              value={values.components}
+              placeholder="Select an option..."
+              handleChange={handleChange}
+              selectOptions={[
+                "React.Component",
+                "React.PureComponent",
+                "React.StatelessComponent",
+                "Pure Functions"
+              ]}
+            />
+          </SelectContainer>
           <ResetButton handleClick={resetValue} />
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />

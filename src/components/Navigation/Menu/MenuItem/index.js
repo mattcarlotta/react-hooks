@@ -2,9 +2,14 @@ import styled from "styled-components";
 import MenuItem from "./MenuItem";
 
 const StyledMenuItem = styled(MenuItem)`
+  @media (max-width: 992px) {
+    padding-left: 10px;
+  }
+
   cursor: pointer;
   height: 40px;
   line-height: 40px;
+  letter-spacing: 1px;
 
   a {
     text-decoration: none;

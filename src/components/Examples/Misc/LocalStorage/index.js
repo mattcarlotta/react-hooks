@@ -6,6 +6,7 @@ import {
   ResetButton,
   Row,
   Select,
+  SelectContainer,
   ShowCode,
   ShowCodeButton,
   SubTitle
@@ -42,20 +43,21 @@ const LocalStorageExample = () => {
           <Column width="75%">
             <BlockContainer style={styles.column1}>
               <Label>Shirt:</Label>
-              <Select
-                name="size"
-                value={storedValue.size}
-                placeholder="Select a size..."
-                handleChange={handleChange}
-                selectOptions={[
-                  "Extra Small",
-                  "Small",
-                  "Medium",
-                  "Large",
-                  "Extra Large"
-                ]}
-                width="300px"
-              />
+              <SelectContainer>
+                <Select
+                  name="size"
+                  value={storedValue.size}
+                  placeholder="Select a size..."
+                  handleChange={handleChange}
+                  selectOptions={[
+                    "Extra Small",
+                    "Small",
+                    "Medium",
+                    "Large",
+                    "Extra Large"
+                  ]}
+                />
+              </SelectContainer>
               <ResetButton style={styles.reset} handleClick={resetValue} />
             </BlockContainer>
           </Column>

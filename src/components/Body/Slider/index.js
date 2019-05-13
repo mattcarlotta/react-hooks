@@ -34,7 +34,18 @@ const hoverTrack = () => `
 `;
 
 const StyledSlider = styled(Slider)`
-  width: 400px;
+  @media (min-width: 1px) {
+    width: 200px;
+  }
+
+  @media (min-width: 568px) {
+    width: 300px;
+  }
+
+  @media (min-width: 900px) {
+    width: 400px;
+  }
+
   margin: 0 20px;
   position: relative;
 
@@ -116,6 +127,7 @@ const StyledSlider = styled(Slider)`
   }
 
   & .start,
+  & .middle,
   & .end {
     transform: translateX(-50%);
     position: absolute;
@@ -130,19 +142,15 @@ const StyledSlider = styled(Slider)`
     color: rgba(0, 0, 255, 0.57);
   }
 
+  & .middle {
+    left: 50%;
+    top: 10px;
+    color: rgba(0, 0, 0, 0.57);
+  }
+
   & .end {
     left: 100%;
     color: rgba(255, 0, 0, 0.57);
-  }
-
-  & .filled-bar {
-    top: 14px;
-    left: 0;
-    width: ${({ value }) => `calc(${value * 3.9}px)`};
-    position: absolute;
-    background-color: #03a9f3;
-    border-radius: 4px;
-    height: 4px;
   }
 `;
 

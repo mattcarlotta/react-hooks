@@ -2,6 +2,10 @@ import styled from "styled-components";
 import Input from "./Input";
 
 const StyledInput = styled(Input)`
+  @media (max-width: 768px) {
+    width: 150px;
+  }
+
   display: inline-block;
   height: 40px;
   width: 300px;
