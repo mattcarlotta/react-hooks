@@ -18,36 +18,47 @@ const ShowCode = ({ fileName, showCode }) => {
   const [loadedFile, setLoadedFile] = useState("");
   const [copied, setCopied] = useState(false);
 
-  const handleClick = useCallback(() => {
-    setCopied(true);
-    copy(loadedFile, {
-      format: "text/plain"
-    });
-  }, [loadedFile]);
+  const handleClick = useCallback(
+    () => {
+      setCopied(true);
+      copy(loadedFile, {
+        format: "text/plain"
+      });
+    },
+    [loadedFile]
+  );
 
-  useEffect(() => {
-    if (!showCode) {
-      setCopied(false);
-    }
-  }, [showCode]);
-
-  useLayoutEffect(() => {
-    const setDummyCode = async () => {
-      try {
-        const {
-          default: file
-        } = await import(/* webpackMode: "lazy" */ `../../Code/${fileName}`);
-        setLoadedFile(file);
-      } catch (e) {
-        setLoadedFile(`Error loading file:\n ${e.toString()}`);
+  useEffect(
+    () => {
+      if (!showCode) {
+        setCopied(false);
       }
-    };
-    setDummyCode();
-  }, [fileName]);
+    },
+    [showCode]
+  );
+
+  useLayoutEffect(
+    () => {
+      const setDummyCode = async () => {
+        try {
+          const {
+            default: file
+          } = await import(/* webpackMode: "lazy" */ `../../Code/${fileName}`);
+          setLoadedFile(file);
+        } catch (e) {
+          setLoadedFile(`Error loading file:\n ${e.toString()}`);
+        }
+      };
+      setDummyCode();
+    },
+    [fileName]
+  );
 
   return showCode ? (
     <BlockContainer style={styles.container}>
-      <SyntaxHighlighter language="javascript">{loadedFile}</SyntaxHighlighter>
+      <SyntaxHighlighter height="400px" language="javascript">
+        {loadedFile}
+      </SyntaxHighlighter>
       <CopyButton copied={copied} onClick={handleClick} />
     </BlockContainer>
   ) : null;
