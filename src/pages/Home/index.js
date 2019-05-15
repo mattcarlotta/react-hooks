@@ -2,12 +2,13 @@ import React, { memo } from "react";
 import Helmet from "react-helmet";
 import {
   Code,
+  Headline,
   Paragraph,
   Title,
   SubTitle,
   SyntaxHighlighter
 } from "../../components/Body";
-import { Link } from "../../components/Navigation";
+import { Line, Link } from "../../components/Navigation";
 
 const classInput = `import React, { Fragment, Component } from 'react';
 
@@ -115,6 +116,9 @@ const Input = () => {
 `;
 
 const styles = {
+  line: {
+    marginBottom: 20
+  },
   paragraph: {
     display: "inline-block",
     marginBottom: 0
@@ -131,24 +135,29 @@ const styles = {
 const Home = memo(() => (
   <>
     <Helmet title="Home" />
-    <Title>React Hooks</Title>
+    <Headline>React Hooks</Headline>
+    <Line style={styles.line} />
     <Paragraph>
       Hooks are a new addition in React 16.8. By utilizing functional components
       in combination with hooks, we can have the same React features without
       writing a class!
     </Paragraph>
-    <Paragraph style={{ margin: 0 }}>
+    <Paragraph>
       For example, before hooks, we would have to use classes to achieve a
-      controlled input:
+      controlled input.
+      <SubTitle style={styles.subtitle}>Class Component</SubTitle>
+      <SyntaxHighlighter>{classInput}</SyntaxHighlighter>
     </Paragraph>
-    <SubTitle style={styles.subtitle}>Class Component</SubTitle>
-    <SyntaxHighlighter>{classInput}</SyntaxHighlighter>
-    However, with the addition of hooks, we can achieve the same result, but
-    without a class:
-    <SubTitle style={styles.subtitle}>Functional Component</SubTitle>
-    <SyntaxHighlighter margin="0 0 5px 0">{functionalInput}</SyntaxHighlighter>
-    That's great... Right? But wait,{" "}
-    <strong>what is happening behind the scenes?</strong>
+    <Paragraph>
+      However, with the addition of hooks, we can achieve the same result, but
+      without a class.
+      <SubTitle style={styles.subtitle}>Functional Component</SubTitle>
+      <SyntaxHighlighter margin="0 0 5px 0">
+        {functionalInput}
+      </SyntaxHighlighter>
+      That's great... Right? But wait,{" "}
+      <strong>what is happening behind the scenes?</strong>
+    </Paragraph>
     <Title style={styles.title}>Understanding useState Arrays</Title>
     <Paragraph style={styles.paragraph}>
       Now, we might look at this declaration{" "}
@@ -250,7 +259,7 @@ const Home = memo(() => (
       Nothing. That's it. Just simply utilize this functional{" "}
       <Code>{`<Input />`}</Code> component. In addition, if any other component
       needs to control a string, we can just import and utilize our custom,
-      reuseable <Code>{`useStringValueHandler("");`}</Code> hook. Ouh yeah!
+      reuseable <Code>{`useStringValueHandler("");`}</Code> hook. Ouh rah!
       Painless!
     </Paragraph>
   </>

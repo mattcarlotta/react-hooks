@@ -7,7 +7,7 @@ import Divider from "./Divider";
 import Page from "./Page";
 import Title from "./Title";
 import Link from "./Link";
-import Line from "./Line";
+import Line from "../Line";
 
 const BreadCrumbNavigation = ({ location: { key, pathname } }) => {
   const paths = pathname.split("/").filter(path => path);

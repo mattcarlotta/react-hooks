@@ -4,7 +4,7 @@ import Highlighter from "./Highlighter";
 const StyledHighlighter = styled(Highlighter)`
   color: #ffffff !important;
   background: ${({ theme }) =>
-    theme.name === "light" ? "#191919" : "#2f2c2c"} !important;
+    theme.name === "light" ? "#191919" : "#000"} !important;
   border-radius: 0px !important;
   height: ${({ height }) => height || "auto"};
   width: ${({ width }) => width || "100%"};
@@ -16,7 +16,7 @@ const StyledHighlighter = styled(Highlighter)`
     display: block;
     color: #ffffff !important;
     background: ${({ theme }) =>
-      theme.name === "light" ? "#191919" : "#2f2c2c"} !important;
+      theme.name === "light" ? "#191919" : "#000"} !important;
     padding: 0 !important;
     font-size: 16px !important;
     line-height: 2;

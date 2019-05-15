@@ -1,7 +1,7 @@
 export const themes = {
   dark: {
     name: "dark",
-    bg: "#1c2022",
+    bg: "#121415",
     base: "#353535",
     accent: "#03a9f3",
     hover: "#5a5a5a",
@@ -11,9 +11,9 @@ export const themes = {
     altHover: "#eee",
     button: {
       primary: {
-        color: "#a5a5a5",
+        color: "#a6a6a6",
         bg: "transparent",
-        border: "#a5a5a5",
+        border: "#a6a6a6",
         colorHover: "#e4e4e4",
         bgHover: "transparent",
         borderHover: "#e4e4e4"

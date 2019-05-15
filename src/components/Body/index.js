@@ -19,6 +19,7 @@ export { default as Divider } from "./Divider";
 export { default as DummyLink } from "./DummyLink";
 export { default as Example } from "./Example";
 export { default as Form } from "./Form";
+export { default as Headline } from "./Headline";
 export { default as InlineBlockContainer } from "./InlineBlockContainer";
 export { default as InputContainer } from "./InputContainer";
 export { default as KeyListener } from "./KeyListener";

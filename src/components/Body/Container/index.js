@@ -8,8 +8,6 @@ const Container = styled.div`
   padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
-  color: ${({ theme }) =>
-    theme.name === "dark" ? theme.accent : theme.tertiary};
   padding: 0px 30px;
   margin-bottom: 80px;
   width: ${({ width }) => width || "100%"};

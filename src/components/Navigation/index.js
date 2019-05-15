@@ -1,5 +1,6 @@
 export { default as Breadcrumb } from "./Breadcrumb";
 export { default as Header } from "./Header";
+export { default as Line } from "./Line";
 export { default as Link } from "./Link";
 export { default as Menu } from "./Menu";
 export { default as Nav } from "./Nav";

@@ -6,6 +6,8 @@ const GlobalStyle = createGlobalStyle`
    margin: 0;
    height: 100vh;
    background-color: ${({ theme }) => theme.bg};
+   color: ${({ theme }) =>
+     theme.name === "dark" ? theme.alt : theme.tertiary};
   }
 
   @keyframes pulse {
@@ -23,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   *, ::after, ::before {
     box-sizing: border-box;
   }
-  
+
   ::-webkit-scrollbar{
     width: 0;
   }
