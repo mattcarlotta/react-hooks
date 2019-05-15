@@ -13,6 +13,12 @@ import {
 } from "../index.js";
 import { ToolTip, ThemeButton } from "../../Body";
 
+const navitems = [
+  { to: "/", text: "Home" },
+  { to: "/hooks", text: "Hooks API" },
+  { to: "/examples", text: "Examples" }
+];
+
 const Header = ({ onToggleTheme }) => (
   <NavBarContainer>
     <NavBar>
@@ -23,21 +29,13 @@ const Header = ({ onToggleTheme }) => (
       </NavTitle>
       <NavContainer>
         <Nav>
-          <NavItem>
-            <Link color="primary" to="/">
-              Home
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link color="primary" to="/hooks">
-              Hooks API
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link color="primary" to="/examples">
-              Examples
-            </Link>
-          </NavItem>
+          {navitems.map(({ to, text }) => (
+            <NavItem key={text}>
+              <Link color="primary" to={to}>
+                {text}
+              </Link>
+            </NavItem>
+          ))}
         </Nav>
         <ButtonContainer top="5px" left="45px">
           <ToolTip

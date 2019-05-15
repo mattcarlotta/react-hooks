@@ -15,6 +15,7 @@ import {
   ShowCodeButton,
   SubTitle
 } from "../../../Body";
+import { AnchorLink } from "../../../Navigation";
 import { useToggle } from "../../../Hooks";
 import { setMessage } from "../../../../actions/messageActions";
 import { resetInput, updateInput } from "../../../../actions/inputActions";
@@ -40,7 +41,13 @@ const styles = {
   }
 };
 
-const ReduxExample = ({ inputValue, resetInput, setMessage, updateInput }) => {
+const ReduxExample = ({
+  innerRef,
+  inputValue,
+  resetInput,
+  setMessage,
+  updateInput
+}) => {
   const [showCode, toggleShowCode] = useToggle(false);
 
   const handleChange = useCallback(
@@ -73,7 +80,10 @@ const ReduxExample = ({ inputValue, resetInput, setMessage, updateInput }) => {
 
   return (
     <>
-      <SubTitle>Redux Persistence</SubTitle>
+      <SubTitle ref={innerRef}>
+        <AnchorLink to="/examples/misc#reduxpersistence" />
+        Redux Persistence
+      </SubTitle>
       <BlockContainer>
         <Row>
           <Column width="75%">
@@ -112,6 +122,7 @@ const ReduxExample = ({ inputValue, resetInput, setMessage, updateInput }) => {
 };
 
 ReduxExample.propTypes = {
+  innerRef: PropTypes.func.isRequired,
   inputValue: PropTypes.string,
   resetInput: PropTypes.func.isRequired,
   setMessage: PropTypes.func.isRequired,

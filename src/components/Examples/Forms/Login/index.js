@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   BlockContainer,
   Button,
@@ -13,6 +14,7 @@ import {
   ShowCodeButton,
   SubTitle
 } from "../../../Body";
+import { AnchorLink } from "../../../Navigation";
 import { useFormHandler, useToggle } from "../../../Hooks";
 
 const styles = {
@@ -44,7 +46,7 @@ const styles = {
   }
 };
 
-const LoginExample = () => {
+const LoginExample = ({ innerRef }) => {
   const { values, handleChange } = useFormHandler({
     username: "",
     password: ""
@@ -60,7 +62,10 @@ const LoginExample = () => {
 
   return (
     <>
-      <SubTitle>Login Form</SubTitle>
+      <SubTitle ref={innerRef}>
+        <AnchorLink to="/examples/forms#loginform" />
+        Login Form
+      </SubTitle>
       <BlockContainer>
         <Row>
           <Column width="75%">
@@ -108,6 +113,10 @@ const LoginExample = () => {
       <ShowCode showCode={showCode} fileName="Forms/Login.js" />
     </>
   );
+};
+
+LoginExample.propTypes = {
+  innerRef: PropTypes.func.isRequired
 };
 
 export default LoginExample;

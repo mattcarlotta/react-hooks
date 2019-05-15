@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   ClickBox,
   ClickHandler,
@@ -8,14 +9,18 @@ import {
   ShowCodeButton,
   SubTitle
 } from "../../../Body";
+import { AnchorLink } from "../../../Navigation";
 import { useToggle } from "../../../Hooks";
 
-const MousedownExample = () => {
+const MousedownExample = ({ innerRef }) => {
   const [showCode, toggleShowCode] = useToggle(false);
 
   return (
     <>
-      <SubTitle>Mouse Down</SubTitle>
+      <SubTitle ref={innerRef}>
+        <AnchorLink to="/examples/events#mousedown" />
+        Mouse Down
+      </SubTitle>
       <FlexContainer>
         <Example>
           <ClickHandler>
@@ -27,6 +32,10 @@ const MousedownExample = () => {
       <ShowCode showCode={showCode} fileName="EventListeners/Mousedown.js" />
     </>
   );
+};
+
+MousedownExample.propTypes = {
+  innerRef: PropTypes.func.isRequired
 };
 
 export default MousedownExample;

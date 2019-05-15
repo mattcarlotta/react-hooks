@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   Checkbox,
   Divider,
@@ -10,16 +11,20 @@ import {
   SubTitle,
   Toggle
 } from "../../../Body";
+import { AnchorLink } from "../../../Navigation";
 import { useToggle } from "../../../Hooks";
 
-const ToggleExample = () => {
+const ToggleExample = ({ innerRef }) => {
   const [toggleState, toggleSwitch] = useToggle(false);
   const [checkboxState, setCheckboxState] = useToggle(false);
   const [showCode, toggleShowCode] = useToggle(false);
 
   return (
     <>
-      <SubTitle>Toggle</SubTitle>
+      <SubTitle ref={innerRef}>
+        <AnchorLink to="/examples/forms/elements/#toggle" />
+        Toggle
+      </SubTitle>
       <FlexContainer>
         <Example>
           <Label>Switch:</Label>
@@ -37,6 +42,10 @@ const ToggleExample = () => {
       <ShowCode showCode={showCode} fileName="Forms/Toggle.js" />
     </>
   );
+};
+
+ToggleExample.propTypes = {
+  innerRef: PropTypes.func.isRequired
 };
 
 export default ToggleExample;

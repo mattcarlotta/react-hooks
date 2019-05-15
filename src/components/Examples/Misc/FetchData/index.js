@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { FaRedoAlt } from "react-icons/fa";
 import {
   BlockContainer,
@@ -12,6 +13,7 @@ import {
   ShowCodeButton,
   SubTitle
 } from "../../../Body";
+import { AnchorLink } from "../../../Navigation";
 import { useFetchData, useToggle } from "../../../Hooks";
 
 const styles = {
@@ -36,19 +38,25 @@ const styles = {
   }
 };
 
-const FetchDataExample = () => {
+const FetchDataExample = ({ innerRef }) => {
   const { data, fetchData, refreshData } = useFetchData();
   const [showCode, toggleShowCode] = useToggle(false);
 
-  useEffect(() => {
-    if (data.isLoading) {
-      fetchData();
-    }
-  }, [data.isLoading, fetchData]);
+  useEffect(
+    () => {
+      if (data.isLoading) {
+        fetchData();
+      }
+    },
+    [data.isLoading, fetchData]
+  );
 
   return (
     <>
-      <SubTitle>Fetching and Updating Data</SubTitle>
+      <SubTitle ref={innerRef}>
+        <AnchorLink to="/examples/misc#fetchingandupdatingdata" />
+        Fetching and Updating Data
+      </SubTitle>
       <BlockContainer>
         <Row>
           <Column width="75%">
@@ -81,6 +89,10 @@ const FetchDataExample = () => {
       <ShowCode showCode={showCode} fileName="Misc/FetchData.js" />
     </>
   );
+};
+
+FetchDataExample.propTypes = {
+  innerRef: PropTypes.func.isRequired
 };
 
 export default FetchDataExample;

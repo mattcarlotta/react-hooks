@@ -1,3 +1,4 @@
+export { default as AnchorLink } from "./AnchorLink";
 export { default as Breadcrumb } from "./Breadcrumb";
 export { default as ButtonContainer } from "./ButtonContainer";
 export { default as Header } from "./Header";

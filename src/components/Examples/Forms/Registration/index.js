@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FaUserPlus } from "react-icons/fa";
 import {
   BlockContainer,
@@ -15,6 +16,7 @@ import {
   SubTitle,
   Toggle
 } from "../../../Body";
+import { AnchorLink } from "../../../Navigation";
 import { useFormHandler, useToggle } from "../../../Hooks";
 
 const styles = {
@@ -92,7 +94,7 @@ const inputFields = [
 
 const options = ["Residential", "Business"];
 
-const RegistrationExample = () => {
+const RegistrationExample = ({ innerRef }) => {
   const { values, handleChange } = useFormHandler({
     email: "",
     password: "",
@@ -116,7 +118,10 @@ const RegistrationExample = () => {
 
   return (
     <>
-      <SubTitle>Registration Form</SubTitle>
+      <SubTitle ref={innerRef}>
+        <AnchorLink to="/examples/forms#registrationform" />
+        Registration Form
+      </SubTitle>
       <BlockContainer>
         <Row>
           <Column width="75%">
@@ -177,6 +182,10 @@ const RegistrationExample = () => {
       <ShowCode showCode={showCode} fileName="Forms/Registration.js" />
     </>
   );
+};
+
+RegistrationExample.propTypes = {
+  innerRef: PropTypes.func.isRequired
 };
 
 export default RegistrationExample;

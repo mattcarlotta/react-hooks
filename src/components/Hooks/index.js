@@ -10,5 +10,6 @@ export { default as useFormHandler } from "./useFormHandler";
 export { default as useLocalEventStorage } from "./useLocalEventStorage";
 export { default as useLocalStorage } from "./useLocalStorage";
 export { default as useProvider, Provider } from "./useProvider";
+export { default as useScroll } from "./useScroll";
 export { default as useTimer } from "./useTimer";
 export { default as useToggle } from "./useToggle";

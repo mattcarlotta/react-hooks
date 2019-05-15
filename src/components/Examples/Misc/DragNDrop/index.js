@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   BlockContainer,
   Button,
@@ -9,6 +10,7 @@ import {
   ShowCodeButton,
   SubTitle
 } from "../../../Body";
+import { AnchorLink } from "../../../Navigation";
 import { useDragDropHandler, useToggle } from "../../../Hooks";
 
 const styles = {
@@ -76,14 +78,17 @@ const initialData = {
   }
 };
 
-const DragNDropExample = () => {
+const DragNDropExample = ({ innerRef }) => {
   const { values, handleChange, resetValues } = useDragDropHandler(initialData);
 
   const [showCode, toggleShowCode] = useToggle(false);
 
   return (
     <>
-      <SubTitle>Drag and Drop</SubTitle>
+      <SubTitle ref={innerRef}>
+        <AnchorLink to="/examples/misc#draganddrop" />
+        Drag and Drop
+      </SubTitle>
       <BlockContainer>
         <Row>
           <Column width="75%">
@@ -110,6 +115,10 @@ const DragNDropExample = () => {
       <ShowCode showCode={showCode} fileName="Misc/DragNDrop.js" />
     </>
   );
+};
+
+DragNDropExample.propTypes = {
+  innerRef: PropTypes.func.isRequired
 };
 
 export default DragNDropExample;

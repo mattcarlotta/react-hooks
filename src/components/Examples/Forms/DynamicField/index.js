@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { MdAdd } from "react-icons/md";
 import {
   AddField,
@@ -12,6 +13,7 @@ import {
   ShowCodeButton,
   SubTitle
 } from "../../../Body";
+import { AnchorLink } from "../../../Navigation";
 import { useDynamicFieldHandler, useToggle } from "../../../Hooks";
 import { createRandomString } from "../../../../utils/helpers";
 
@@ -46,7 +48,7 @@ const styles = {
   }
 };
 
-const DynamicFieldExample = () => {
+const DynamicFieldExample = ({ innerRef }) => {
   const {
     addField,
     deleteField,
@@ -72,7 +74,10 @@ const DynamicFieldExample = () => {
 
   return (
     <>
-      <SubTitle>Dynamic Fields Form</SubTitle>
+      <SubTitle ref={innerRef}>
+        <AnchorLink to="/examples/forms#dynamicfieldsform" />
+        Dynamic Fields Form
+      </SubTitle>
       <BlockContainer>
         <Row>
           <Column width="75%">
@@ -102,6 +107,10 @@ const DynamicFieldExample = () => {
       <ShowCode showCode={showCode} fileName="Forms/DynamicField.js" />
     </>
   );
+};
+
+DynamicFieldExample.propTypes = {
+  innerRef: PropTypes.func.isRequired
 };
 
 export default DynamicFieldExample;

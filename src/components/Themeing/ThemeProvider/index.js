@@ -36,7 +36,7 @@ const Theme = ({ children }) => {
   }, []);
 
   return (
-    <ThemeProvider theme={themes[selectedTheme.name || "dark"]}>
+    <ThemeProvider theme={themes[selectedTheme.name || "light"]}>
       <>
         <GlobalStyles />
         <Header onToggleTheme={toggleTheme} />

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import {
   BlockContainer,
@@ -14,6 +15,7 @@ import {
   ShowCodeButton,
   SubTitle
 } from "../../../Body";
+import { AnchorLink } from "../../../Navigation";
 import { useFieldValidator, useToggle } from "../../../Hooks";
 
 const styles = {
@@ -46,7 +48,7 @@ const fields = [
   { fieldName: "phone", value: "", error: "" }
 ];
 
-const ValidationExample = () => {
+const ValidationExample = ({ innerRef }) => {
   const { values, handleChange, handleSubmit, resetValues } = useFieldValidator(
     {
       fields
@@ -56,7 +58,10 @@ const ValidationExample = () => {
 
   return (
     <>
-      <SubTitle>Field Validation</SubTitle>
+      <SubTitle ref={innerRef}>
+        <AnchorLink to="/examples/forms#fieldvalidation" />
+        Field Validation
+      </SubTitle>
       <BlockContainer>
         <Row>
           <Column width="75%">
@@ -101,6 +106,10 @@ const ValidationExample = () => {
       <ShowCode showCode={showCode} fileName="Forms/Validation.js" />
     </>
   );
+};
+
+ValidationExample.propTypes = {
+  innerRef: PropTypes.func.isRequired
 };
 
 export default ValidationExample;

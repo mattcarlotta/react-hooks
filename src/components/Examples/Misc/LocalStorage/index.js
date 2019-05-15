@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   BlockContainer,
   Column,
@@ -11,6 +12,7 @@ import {
   ShowCodeButton,
   SubTitle
 } from "../../../Body";
+import { AnchorLink } from "../../../Navigation";
 import { useLocalEventStorage, useToggle } from "../../../Hooks";
 
 const styles = {
@@ -25,7 +27,7 @@ const styles = {
   }
 };
 
-const LocalStorageExample = () => {
+const LocalStorageExample = ({ innerRef }) => {
   const { handleChange, resetValue, storedValue } = useLocalEventStorage(
     "size",
     {
@@ -37,7 +39,10 @@ const LocalStorageExample = () => {
 
   return (
     <>
-      <SubTitle>Local Storage Persistence</SubTitle>
+      <SubTitle ref={innerRef}>
+        <AnchorLink to="/examples/misc#localstoragepersistence" />
+        Local Storage Persistence
+      </SubTitle>
       <BlockContainer>
         <Row>
           <Column width="75%">
@@ -73,6 +78,10 @@ const LocalStorageExample = () => {
       <ShowCode showCode={showCode} fileName="Misc/LocalStorage.js" />
     </>
   );
+};
+
+LocalStorageExample.propTypes = {
+  innerRef: PropTypes.func.isRequired
 };
 
 export default LocalStorageExample;
