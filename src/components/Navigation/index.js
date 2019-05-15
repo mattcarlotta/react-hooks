@@ -1,4 +1,5 @@
 export { default as Breadcrumb } from "./Breadcrumb";
+export { default as ButtonContainer } from "./ButtonContainer";
 export { default as Header } from "./Header";
 export { default as Line } from "./Line";
 export { default as Link } from "./Link";
@@ -10,4 +11,3 @@ export { default as NavBlock } from "./NavBlock";
 export { default as NavContainer } from "./NavContainer";
 export { default as NavItem } from "./NavItem";
 export { default as NavTitle } from "./NavTitle";
-export { default as ThemeButtonContainer } from "./ThemeButtonContainer";

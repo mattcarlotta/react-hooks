@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const NavTitle = styled.div`
-  @media (max-width: 576px) {
+  @media (max-width: 725px) {
     display: block;
     width: 100%;
     margin-bottom: 20px;

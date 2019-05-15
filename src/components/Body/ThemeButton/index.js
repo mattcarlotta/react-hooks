@@ -16,6 +16,11 @@ const StyledThemeButton = styled(ThemeButton)`
   border-color: ${({ theme }) =>
     theme.name === "light" ? theme.accent : "transparent"};
 
+  a,
+  button {
+    height: 40px;
+  }
+
   &:hover {
     color: ${({ theme }) => theme.altHover};
     background-color: ${({ theme }) =>

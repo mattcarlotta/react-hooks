@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const NavBar = styled.nav`
-  @media (max-width: 576px) {
+  @media (max-width: 725px) {
     text-align: center;
     display: block;
   }
