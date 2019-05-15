@@ -1,6 +1,6 @@
 ## React Hooks Guide
 
-![Kve4dT0](https://i.imgur.com/Kve4dT0.png)
+![FudrZ2G](https://i.imgur.com/FudrZ2G.png)
 
 ## Synopsis
 
