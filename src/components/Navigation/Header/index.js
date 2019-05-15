@@ -74,7 +74,7 @@ const Header = ({ onToggleTheme }) => (
           >
             <ThemeButton
               as="a"
-              href="https://codesandbox.io/s/2vxo7o870j"
+              href="https://codesandbox.io/s/github/mattcarlotta/react-hooks/tree/master/"
               target="_blank"
               rel="noopener noreferrer"
             >
