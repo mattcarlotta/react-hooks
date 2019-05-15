@@ -6,6 +6,8 @@ const StyledHighlighter = styled(Highlighter)`
   background: ${({ theme }) =>
     theme.name === "light" ? "#191919" : "#000"} !important;
   border-radius: 0px !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
   height: ${({ height }) => height || "auto"};
   width: ${({ width }) => width || "100%"};
   max-width: 800px;
@@ -15,6 +17,8 @@ const StyledHighlighter = styled(Highlighter)`
   code {
     display: block;
     color: #ffffff !important;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
     background: ${({ theme }) =>
       theme.name === "light" ? "#191919" : "#000"} !important;
     padding: 0 !important;

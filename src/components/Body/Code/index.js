@@ -7,11 +7,13 @@ const StyledCode = styled(Code)`
   display: inline-block;
   padding: 0 5px !important;
   vertical-align: middle;
-  word-break: break-all !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
 
   code {
-    word-break: break-all !important;
     display: block;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
     color: #ffffff !important;
     border-radius: 4px !important;
     background: ${({ theme }) =>
