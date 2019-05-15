@@ -115,6 +115,16 @@ const Input = () => {
 
 `;
 
+const returnInput = `return (
+  <input type="text" value={value} onChange={handleChange} />
+);
+`;
+
+const inlineFunction = `return (
+  <input type="text" value={value} onChange={({ target: { value }}) => setInputValue(value)} />
+);
+`;
+
 const styles = {
   line: {
     marginBottom: 20
@@ -191,18 +201,22 @@ const Home = memo(() => (
       should define <Code>{`value`}</Code> and <Code>{`setInputValue();`}</Code>{" "}
       within a function's scope (Input's scope). Then, we'll define a{" "}
       <Code>{`handleChange();`}</Code> function that will deconstruct{" "}
-      <Code>{`event.target.value`}</Code> and then pass it to{" "}
+      <Code>{`event.target.value`}</Code> and pass it to{" "}
       <Code>{`setInputValue(value);`}</Code>. Lastly, we can implement them into
-      a function's return statement: <br />
-      <Code margin="10px 0 20px 0">{`return (<input type="text" value={value} onChange={handleChange} />);`}</Code>
-      .
-      <br />
+      a function's return statement:
+      <Paragraph>
+        <SyntaxHighlighter margin="10px 0 20px 0">
+          {returnInput}
+        </SyntaxHighlighter>
+      </Paragraph>
       But wait... hold up! Why... why don't we just define{" "}
       <Code>{`handleChange();`}</Code> inline? Doesn't this work too!?
-      <br />
-      <Code margin="0 0 20px 0">{`onChange={({ target: { value }}) => setInputValue(value)}`}</Code>
-      <br />
-      <strong>Yes.</strong> we can do this and it is supported. However, by
+      <Paragraph style={{ marginTop: 20 }}>
+        <SyntaxHighlighter margin="0 0 20px 0">
+          {inlineFunction}
+        </SyntaxHighlighter>
+      </Paragraph>
+      <strong>Yes.</strong> We can do this and it is supported. However, by
       defining this function inline, React sees this inline function as an
       anonymous function. Therefore, each time <Code>{`value`}</Code> is updated
       by <Code>{`setInputValue();`}</Code> and the component is rerendered, this
@@ -252,15 +266,21 @@ const Home = memo(() => (
       Wow, that's pretty cool! We have a <Code>{`value`}</Code>, a performant
       way to update and reset this value via <Code>{`handleChange();`}</Code>{" "}
       and <Code>{`resetValue();`}</Code> functions, <strong>and</strong> a
-      reuseable <Code>{`useStringValueHandler("");`}</Code> hook.{" "}
+      reuseable <Code>{`useStringValueHandler("");`}</Code> hook.
+    </Paragraph>
+    <Paragraph>
       <strong>What's next!?</strong>
     </Paragraph>
     <Paragraph>
       Nothing. That's it. Just simply utilize this functional{" "}
       <Code>{`<Input />`}</Code> component. In addition, if any other component
       needs to control a string, we can just import and utilize our custom,
-      reuseable <Code>{`useStringValueHandler("");`}</Code> hook. Ouh rah!
-      Painless!
+      reuseable <Code>{`useStringValueHandler("");`}</Code> hook. Simple,
+      adaptable and painless! Check out the live{" "}
+      <Link style={{ marginRight: "5px" }} to="/examples/forms/elements">
+        Input
+      </Link>
+      example!
     </Paragraph>
   </>
 ));

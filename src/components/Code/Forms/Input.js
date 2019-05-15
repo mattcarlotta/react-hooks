@@ -1,8 +1,8 @@
 export default `import React, { Fragment, useCallback, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 
-// create a custom event handler hook that returns an initial value, 
-// a callback function to update the value and another callback 
+// create a custom event handler hook that returns an initial value,
+// a callback function to update the value and another callback
 // function to reset the value.
 const useEventHandler = initialValue => {
   const [value, setValue] = useState(initialValue);
@@ -10,7 +10,7 @@ const useEventHandler = initialValue => {
     ({ target: { value } }) => setValue(value),
     []
   );
-  const resetValue = useCallback(() => setValue(""), []);
+  const resetValue = useCallback(() => setValue(initialValue), [initialValue]);
 
   return {
     value,
