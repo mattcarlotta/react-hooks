@@ -199,8 +199,8 @@ const Home = memo(() => (
       Great! We have a value and a way to update the value. But how do we
       implement them into a <strong>functional</strong> component? First, we
       should define <Code>{`value`}</Code> and <Code>{`setInputValue();`}</Code>{" "}
-      within a function's scope (Input's scope). Then, we'll define a{" "}
-      <Code>{`handleChange();`}</Code> function that will deconstruct{" "}
+      within a function's scope (for example, within Input's scope). Then, we'll
+      define a <Code>{`handleChange();`}</Code> function that will deconstruct{" "}
       <Code>{`event.target.value`}</Code> and pass it to{" "}
       <Code>{`setInputValue(value);`}</Code>. Lastly, we can implement them into
       a function's return statement:
@@ -254,12 +254,16 @@ const Home = memo(() => (
       The great thing about hooks is that state no longer has to be statically
       and explicitly declared within a component. Instead, it can be a reuseable
       function! Meaning, we can create a reuseable custom hook...
-      <SyntaxHighlighter margin="0">{customHook}</SyntaxHighlighter>
+      <Paragraph style={{ marginTop: 30 }}>
+        <SyntaxHighlighter margin="0">{customHook}</SyntaxHighlighter>
+      </Paragraph>
       that returns an object <Code>{`{}`}</Code> with three properties. A{" "}
       <Code>{`value`}</Code>, a <Code>{`handleChange();`}</Code> function, and a{" "}
       <Code>{`resetValue();`}</Code> function that can be used to update the
       input's string <Code>{`""`}</Code> value:
-      <SyntaxHighlighter margin="0">{reuseableHook}</SyntaxHighlighter>
+      <Paragraph style={{ marginTop: 30 }}>
+        <SyntaxHighlighter margin="0">{reuseableHook}</SyntaxHighlighter>
+      </Paragraph>
     </Paragraph>
     <Title style={styles.title}>Putting the pieces together</Title>
     <Paragraph>
@@ -277,7 +281,7 @@ const Home = memo(() => (
       needs to control a string, we can just import and utilize our custom,
       reuseable <Code>{`useStringValueHandler("");`}</Code> hook. Simple,
       adaptable and painless! Check out the live{" "}
-      <Link style={{ marginRight: "5px" }} to="/examples/forms/elements">
+      <Link style={{ marginRight: "5px" }} to="/examples/forms/elements#input">
         Input
       </Link>
       example!

@@ -22,7 +22,7 @@ const ToggleExample = ({ innerRef }) => {
   return (
     <>
       <SubTitle ref={innerRef}>
-        <AnchorLink to="/examples/forms/elements/#toggle" />
+        <AnchorLink to="/examples/forms/elements#toggle" />
         Toggle
       </SubTitle>
       <FlexContainer>

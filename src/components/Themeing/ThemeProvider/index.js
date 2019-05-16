@@ -1,14 +1,8 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../GlobalStyles";
-import {
-  Container,
-  Column,
-  MenuContainer,
-  Row,
-  ShowMenuButton
-} from "../../Body";
+import { Container, Column, Row, ScrollIntoView } from "../../Body";
 import { Header, Menu } from "../../Navigation";
 import { Provider, useLocalStorage } from "../../Hooks";
 import { Message } from "../../../containers";
@@ -16,7 +10,6 @@ import { themes } from "../Themes";
 
 const Theme = ({ children }) => {
   const [selectedTheme, setTheme] = useLocalStorage("theme", { name: "light" });
-  const [showMenu, setMenu] = useState(false);
 
   const toggleTheme = useCallback(
     () => {
@@ -27,14 +20,6 @@ const Theme = ({ children }) => {
     [selectedTheme.name]
   );
 
-  const displayMenu = useCallback(() => {
-    setMenu(true);
-  }, []);
-
-  const hideMenu = useCallback(() => {
-    setMenu(false);
-  }, []);
-
   return (
     <ThemeProvider theme={themes[selectedTheme.name || "light"]}>
       <>
@@ -43,15 +28,11 @@ const Theme = ({ children }) => {
         <Container>
           <Row>
             <Column width="75%" mt>
-              <Provider>{children}</Provider>
+              <ScrollIntoView>
+                <Provider>{children}</Provider>
+              </ScrollIntoView>
             </Column>
-            <MenuContainer showMenu={showMenu}>
-              <Menu hideMenu={hideMenu} />
-            </MenuContainer>
-            <ShowMenuButton
-              handleClick={showMenu ? hideMenu : displayMenu}
-              showMenu={showMenu}
-            />
+            <Menu />
             <Message />
           </Row>
         </Container>

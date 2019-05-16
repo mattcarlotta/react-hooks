@@ -23,7 +23,7 @@ const RadioGroupExample = ({ innerRef }) => {
   return (
     <>
       <SubTitle ref={innerRef}>
-        <AnchorLink to="/examples/forms/elements/#radiogroup" />
+        <AnchorLink to="/examples/forms/elements#radiogroup" />
         Radio Group
       </SubTitle>
       <FlexContainer>

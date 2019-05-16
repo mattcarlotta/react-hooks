@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const useScroll = hash => {
   const [ref, setRef] = useState({ node: null, text: "" });
   const scrollRef = useCallback(node => {
-    if (node !== null) {
+    if (node) {
       const text = node.textContent
         ? node.textContent.toLowerCase().replace(/\s/g, "")
         : "";

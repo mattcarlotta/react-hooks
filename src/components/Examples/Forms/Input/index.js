@@ -20,7 +20,7 @@ const InputExample = ({ innerRef }) => {
   return (
     <>
       <SubTitle ref={innerRef}>
-        <AnchorLink to="/examples/forms/elements/#input" />
+        <AnchorLink to="/examples/forms/elements#input" />
         Input
       </SubTitle>
       <FlexContainer>

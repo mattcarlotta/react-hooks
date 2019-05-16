@@ -23,7 +23,7 @@ const SelectExample = ({ innerRef }) => {
   return (
     <>
       <SubTitle ref={innerRef}>
-        <AnchorLink to="/examples/forms/elements/#select" />
+        <AnchorLink to="/examples/forms/elements#select" />
         Select
       </SubTitle>
       <FlexContainer>

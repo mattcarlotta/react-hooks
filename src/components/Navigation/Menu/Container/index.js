@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const MenuContainer = styled.div`
+const Container = styled.div`
   @media (max-width: 992px) {
     max-width: 100%;
     flex: 0 0 100%;
@@ -23,4 +23,4 @@ const MenuContainer = styled.div`
   align-self: ${({ align }) => align || "auto"};
 `;
 
-export default MenuContainer;
+export default Container;

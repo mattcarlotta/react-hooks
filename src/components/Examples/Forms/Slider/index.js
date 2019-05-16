@@ -21,7 +21,7 @@ const SliderExample = ({ innerRef }) => {
   return (
     <>
       <SubTitle ref={innerRef}>
-        <AnchorLink to="/examples/forms/elements/#slider" />
+        <AnchorLink to="/examples/forms/elements#slider" />
         Slider
       </SubTitle>
       <FlexContainer>

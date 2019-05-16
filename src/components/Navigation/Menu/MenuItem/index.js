@@ -6,7 +6,6 @@ const StyledMenuItem = styled(MenuItem)`
     padding-left: 10px;
   }
 
-  cursor: pointer;
   height: 40px;
   line-height: 40px;
   letter-spacing: 1px;

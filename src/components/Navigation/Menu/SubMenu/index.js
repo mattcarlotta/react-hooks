@@ -14,10 +14,10 @@ const StyledSubMenu = styled(SubMenu)`
   align-items: center;
   transition: all 0.2s ease-in-out;
   color: ${({ theme }) => (theme.name === "dark" ? theme.accent : "#6d6d6d")};
-  cursor: pointer;
   margin-bottom: 10px;
 
   & .sub-menu {
+    cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
     display: -ms-flexbox;

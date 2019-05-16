@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const MenuContainer = styled.ul`
-  @media (max-width: 576px) {
+  @media (max-width: 725px) {
     margin-top: 40px;
   }
 
