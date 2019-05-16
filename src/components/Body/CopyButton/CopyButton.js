@@ -3,17 +3,19 @@ import PropTypes from "prop-types";
 import { FaClipboard, FaClipboardCheck } from "react-icons/fa";
 
 const CopyButton = ({ className, copied, ...rest }) => (
-  <button {...rest} className={className} type="button">
-    {!copied ? (
-      <>
-        <FaClipboard /> Copy
-      </>
-    ) : (
-      <>
-        <FaClipboardCheck /> Copied
-      </>
-    )}
-  </button>
+  <div className={className}>
+    <button {...rest} className="copy-button" type="button">
+      {!copied ? (
+        <>
+          <FaClipboard /> Copy
+        </>
+      ) : (
+        <>
+          <FaClipboardCheck /> Copied
+        </>
+      )}
+    </button>
+  </div>
 );
 
 CopyButton.propTypes = {
