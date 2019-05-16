@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import CopyButton from "./CopyButton";
 
 const StyledCopyButton = styled(CopyButton)`
@@ -13,25 +13,6 @@ const StyledCopyButton = styled(CopyButton)`
     margin-bottom: 10px;
     border-radius: 4px;
     border: 1px solid transparent;
-
-    ${({ state }) =>
-      state &&
-      ((state === "entering" &&
-        css`
-          visibility: visible;
-        `) ||
-        (state === "entered" &&
-          css`
-            visibility: visible;
-          `) ||
-        (state === "exiting" &&
-          css`
-            visibility: hidden;
-          `) ||
-        (state === "exited" &&
-          css`
-            visibility: hidden;
-          `))}
 
     &:focus {
       outline: none;

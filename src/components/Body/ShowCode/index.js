@@ -65,7 +65,7 @@ const ShowCode = ({ fileName, showCode }) => {
           <SyntaxHighlighter state={state} height="400px" language="javascript">
             {loadedFile}
           </SyntaxHighlighter>
-          <CopyButton state={state} copied={copied} onClick={handleClick} />
+          <CopyButton copied={copied} onClick={handleClick} />
         </Container>
       )}
     </Transition>

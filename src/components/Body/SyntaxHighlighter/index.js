@@ -13,7 +13,7 @@ const StyledHighlighter = styled(Highlighter)`
   max-width: 800px;
   overflow-y: auto;
   margin: ${({ margin }) => margin || "0 0 20px 0"} !important;
-  transition: height 350ms ease-in-out;
+  transition: height 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   ${({ state }) =>
     state &&
@@ -21,27 +21,21 @@ const StyledHighlighter = styled(Highlighter)`
       css`
         min-height: 0px;
         height: ${({ height }) => height || "auto"};
-        transition-duration: 300ms;
       `) ||
       (state === "entered" &&
         css`
           min-height: 0px;
           height: ${({ height }) => height || "auto"};
-          transition-duration: 300ms;
         `) ||
       (state === "exiting" &&
         css`
           min-height: 0px;
           height: 0px;
-          visibility: hidden;
-          transition-duration: 300ms;
         `) ||
       (state === "exited" &&
         css`
           min-height: 0px;
           height: 0px;
-          visibility: hidden;
-          transition-duration: 300ms;
         `))}
 
   code {

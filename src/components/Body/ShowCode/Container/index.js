@@ -14,25 +14,25 @@ const Container = styled.div`
       css`
         min-height: 0px;
         height: 485px;
-        transition-duration: 300ms;
+        overflow: visible;
       `) ||
       (state === "entered" &&
         css`
           min-height: 0px;
           height: 485px;
-          transition-duration: 300ms;
+          overflow: visible;
         `) ||
       (state === "exiting" &&
         css`
           min-height: 0px;
           height: 0px;
-          transition-duration: 300ms;
+          overflow: hidden;
         `) ||
       (state === "exited" &&
         css`
           min-height: 0px;
           height: 0px;
-          transition-duration: 300ms;
+          overflow: hidden;
         `))}
 `;
 
