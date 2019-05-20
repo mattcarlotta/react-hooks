@@ -13,15 +13,15 @@ const indexItems = [
 ];
 
 const exampleHookItems = [
-  { hash: "usecontext", name: "useContext", linke: hooks },
-  { hash: "usecallback", name: "useCallback", linke: hooks },
-  { hash: "usedebugvalue", name: "useDebugValue", linke: hooks },
-  { hash: "useeffect", name: "useEffect", linke: hooks },
-  { hash: "useimperativehandle", name: "useImperativeHandle", linke: hooks },
-  { hash: "uselayouteffect", name: "useLayoutEffect", linke: hooks },
-  { hash: "usememo", name: "useMemo", linke: hooks },
-  { hash: "useref", name: "useRef", linke: hooks },
-  { hash: "usestate", name: "useState", linke: hooks }
+  { hash: "usecallback", name: "useCallback", link: hooks },
+  { hash: "usecontext", name: "useContext", link: hooks },
+  { hash: "usedebugvalue", name: "useDebugValue", link: hooks },
+  { hash: "useeffect", name: "useEffect", link: hooks },
+  { hash: "useimperativehandle", name: "useImperativeHandle", link: hooks },
+  { hash: "uselayouteffect", name: "useLayoutEffect", link: hooks },
+  { hash: "usememo", name: "useMemo", link: hooks },
+  { hash: "useref", name: "useRef", link: hooks },
+  { hash: "usestate", name: "useState", link: hooks }
 ];
 
 const exampleMisc = [

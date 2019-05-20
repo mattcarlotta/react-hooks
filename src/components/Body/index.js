@@ -26,6 +26,7 @@ export { default as KeyListener } from "./KeyListener";
 export { default as FlexContainer } from "./FlexContainer";
 export { default as Input } from "./Input";
 export { default as Label } from "./Label";
+export { default as ListItem } from "./ListItem";
 export { default as NotFoundContainer } from "./NotFoundContainer";
 export { default as Paragraph } from "./Paragraph";
 export { default as Radio } from "./Radio";

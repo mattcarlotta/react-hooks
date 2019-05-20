@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 
 import Home from "../pages/Home";
 import Examples from "../pages/Examples";
+import HooksAPI from "../pages/HooksAPI";
 import NotFound from "../pages/NotFound";
 
 const config = {
@@ -23,6 +24,7 @@ const Routes = () => (
     <Helmet {...config} />
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route path="/hooks" component={HooksAPI} />
       <Route path="/examples" component={Examples} />
       <Route component={NotFound} />
     </Switch>
