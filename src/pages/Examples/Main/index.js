@@ -1,23 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import { Paragraph, Title } from "../../../components/Body";
-import { Link, NavBlock } from "../../../components/Navigation";
+import { ListItem, Paragraph, Title } from "../../../components/Body";
+import { Link } from "../../../components/Navigation";
+
+const mainLinks = [
+  { name: "Event Listeners", link: "events" },
+  { name: "Forms", link: "forms" },
+  { name: "Form Elements", link: "forms/elements" },
+  { name: "Miscelleanous", link: "misc" }
+];
 
 const Main = ({ match: { url } }) => (
   <>
     <Helmet title="Examples" />
     <Title>Examples</Title>
-    <Paragraph>Below are some examples of using React Hooks.</Paragraph>
-    <NavBlock>
-      <Link to={`${url}/events`}>Event Listeners</Link>
-    </NavBlock>
-    <NavBlock>
-      <Link to={`${url}/forms`}>Forms</Link>
-    </NavBlock>
-    <NavBlock>
-      <Link to={`${url}/misc`}>Miscelleanous</Link>
-    </NavBlock>
+    <Paragraph>
+      Below are some examples of using React Hooks.
+      <ul>
+        {mainLinks.map(({ name, link }) => (
+          <ListItem key={name}>
+            <Link to={`${url}/${link}`}>{name}</Link>
+          </ListItem>
+        ))}
+      </ul>
+    </Paragraph>
   </>
 );
 
