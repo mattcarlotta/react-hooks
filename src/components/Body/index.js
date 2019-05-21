@@ -2,6 +2,7 @@ export { default as AddField } from "./AddField";
 export { default as Block } from "./Block";
 export { default as BlockContainer } from "./BlockContainer";
 export { default as Button } from "./Button";
+export { default as Center } from "./Center";
 export { default as Checkbox } from "./Checkbox";
 export { default as ChevronIcon } from "./ChevronIcon";
 export { default as ClickBox } from "./ClickBox";

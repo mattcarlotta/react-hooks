@@ -15,6 +15,14 @@ const NavTitle = styled.div`
   justify-content: center;
   -ms-flex-align: center;
   align-items: center;
+
+  a {
+    color: #03a9f3;
+
+    &:hover {
+      color: #fff;
+    }
+  }
 `;
 
 export default NavTitle;

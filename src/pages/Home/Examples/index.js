@@ -104,11 +104,19 @@ const Input = () => {
 `;
 
 export const returnInput = `return (
-  <input type="text" value={value} onChange={handleChange} />
+  <input
+    type="text"
+    value={value}
+    onChange={handleChange}
+  />
 );
 `;
 
 export const inlineFunction = `return (
-  <input type="text" value={value} onChange={({ target: { value }}) => setInputValue(value)} />
+  <input
+    type="text"
+    value={value}
+    onChange={({ target: { value }}) => setInputValue(value)}
+  />
 );
 `;

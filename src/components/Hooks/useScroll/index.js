@@ -2,24 +2,24 @@ import { useState, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 
 const useScroll = hash => {
-  const [ref, setRef] = useState({ node: null, text: "" });
+  const [ref, setRef] = useState({ node: null, title: "" });
   const scrollRef = useCallback(node => {
     if (node) {
-      const text = node.textContent
+      const title = node.textContent
         ? node.textContent.toLowerCase().replace(/\s/g, "")
         : "";
 
-      setRef({ node, text });
+      setRef({ node, title });
     }
   }, []);
 
   useEffect(
     () => {
-      if (ref.node && ref.text === hash) {
+      if ((ref.node && ref.title === hash) || (ref.node && !hash)) {
         setTimeout(() => {
           window.scrollTo({
             behavior: "smooth",
-            top: ref.node.offsetTop
+            top: hash ? ref.node.offsetTop : 0
           });
         }, 100);
       }

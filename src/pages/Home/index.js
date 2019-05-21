@@ -68,13 +68,13 @@ const Home = ({ location: { hash } }) => {
         <ul>
           {homeLinks.map(({ hash, name }) => (
             <ListItem key={name}>
-              <Link to={`/#${hash}`}>{name}</Link>
+              <Link to={`/index#${hash}`}>{name}</Link>
             </ListItem>
           ))}
         </ul>
       </Paragraph>
       <Title ref={introRef} style={styles.title}>
-        <AnchorLink to="/#introductiontohooks" />
+        <AnchorLink to="/index#introductiontohooks" />
         Introduction to Hooks
       </Title>
       <Paragraph>
@@ -94,7 +94,7 @@ const Home = ({ location: { hash } }) => {
         <strong>what is happening behind the scenes?</strong>
       </Paragraph>
       <Title ref={useStateRef} style={styles.title}>
-        <AnchorLink to="/#understandingusestatearrays" />
+        <AnchorLink to="/index#understandingusestatearrays" />
         Understanding useState Arrays
       </Title>
       <Paragraph style={styles.paragraph}>
@@ -127,7 +127,7 @@ const Home = ({ location: { hash } }) => {
         </SyntaxHighlighter>
       </Paragraph>
       <Title ref={useCallbackRef} style={styles.title}>
-        <AnchorLink to="/#understandingusecallbackfunctions" />
+        <AnchorLink to="/index#understandingusecallbackfunctions" />
         Understanding useCallback functions
       </Title>
       <Paragraph>
@@ -176,7 +176,7 @@ const Home = ({ location: { hash } }) => {
         <br />
       </Paragraph>
       <Title ref={customHookRef} style={styles.title}>
-        <AnchorLink to="/#leveragingreuseablehooks" />
+        <AnchorLink to="/index#leveragingreuseablehooks" />
         Leveraging reuseable hooks
       </Title>
       <Paragraph>
@@ -210,7 +210,7 @@ const Home = ({ location: { hash } }) => {
         </Paragraph>
       </Paragraph>
       <Title ref={conclusionRef} style={styles.title}>
-        <AnchorLink to="/#puttingthepiecestogether" />
+        <AnchorLink to="/index#puttingthepiecestogether" />
         Putting the pieces together
       </Title>
       <Paragraph>

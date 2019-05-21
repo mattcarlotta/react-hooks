@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link as NavigationLink } from "react-router-dom";
 import { FaAdjust, FaCube, FaGithub, FaReact } from "react-icons/fa";
 import {
   ButtonContainer,
@@ -14,7 +15,7 @@ import {
 import { ToolTip, ThemeButton } from "../../Body";
 
 const navitems = [
-  { to: "/", text: "Home" },
+  { to: "/index", text: "Index" },
   { to: "/hooks", text: "Hooks API" },
   { to: "/examples", text: "Examples" }
 ];
@@ -23,9 +24,11 @@ const Header = ({ onToggleTheme }) => (
   <NavBarContainer>
     <NavBar>
       <NavTitle>
-        <FaReact
-          style={{ verticalAlign: "middle", fontSize: 42, marginRight: 20 }}
-        />
+        <NavigationLink to="/">
+          <FaReact
+            style={{ verticalAlign: "middle", fontSize: 42, marginRight: 20 }}
+          />
+        </NavigationLink>
       </NavTitle>
       <NavContainer>
         <Nav>

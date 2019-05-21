@@ -1,4 +1,4 @@
-const home = "/";
+const index = "/index";
 const hooks = "/hooks";
 const examples = "/examples";
 const events = `${examples}/events`;
@@ -7,7 +7,7 @@ const forms = `${examples}/forms`;
 const formelems = `${forms}/elements`;
 
 const indexItems = [
-  { name: "Home", link: home },
+  { name: "Index", link: index },
   { name: "Hooks", link: hooks },
   { name: "Examples", link: examples }
 ];

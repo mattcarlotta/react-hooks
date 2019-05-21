@@ -1,9 +1,9 @@
-export default `import React, { 
-  createContext, 
+export default `import React, {
+  createContext,
   Fragment,
-  useCallback, 
+  useCallback,
   useContext,
-  useState 
+  useState
 } from "react";
 import { render } from "react-dom";
 import { FaTrash } from "react-icons/fa";
@@ -14,8 +14,8 @@ import { FaTrash } from "react-icons/fa";
 // use sparingly and/or utilize "useMemo" to memoize the functions that
 // update the value for a better performance.
 
-// create a custom event handler hook that returns an initial value, 
-// a callback function to update the value and another callback 
+// create a custom event handler hook that returns an initial value,
+// a callback function to update the value and another callback
 // function to reset the value.
 const useEventHandler = initialValue => {
   const [value, setValue] = useState(initialValue);
@@ -23,7 +23,7 @@ const useEventHandler = initialValue => {
     ({ target: { value } }) => setValue(value),
     []
   );
-  const resetValue = useCallback(() => setValue(""), []);
+  const resetValue = useCallback(() => setValue(initialValue), [initialValue]);
 
   return {
     value,
@@ -32,12 +32,12 @@ const useEventHandler = initialValue => {
   };
 };
 
-// create a "Context" variable for the "Provider" and "useContext" 
+// create a "Context" variable for the "Provider" and "useContext"
 // hook to utilize.
-const Context = createContext(); 
+const Context = createContext();
 
-// create a "Provider" component that receives "children" and an 
-// "initialValue". 
+// create a "Provider" component that receives "children" and an
+// "initialValue".
 // the "Provider" utilizes the "useEventHandler" hook and the "Context"
 // defined above.
 const Provider = ({ children, initialValue }) => {
@@ -54,8 +54,8 @@ const Provider = ({ children, initialValue }) => {
   );
 };
 
-// create an "Input" component that utilizes the "Context" defined above 
-// and pass it into "useContext". the result should return the 
+// create an "Input" component that utilizes the "Context" defined above
+// and pass it into "useContext". the result should return the
 // "useEventHandler" properties: value, handleChange and resetValue.
 const Input = () => {
   const { value, handleChange, resetValue } = useContext(Context);
@@ -77,15 +77,15 @@ const Input = () => {
   );
 };
 
-// create an "App" component that wraps the "Input" component with the 
-// "Provider" component defined above. 
-// the "Provider" component needs to be utilized at the application's 
-// root level; that way, it always stays mounted despite its children changing. 
-// lastly, pass "Provider" an "initialValue" if needed. 
+// create an "App" component that wraps the "Input" component with the
+// "Provider" component defined above.
+// the "Provider" component needs to be utilized at the application's
+// root level; that way, it always stays mounted despite its children changing.
+// lastly, pass "Provider" an "initialValue" if needed.
 const App = () => (
-  <Provider initialValue="This is an intial value!">
-        <Input />
-    </Provider>
+  <Provider initialValue="This is an initial value!">
+    <Input />
+  </Provider>
 );
 
 // render the "App" component defined above.
