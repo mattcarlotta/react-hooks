@@ -13,6 +13,7 @@ import {
 import { AnchorLink, Line, Link } from "../../components/Navigation";
 import { useScroll } from "../../components/Hooks";
 import { contextExample, providerExample, useProviderExample } from "./Context";
+import { callbackExample } from "./Callback";
 
 const styles = {
   line: {
@@ -32,8 +33,8 @@ const styles = {
 };
 
 const exampleHookItems = [
-  { hash: "usecontext", name: "useContext" },
   { hash: "usecallback", name: "useCallback" },
+  { hash: "usecontext", name: "useContext" },
   { hash: "usedebugvalue", name: "useDebugValue" },
   { hash: "useeffect", name: "useEffect" },
   { hash: "useimperativehandle", name: "useImperativeHandle" },
@@ -80,6 +81,39 @@ const HooksAPI = ({ location: { hash } }) => {
         <AnchorLink to="/hooks#usecallback" />
         useCallback
       </Title>
+      <Paragraph style={styles.paragraph}>
+        The <Code>{`useCallback`}</Code> hook is a function that will be called
+        after some sort of event happens. It's structured to take in a callback
+        function and an array of dependencies:{" "}
+        <Code>{`useCallback(() => {}, [dependencies])`}</Code>. What makes it
+        unique is that it's a memoized function -- caches the{" "}
+        <strong>function</strong> if the dependencies haven't changed. Unlike
+        anonymous functions <Code>{`() => {}`}</Code>, this makes it ideal for
+        child components because if the parent re-renders, the child component's
+        function won't need to be recreated each time the parent has been
+        updated. Why? Because the function has been memoized (cached)! Although
+        using anonymous functions in the <Code>{`render`}</Code> method is
+        supported, it <strong>may</strong> lead to slower application
+        performance (its an unmemoized function, meaning it needs to be
+        recreated for each re-render).
+      </Paragraph>
+      <Paragraph style={{ marginTop: 20 }}>
+        For example, let's say we create a <Code>{`Parent`}</Code> component and
+        a <Code>{`Toggle`}</Code> and an <Code>{`Input`}</Code> child component
+        that can be disabled:
+        <SubTitle style={{ marginBottom: 0, marginTop: 20 }}>
+          UseCallback Example
+        </SubTitle>
+        <SyntaxHighlighter>{callbackExample}</SyntaxHighlighter>
+        By using <Code>{`useCallback();`}</Code>, it will not only accept an{" "}
+        <Code>{`event callback`}</Code>, but it will prevent an inner function
+        from being executed if a separate dependecy, <Code>{`isDisabled`}</Code>{" "}
+        or <Code>{`isSubmitting`}</Code>, is <Code>{`true`}</Code>. In addition,
+        the <Code>{`Input`}</Code> component would not need to be re-rendered
+        because the <Code>{`[dependencies]`}</Code> haven't changed -- similar
+        to a <Code>{`Pure Component`}</Code> or the
+        <Code>{`shouldComponentUpdate`}</Code> lifecycle.
+      </Paragraph>
       <Title ref={contextRef} style={styles.title}>
         <AnchorLink to="/hooks#usecontext" />
         useContext
