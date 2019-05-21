@@ -112,7 +112,7 @@ const HooksAPI = ({ location: { hash } }) => {
         the <Code>{`Input`}</Code> component would not need to be re-rendered
         because the <Code>{`[dependencies]`}</Code> haven't changed -- similar
         to a <Code>{`Pure Component`}</Code> or the
-        <Code>{`shouldComponentUpdate`}</Code> lifecycle.
+        <Code>{`shouldComponentUpdate`}</Code> lifecycle method.
       </Paragraph>
       <Title ref={contextRef} style={styles.title}>
         <AnchorLink to="/hooks#usecontext" />

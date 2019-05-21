@@ -227,12 +227,12 @@ const Home = memo(() => (
       can leverage React's <Code>{`useCallback();`}</Code> function. The{" "}
       <Code>{`useCallback();`}</Code> function let's React know not to recreate
       this function during rerenders and would be the equilvalent of utilizing a
-      class method. However, there is one very important rule to using{" "}
-      <Code>{`useCallback();`}</Code> in that it's first argument must be a
-      function <Code>{`() => {};`}</Code> and it's second argument must be an
-      array <Code>{`[]`}</Code> of dependencies. However, this will be covered
-      more in depth within the{" "}
-      <Link style={{ marginRight: "5px" }} to="/hooks">
+      PureComponent or shouldComponentUpdate. However, there is one very
+      important rule to using <Code>{`useCallback();`}</Code> in that it's first
+      argument must be a function <Code>{`() => {};`}</Code> and it's second
+      argument must be an array <Code>{`[]`}</Code> of dependencies. However,
+      this will be covered more in depth within the{" "}
+      <Link style={{ marginRight: "5px" }} to="/hooks#usecallback">
         Hooks API
       </Link>
       .
