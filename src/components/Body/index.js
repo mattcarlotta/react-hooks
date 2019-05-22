@@ -34,7 +34,7 @@ export { default as Radio } from "./Radio";
 export { default as RemoveableField } from "./RemoveableField";
 export { default as ResetButton } from "./ResetButton";
 export { default as Row } from "./Row";
-export { default as ScrollIntoView } from "./ScrollIntoView";
+export { default as ScrollHandler } from "./ScrollHandler";
 export { default as Select } from "./Select";
 export { default as SelectContainer } from "./SelectContainer";
 export { default as ShowCode } from "./ShowCode";

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { FaPlay, FaPause } from "react-icons/fa";
 import {
   BlockContainer,
@@ -28,7 +27,7 @@ const styles = {
   }
 };
 
-const TimerExample = ({ innerRef }) => {
+const TimerExample = () => {
   const {
     currentTime,
     isRunning,
@@ -40,7 +39,7 @@ const TimerExample = ({ innerRef }) => {
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="intervaltimer">
         <AnchorLink to="/examples/misc#intervaltimer" />
         Interval Timer
       </SubTitle>
@@ -81,10 +80,6 @@ const TimerExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="Misc/Timer.js" />
     </>
   );
-};
-
-TimerExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default TimerExample;

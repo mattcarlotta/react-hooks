@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   Example,
   FlexContainer,
@@ -13,13 +12,13 @@ import {
 import { AnchorLink } from "../../../Navigation";
 import { useProvider, useToggle } from "../../../Hooks";
 
-const ContextExample = ({ innerRef }) => {
+const ContextExample = () => {
   const { value, handleChange, resetValue } = useProvider();
   const [showCode, toggleShowCode] = useToggle(false);
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="contextpersistence">
         <AnchorLink to="/examples/misc#contextpersistence" />
         Context Persistence
       </SubTitle>
@@ -39,10 +38,6 @@ const ContextExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="Misc/Context.js" />
     </>
   );
-};
-
-ContextExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default ContextExample;

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   Example,
   FlexContainer,
@@ -12,7 +11,7 @@ import {
 import { AnchorLink } from "../../../Navigation";
 import { useToggle, useDynamicEventHandler } from "../../../Hooks";
 
-const SliderExample = ({ innerRef }) => {
+const SliderExample = () => {
   const { values, handleChange } = useDynamicEventHandler({
     temperature: "50"
   });
@@ -20,7 +19,7 @@ const SliderExample = ({ innerRef }) => {
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="slider">
         <AnchorLink to="/examples/forms/elements#slider" />
         Slider
       </SubTitle>
@@ -41,10 +40,6 @@ const SliderExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="Forms/Slider.js" />
     </>
   );
-};
-
-SliderExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default SliderExample;

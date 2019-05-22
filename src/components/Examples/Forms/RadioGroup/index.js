@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   Example,
   FlexContainer,
@@ -14,7 +13,7 @@ import { useToggle, useDynamicEventHandler } from "../../../Hooks";
 
 const options = ["blue", "red", "violet", "pink", "yellow"];
 
-const RadioGroupExample = ({ innerRef }) => {
+const RadioGroupExample = () => {
   const { values, handleChange } = useDynamicEventHandler({
     favoriteColor: ""
   });
@@ -22,7 +21,7 @@ const RadioGroupExample = ({ innerRef }) => {
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="radiogroup">
         <AnchorLink to="/examples/forms/elements#radiogroup" />
         Radio Group
       </SubTitle>
@@ -44,10 +43,6 @@ const RadioGroupExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="Forms/RadioGroup.js" />
     </>
   );
-};
-
-RadioGroupExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default RadioGroupExample;

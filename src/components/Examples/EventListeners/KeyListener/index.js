@@ -17,7 +17,7 @@ const KeyListenerExample = ({ innerRef }) => {
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="keydown" ref={innerRef}>
         <AnchorLink to="/examples/events#keydown" />
         Key Down
       </SubTitle>

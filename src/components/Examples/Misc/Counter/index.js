@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import {
   BlockContainer,
@@ -28,14 +27,14 @@ const styles = {
   }
 };
 
-const CounterExample = ({ innerRef }) => {
+const CounterExample = () => {
   const { decValue, incValue, resetValue, value } = useCounter(0);
 
   const [showCode, toggleShowCode] = useToggle(false);
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="simplecounter">
         <AnchorLink to="/examples/misc#simplecounter" />
         Simple Counter
       </SubTitle>
@@ -66,10 +65,6 @@ const CounterExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="Misc/Counter.js" />
     </>
   );
-};
-
-CounterExample.propTypes = {
-  innerRef: PropTypes.func
 };
 
 export default CounterExample;

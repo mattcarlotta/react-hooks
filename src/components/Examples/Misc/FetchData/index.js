@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { FaRedoAlt } from "react-icons/fa";
 import {
   BlockContainer,
@@ -38,13 +37,13 @@ const styles = {
   }
 };
 
-const FetchDataExample = ({ innerRef }) => {
+const FetchDataExample = () => {
   const { data, refreshData } = useFetchData();
   const [showCode, toggleShowCode] = useToggle(false);
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="fetchingandupdatingdata">
         <AnchorLink to="/examples/misc#fetchingandupdatingdata" />
         Fetching and Updating Data
       </SubTitle>
@@ -80,10 +79,6 @@ const FetchDataExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="Misc/FetchData.js" />
     </>
   );
-};
-
-FetchDataExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default FetchDataExample;

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   BlockContainer,
   Button,
@@ -78,14 +77,14 @@ const initialData = {
   }
 };
 
-const DragNDropExample = ({ innerRef }) => {
+const DragNDropExample = () => {
   const { values, handleChange, resetValues } = useDragDropHandler(initialData);
 
   const [showCode, toggleShowCode] = useToggle(false);
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="draganddrop">
         <AnchorLink to="/examples/misc#draganddrop" />
         Drag and Drop
       </SubTitle>
@@ -115,10 +114,6 @@ const DragNDropExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="Misc/DragNDrop.js" />
     </>
   );
-};
-
-DragNDropExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default DragNDropExample;

@@ -11,19 +11,10 @@ import {
 import { Line, Link } from "../../components/Navigation";
 
 const styles = {
-  line: {
-    marginBottom: 20
-  },
-  link: {
-    textDecoration: "none"
-  },
-  subtitle: {
-    marginTop: 0,
-    marginBottom: 60
-  },
-  title: {
-    marginTop: 60
-  }
+  line: { marginBottom: 20 },
+  link: { textDecoration: "none" },
+  subtitle: { marginTop: 0, marginBottom: 60 },
+  title: { marginTop: 60 }
 };
 
 const Landing = () => (

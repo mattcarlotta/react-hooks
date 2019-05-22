@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { MdCloudUpload } from "react-icons/md";
 import {
   BlockContainer,
@@ -57,7 +56,7 @@ const styles = {
   }
 };
 
-const UploadFileExample = ({ innerRef }) => {
+const UploadFileExample = () => {
   const { values, handleChange, resetValues } = useFileHandler({
     imageFile: []
   });
@@ -71,7 +70,7 @@ const UploadFileExample = ({ innerRef }) => {
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="uploadform">
         <AnchorLink to="/examples/forms#uploadform" />
         Upload Form
       </SubTitle>
@@ -109,10 +108,6 @@ const UploadFileExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="Forms/UploadFile.js" />
     </>
   );
-};
-
-UploadFileExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default UploadFileExample;

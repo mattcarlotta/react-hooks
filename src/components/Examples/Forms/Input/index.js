@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   Example,
   FlexContainer,
@@ -13,13 +12,13 @@ import {
 import { AnchorLink } from "../../../Navigation";
 import { useEventHandler, useToggle } from "../../../Hooks";
 
-const InputExample = ({ innerRef }) => {
+const InputExample = () => {
   const { value, handleChange, resetValue } = useEventHandler("");
   const [showCode, toggleShowCode] = useToggle(false);
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="input">
         <AnchorLink to="/examples/forms/elements#input" />
         Input
       </SubTitle>
@@ -39,10 +38,6 @@ const InputExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="Forms/Input.js" />
     </>
   );
-};
-
-InputExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default InputExample;

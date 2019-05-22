@@ -17,7 +17,7 @@ const MousedownExample = ({ innerRef }) => {
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="mousedown" ref={innerRef}>
         <AnchorLink to="/examples/events#mousedown" />
         Mouse Down
       </SubTitle>

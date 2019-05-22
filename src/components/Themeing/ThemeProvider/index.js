@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../GlobalStyles";
-import { Container, Column, Row, ScrollIntoView } from "../../Body";
+import { Container, Column, Row, ScrollHandler } from "../../Body";
 import { Header, Menu } from "../../Navigation";
 import { Provider, useLocalStorage } from "../../Hooks";
 import { Message } from "../../../containers";
@@ -28,9 +28,9 @@ const Theme = ({ children }) => {
         <Container>
           <Row>
             <Column width="75%" mt>
-              <ScrollIntoView>
+              <ScrollHandler>
                 <Provider>{children}</Provider>
-              </ScrollIntoView>
+              </ScrollHandler>
             </Column>
             <Menu />
             <Message />

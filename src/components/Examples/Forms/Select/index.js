@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   Example,
   FlexContainer,
@@ -14,7 +13,7 @@ import {
 import { AnchorLink } from "../../../Navigation";
 import { useToggle, useDynamicEventHandler } from "../../../Hooks";
 
-const SelectExample = ({ innerRef }) => {
+const SelectExample = () => {
   const { values, handleChange, resetValue } = useDynamicEventHandler({
     components: ""
   });
@@ -22,7 +21,7 @@ const SelectExample = ({ innerRef }) => {
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="select">
         <AnchorLink to="/examples/forms/elements#select" />
         Select
       </SubTitle>
@@ -50,10 +49,6 @@ const SelectExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="Forms/Select.js" />
     </>
   );
-};
-
-SelectExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default SelectExample;

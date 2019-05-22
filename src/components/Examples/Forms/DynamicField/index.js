@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { MdAdd } from "react-icons/md";
 import {
   AddField,
@@ -74,7 +73,7 @@ const DynamicFieldExample = ({ innerRef }) => {
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="dynamicfieldsform">
         <AnchorLink to="/examples/forms#dynamicfieldsform" />
         Dynamic Fields Form
       </SubTitle>
@@ -107,10 +106,6 @@ const DynamicFieldExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="Forms/DynamicField.js" />
     </>
   );
-};
-
-DynamicFieldExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default DynamicFieldExample;

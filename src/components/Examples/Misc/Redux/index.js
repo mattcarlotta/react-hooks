@@ -41,13 +41,7 @@ const styles = {
   }
 };
 
-const ReduxExample = ({
-  innerRef,
-  inputValue,
-  resetInput,
-  setMessage,
-  updateInput
-}) => {
+const ReduxExample = ({ inputValue, resetInput, setMessage, updateInput }) => {
   const [showCode, toggleShowCode] = useToggle(false);
 
   const handleChange = useCallback(
@@ -80,7 +74,7 @@ const ReduxExample = ({
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="reduxpersistence">
         <AnchorLink to="/examples/misc#reduxpersistence" />
         Redux Persistence
       </SubTitle>
@@ -122,7 +116,6 @@ const ReduxExample = ({
 };
 
 ReduxExample.propTypes = {
-  innerRef: PropTypes.func.isRequired,
   inputValue: PropTypes.string,
   resetInput: PropTypes.func.isRequired,
   setMessage: PropTypes.func.isRequired,

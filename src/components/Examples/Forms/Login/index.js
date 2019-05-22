@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   BlockContainer,
   Button,
@@ -46,7 +45,7 @@ const styles = {
   }
 };
 
-const LoginExample = ({ innerRef }) => {
+const LoginExample = () => {
   const { values, handleChange } = useFormHandler({
     username: "",
     password: ""
@@ -62,7 +61,7 @@ const LoginExample = ({ innerRef }) => {
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="loginform">
         <AnchorLink to="/examples/forms#loginform" />
         Login Form
       </SubTitle>
@@ -113,10 +112,6 @@ const LoginExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="Forms/Login.js" />
     </>
   );
-};
-
-LoginExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default LoginExample;

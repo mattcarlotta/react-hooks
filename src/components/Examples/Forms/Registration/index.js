@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { FaUserPlus } from "react-icons/fa";
 import {
   BlockContainer,
@@ -94,7 +93,7 @@ const inputFields = [
 
 const options = ["Residential", "Business"];
 
-const RegistrationExample = ({ innerRef }) => {
+const RegistrationExample = () => {
   const { values, handleChange } = useFormHandler({
     email: "",
     password: "",
@@ -118,7 +117,7 @@ const RegistrationExample = ({ innerRef }) => {
 
   return (
     <>
-      <SubTitle ref={innerRef}>
+      <SubTitle id="registrationform">
         <AnchorLink to="/examples/forms#registrationform" />
         Registration Form
       </SubTitle>
@@ -182,10 +181,6 @@ const RegistrationExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="Forms/Registration.js" />
     </>
   );
-};
-
-RegistrationExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default RegistrationExample;
