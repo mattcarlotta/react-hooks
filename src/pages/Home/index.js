@@ -170,9 +170,9 @@ const Home = ({ location: { hash } }) => {
         array <Code>{`[]`}</Code> of dependencies. However, this will be covered
         more in depth within the{" "}
         <Link style={{ marginRight: "5px" }} to="/hooks#usecallback">
-          Hooks API
+          useCallback
         </Link>
-        .
+        Hooks API.
         <br />
       </Paragraph>
       <Title ref={customHookRef} style={styles.title}>
