@@ -1,4 +1,10 @@
-export default `import React, { Fragment, useCallback, useEffect, useState } from "react";
+export default `import React, {
+  Fragment,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from "react";
 import axios from "axios";
 import { FaHeartBroken, FaRedoAlt } from "react-icons/fa";
 
@@ -8,9 +14,11 @@ const initialState = {
   isLoading: true
 };
 
-// create a custom useFetchData hook that returns an initial value 
-// and two functions: fetchData and refreshData. 
+// create a custom useFetchData hook that returns an initial value
+// and a "refreshData" function.
 const useFetchData = () => {
+  // define an "isFetching" ref
+  const isFetching = useRef(true);
   const [data, setData] = useState(initialState);
 
   // an asynchronous function that updates state with data or an error
@@ -24,19 +32,46 @@ const useFetchData = () => {
         \`https://jsonplaceholder.typicode.com/photos?id=\${id}\`
       );
 
-      setData({ photos: res.data, error: "", isLoading: false });
+      setData({
+        photos: res.data,
+        error: "",
+        isLoading: false
+      });
     } catch (error) {
-      setData({ photos: [], error: error.toString(), isLoading: false });
+      setData({
+        photos: [],
+        error: error.toString(),
+        isLoading: false
+      });
     }
   };
 
   // callback function to reset back to "initialState" that invokes
   // "fetchData" again (in the useEffect below)
-  const refreshData = useCallback(() => setData(initialState), []);
+  const refreshData = useCallback(
+    () => {
+      setData(initialState);
+      isFetching.current = true;
+    },
+    [initialState, isFetching.current]
+  );
+
+  // due to asynchronous nature of data fetching, we must utilize
+  // the "isFetching" ref to make sure our API is only called once.
+  // by manipulating this mutatable ref, we can ensure
+  // "fetchData" consistency across repaints.
+  useEffect(
+    () => {
+      if (isFetching.current) {
+        isFetching.current = false;
+        fetchData();
+      }
+    },
+    [isFetching.current]
+  );
 
   return {
     data,
-    fetchData,
     refreshData
   };
 };
@@ -79,15 +114,7 @@ const DisplayData = ({ error, photos }) => (
 // utilize the custom useFetchData hook within a function and the
 // two components defined above.
 const FetchData = () => {
-  const { data, fetchData, refreshData } = useFetchData();
-
-  // utilize "useEffect" to create a lifecycle that checks if
-  // "data.isLoading" is true and if so, it fetches data.
-  useEffect(() => {
-    if (data.isLoading) {
-      fetchData();
-    }
-  }, [data.isLoading, fetchData]);
+  const { data, refreshData } = useFetchData();
 
   return (
     <div>

@@ -1,9 +1,9 @@
-import React, { createRef, useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import PropTypes from "prop-types";
 import InlineBlockContainer from "../../InlineBlockContainer";
 
 const ClickHandler = ({ children, handleChange, width }) => {
-  const wrapperRef = createRef();
+  const wrapperRef = useRef();
   const [isVisible, setVisible] = useState(false);
 
   const handleClickOutside = useCallback(

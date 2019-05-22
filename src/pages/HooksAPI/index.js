@@ -19,7 +19,7 @@ import { useEffectExample } from "./Effect";
 
 const styles = {
   altlink: {
-    marginRight: 5
+    marginRight: "5px"
   },
   eqivs: {
     paddingLeft: 20,
@@ -274,7 +274,7 @@ const HooksAPI = ({ location: { hash } }) => {
             A deffered <Code>{`componentDidUpdate`}</Code>
           </ListItem>
           <ListItem>
-            A deffered <Code>{`componentWillUnmount`}</Code>
+            <Code>{`componentWillUnmount`}</Code>
           </ListItem>
         </ul>
       </Paragraph>
@@ -289,7 +289,11 @@ const HooksAPI = ({ location: { hash } }) => {
         because sometimes you want to execute some code that doesn't need to
         prevent the <Code>{`render`}</Code> method from being painted. Examples
         will include <Code>{`event listeners`}</Code>,{" "}
-        <Code>{`subscriptions`}</Code>, and <Code>{`analytics`}</Code>.
+        <Code>{`subscriptions`}</Code>, and <Code>{`analytics`}</Code>. However,
+        please note that subsequent re-renders will <strong>not</strong> be
+        deffered as React flushes the previous render's effects. Therefore, make
+        sure to clean up any residual listeners or subscriptions. Otherwise,
+        this may lead to memory leaks.
       </Paragraph>
       <Paragraph style={{ marginTop: 20 }}>
         For example, let's say we create a <Code>{`ShowAlert`}</Code> component
@@ -298,12 +302,22 @@ const HooksAPI = ({ location: { hash } }) => {
         <SyntaxHighlighter>{useEffectExample}</SyntaxHighlighter>
       </Paragraph>
       <Paragraph>
-        In the example above, this simulates deffered{" "}
-        <Code>{`componentDidMount`}</Code> and{" "}
-        <Code>{`componentWillUnmount`}</Code> lifecycles. Since the listener is
-        not vital to displaying the component, it doesn't block browser updates.
-        To see an example that acts like a <Code>{`componentDidUpdate`}</Code>{" "}
-        lifecycle, please see the{" "}
+        In the example above, this simulates a deffered{" "}
+        <Code>{`componentDidMount`}</Code> lifecycle. Since the listener is not
+        vital to displaying the component, it doesn't block browser updates.
+        Meanwhile, the <Code>{`componentWillUnmount`}</Code> lifecycle will be
+        executed like normal, however, the difference is that{" "}
+        <Code>{`useEffect();`}</Code> will <Code>{`return`}</Code> a cleanup
+        function before unmounting. To see this in action, please see the{" "}
+        <Link style={styles.altlink} to="/examples/forms/elements#select">
+          Select
+        </Link>{" "}
+        example (click on the dropdown to display some options and then click
+        elsewhere to automatically hide them).
+      </Paragraph>
+      <Paragraph>
+        If you'd like to see an example that acts like a{" "}
+        <Code>{`componentDidUpdate`}</Code> lifecycle, please see the{" "}
         <Link
           style={styles.altlink}
           to="/examples/misc#fetchingandupdatingdata"

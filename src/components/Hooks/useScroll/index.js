@@ -18,7 +18,6 @@ const useScroll = hash => {
       if ((ref.node && ref.title === hash) || (ref.node && !hash)) {
         setTimeout(() => {
           window.scrollTo({
-            behavior: "smooth",
             top: hash ? ref.node.offsetTop : 0
           });
         }, 100);

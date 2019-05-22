@@ -13,13 +13,16 @@ const ClickHandler = ({ children }) => {
     [wrapperRef]
   );
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClick);
+  useEffect(
+    () => {
+      document.addEventListener("mousedown", handleClick);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClick);
-    };
-  }, [handleClick]);
+      return () => {
+        document.removeEventListener("mousedown", handleClick);
+      };
+    },
+    [handleClick]
+  );
 
   return <div ref={wrapperRef}>{children}</div>;
 };

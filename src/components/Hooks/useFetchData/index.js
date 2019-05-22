@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 const initialState = {
   data: [],
@@ -8,6 +8,7 @@ const initialState = {
 };
 
 const useFetchData = () => {
+  const isFetching = useRef(true);
   const [data, setData] = useState(initialState);
 
   const fetchData = async () => {
@@ -22,18 +23,32 @@ const useFetchData = () => {
           res();
         }, 300);
       });
-
       setData({ photos: res.data, error: "", isLoading: false });
     } catch (error) {
       setData({ photos: [], error: error.toString(), isLoading: false });
     }
   };
 
-  const refreshData = useCallback(() => setData(initialState), []);
+  const refreshData = useCallback(
+    () => {
+      setData(initialState);
+      isFetching.current = true;
+    },
+    [initialState, isFetching.current]
+  );
+
+  useEffect(
+    () => {
+      if (isFetching.current) {
+        isFetching.current = false;
+        fetchData();
+      }
+    },
+    [isFetching.current]
+  );
 
   return {
     data,
-    fetchData,
     refreshData
   };
 };

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { FaRedoAlt } from "react-icons/fa";
 import {
@@ -39,17 +39,8 @@ const styles = {
 };
 
 const FetchDataExample = ({ innerRef }) => {
-  const { data, fetchData, refreshData } = useFetchData();
+  const { data, refreshData } = useFetchData();
   const [showCode, toggleShowCode] = useToggle(false);
-
-  useEffect(
-    () => {
-      if (data.isLoading) {
-        fetchData();
-      }
-    },
-    [data.isLoading, fetchData]
-  );
 
   return (
     <>

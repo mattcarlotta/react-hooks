@@ -25,18 +25,18 @@ const ClickHandler = ({ children, isVisible, setVisible }) => {
     () => {
       // in this case, this adds a click listener after
       // the render method has been painted (similar to a
-      // deffered componentDidMount)
+      // deffered componentDidMount lifecycle)
       document.addEventListener("mousedown", handleClickOutside);
 
       return () => {
-        // in this case, this removes the click listener after
-        // the component has been unmounted (similar to a deffered
-        // componentWillUnmount)
+        // in this case, this cleans up the click listener before
+        // the component has been unmounted (similar to the
+        // componentWillUnmount lifecycle)
         document.removeEventListener("mousedown", handleClickOutside);
       };
     },
     // since our handleClickOutside function won't change,
-    // this only happens once
+    // this only happens during mounting
     [handleClickOutside]
   );
 
