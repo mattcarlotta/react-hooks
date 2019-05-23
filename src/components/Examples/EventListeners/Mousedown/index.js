@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   ClickBox,
   ClickHandler,
@@ -12,12 +11,12 @@ import {
 import { AnchorLink } from "../../../Navigation";
 import { useToggle } from "../../../Hooks";
 
-const MousedownExample = ({ innerRef }) => {
+const MousedownExample = () => {
   const [showCode, toggleShowCode] = useToggle(false);
 
   return (
     <>
-      <SubTitle id="mousedown" ref={innerRef}>
+      <SubTitle id="mousedown">
         <AnchorLink to="/examples/events#mousedown" />
         Mouse Down
       </SubTitle>
@@ -32,10 +31,6 @@ const MousedownExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="EventListeners/Mousedown.js" />
     </>
   );
-};
-
-MousedownExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default MousedownExample;

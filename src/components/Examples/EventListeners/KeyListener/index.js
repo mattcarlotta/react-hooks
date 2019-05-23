@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   ClickBox,
   Example,
@@ -12,12 +11,12 @@ import {
 import { AnchorLink } from "../../../Navigation";
 import { useToggle } from "../../../Hooks";
 
-const KeyListenerExample = ({ innerRef }) => {
+const KeyListenerExample = () => {
   const [showCode, toggleShowCode] = useToggle(false);
 
   return (
     <>
-      <SubTitle id="keydown" ref={innerRef}>
+      <SubTitle id="keydown">
         <AnchorLink to="/examples/events#keydown" />
         Key Down
       </SubTitle>
@@ -31,10 +30,6 @@ const KeyListenerExample = ({ innerRef }) => {
       <ShowCode showCode={showCode} fileName="EventListeners/KeyListener.js" />
     </>
   );
-};
-
-KeyListenerExample.propTypes = {
-  innerRef: PropTypes.func.isRequired
 };
 
 export default KeyListenerExample;
