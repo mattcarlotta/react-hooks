@@ -48,14 +48,16 @@ const SuperSecretSauce = () => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      secretsauceRef.current.classList.add("hide");
+      secretsauceRef.current.remove();
     }
   }, [secretsauceRef, isAuthenticated]);
 
  return (
-    <p ref={secretsauceRef}>
-      Super secret sauce contains 50% sea and 50% weed or 100% seaweed.
-    </p>
+    <div>
+      <p ref={secretsauceRef}>
+        Super secret sauce contains 50% sea and 50% weed or 100% seaweed.
+      </p>
+    </div>
   );
 };
 
@@ -68,14 +70,16 @@ const SuperSecretDrink = () => {
 
   useLayoutEffect(() => {
     if (!isAuthenticated) {
-      secretdrinkRef.current.classList.add("hide");
+      secretdrinkRef.current.remove();
     }
   }, [secretdrinkRef, isAuthenticated]);
 
  return (
-    <p ref={secretdrinkRef}>
-      Super secret drink contains 99% alcohol and 1% kale.
-    </p>
+    <div>
+      <p ref={secretdrinkRef}>
+        Super secret drink contains 99% alcohol and 1% kale.
+      </p>
+    </div>
   );
 }
 

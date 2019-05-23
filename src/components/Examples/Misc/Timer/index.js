@@ -28,13 +28,7 @@ const styles = {
 };
 
 const TimerExample = () => {
-  const {
-    currentTime,
-    isRunning,
-    pauseTimer,
-    resetTimer,
-    startTimer
-  } = useTimer(false);
+  const { values, pauseTimer, resetTimer, startTimer } = useTimer(false);
   const [showCode, toggleShowCode] = useToggle(false);
 
   return (
@@ -48,7 +42,7 @@ const TimerExample = () => {
           <Column width="75%">
             <BlockContainer style={styles.column1}>
               <Label>Timer:</Label>
-              {isRunning ? (
+              {values.isRunning ? (
                 <Button onClick={pauseTimer}>
                   <FaPause />
                 </Button>
@@ -61,7 +55,9 @@ const TimerExample = () => {
               <DisplayCounter>
                 <span>0:</span>
                 <span>
-                  {currentTime < 10 ? `0${currentTime}` : currentTime}
+                  {values.currentTime < 10
+                    ? `0${values.currentTime}`
+                    : values.currentTime}
                 </span>
                 <span>s</span>
               </DisplayCounter>

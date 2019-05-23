@@ -2,45 +2,74 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 
 const useTimer = autoStart => {
-  const [currentTime, setTimer] = useState(0);
-  const [isRunning, setRunning] = useState(autoStart);
+  const autoStartRef = useRef(autoStart);
   const intervalRef = useRef();
+  const [values, setTimer] = useState({
+    currentTime: 0,
+    isRunning: false
+  });
 
-  const clearTimerInterval = useCallback(() => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = undefined;
-      setRunning(false);
-    }
-  }, [intervalRef]);
+  const clearTimeReset = useCallback(
+    reset => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = undefined;
+      }
+      setTimer(prevState => ({
+        currentTime: !reset ? prevState.currentTime : 0,
+        isRunning: false
+      }));
+    },
+    [intervalRef]
+  );
 
-  const startTimer = useCallback(() => {
-    if (!intervalRef.current) {
-      setRunning(true);
-      intervalRef.current = setInterval(() => {
-        setTimer(prevState => (prevState + 1 <= 59 ? prevState + 1 : 1));
-      }, 1000);
-    }
-  }, [intervalRef]);
+  const startTimer = useCallback(
+    () => {
+      if (!intervalRef.current && !values.isRunning) {
+        intervalRef.current = setInterval(() => {
+          setTimer(prevState => ({
+            currentTime:
+              prevState.currentTime + 1 <= 59 ? prevState.currentTime + 1 : 1,
+            isRunning: true
+          }));
+        }, 1000);
+      }
+    },
+    [intervalRef, values.isRunning]
+  );
 
-  const pauseTimer = useCallback(() => clearTimerInterval(), [
-    clearTimerInterval
-  ]);
+  const pauseTimer = useCallback(
+    () => {
+      clearTimeReset();
+    },
+    [clearTimeReset]
+  );
 
-  const resetTimer = useCallback(() => {
-    clearTimerInterval();
-    setTimer(0);
-  }, [clearTimerInterval]);
+  const resetTimer = useCallback(
+    () => {
+      clearTimeReset(true);
+    },
+    [clearTimeReset]
+  );
 
-  useEffect(() => {
-    if (autoStart) {
-      startTimer();
-    }
-  }, [autoStart, startTimer]);
+  useEffect(
+    () => {
+      if (autoStartRef.current) {
+        autoStartRef.current = null;
+        startTimer();
+      }
+
+      return () => {
+        if (intervalRef.current && values.isRunning) {
+          resetTimer();
+        }
+      };
+    },
+    [autoStartRef, intervalRef, resetTimer, startTimer, values.isRunning]
+  );
 
   return {
-    currentTime,
-    isRunning,
+    values,
     pauseTimer,
     resetTimer,
     startTimer

@@ -70,7 +70,7 @@ const HooksAPI = () => (
       <Paragraph style={styles.eqivs}>Class equilvalents:</Paragraph>
       <ul style={styles.list}>
         <ListItem>
-          Memoized functionality like <Code>{`Pure Component`}</Code>
+          A memoized function within a <Code>{`Pure Component`}</Code>
         </ListItem>
         <ListItem>
           A custom <Code>{`shouldComponentUpdate`}</Code>
@@ -79,7 +79,7 @@ const HooksAPI = () => (
     </Paragraph>
     <Paragraph style={styles.paragraph}>
       The <Code>{`useCallback();`}</Code> hook is a function that will be called
-      after some sort of event happens. It's structured to take in a callback
+      after some sort of event happens. It's structured to accept a callback
       function and an array of dependencies:{" "}
       <Code>{`useCallback(() => {}, [dependencies])`}</Code>. What makes it
       unique is that it's a memoized function -- caches the{" "}
@@ -247,17 +247,25 @@ const HooksAPI = () => (
       </ul>
     </Paragraph>
     <Paragraph>
-      The <Code>{`useEffect();`}</Code> hook is a slightly different approach to
-      setting up and updating a component. Unlike{" "}
-      <Code>{`componentDidMount`}</Code> and <Code>{`componentDidUpdate`}</Code>
-      , the hook is deffered to be executed after the DOM has been painted.{" "}
-      <strong>What does this mean?</strong> It means, that the hook will
-      manipulate the DOM after updating what the user sees upon page load.{" "}
+      The <Code>{`useEffect();`}</Code> hook is a function to include{" "}
+      <Code>{`event listeners`}</Code>, <Code>{`subscriptions`}</Code>,{" "}
+      <Code>{`analytics`}</Code>, and <Code>{`API calls`}</Code> to a update a
+      component. It's structured to accept a callback function and an array of
+      dependencies: <Code>{`useEffect(() => {}, [dependencies])`}</Code>. If you
+      don't provide an array of <Code>{`[dependencies])`}</Code>, then this hook
+      will only run once -- similiar to <Code>{`componentDidMount`}</Code> and{" "}
+      <Code>{`componentWillUnmount`}</Code> lifecycles. However, unlike the{" "}
+      <Code>{`componentDidMount`}</Code> and <Code>{`componentDidUpdate`}</Code>{" "}
+      lifecycles, the hook is deffered. <strong>What does this mean?</strong> It
+      means that the hook will only be executed after the DOM has already been
+      laid out and painted to the screen.{" "}
       <strong>Why is this important?</strong> This is important because
       sometimes you want to execute some code that doesn't need to prevent the{" "}
-      <Code>{`render`}</Code> method from being painted. Examples will include{" "}
-      <Code>{`event listeners`}</Code>, <Code>{`subscriptions`}</Code>, and{" "}
-      <Code>{`analytics`}</Code>. However, please note that subsequent
+      <Code>{`render`}</Code> method from being painted. In other words, we
+      won't be <strong>mutating</strong> the DOM within this hook -- such as
+      adding a <Code>{`classList`}</Code> to an element nor adjusting its
+      styles. Since this hook is deffered, those DOM mutations will be visible
+      to the user and look inconsistent and unintentional. Meanwhile, subsequent
       re-renders will <strong>not</strong> be deffered as React flushes the
       previous render's effects. Therefore, make sure to clean up any residual
       listeners or subscriptions. Otherwise, this may lead to memory leaks.
@@ -269,9 +277,10 @@ const HooksAPI = () => (
       <SyntaxHighlighter>{useEffectExample}</SyntaxHighlighter>
     </Paragraph>
     <Paragraph>
-      In the example above, this simulates a deffered{" "}
-      <Code>{`componentDidMount`}</Code> lifecycle. Since the listener is not
-      vital to displaying the component, it doesn't block browser updates.
+      In the example above, we're simulating a deffered{" "}
+      <Code>{`componentDidMount`}</Code> lifecycle. Since the event listener is
+      not vital to displaying our component, it won't block browser updates (nor
+      will it alter the DOM in a way that the user can see the change).
       Meanwhile, the <Code>{`componentWillUnmount`}</Code> lifecycle will be
       executed like normal, however, the difference is that{" "}
       <Code>{`useEffect();`}</Code> will <Code>{`return`}</Code> a cleanup
@@ -342,45 +351,130 @@ const HooksAPI = () => (
     </Paragraph>
     <Paragraph>
       The <Code>{`useLayoutEffect();`}</Code> is a special use-case hook that
-      allows you to manipulate the DOM and/or calculate DOM mesaurements after
+      allows you to manipulate the DOM and/or calculate DOM measurements after
       the first <Code>{`render`}</Code> has been called, but before anything is
       painted to the browser. This is similar in usage to{" "}
       <Code>{`useEffect();`}</Code>; however, this hook has a synchronous
       effect: First <Code>{`render`}</Code>, then{" "}
-      <Code>{`useLayoutEffect();`}</Code>, second <Code>{`render`}</Code>, then
-      paint to screen versus the deffered effect: First <Code>{`render`}</Code>,
-      second <Code>{`render`}</Code>, paint to screen, then{" "}
+      <Code>{`useLayoutEffect();`}</Code>, second <Code>{`render`}</Code>, then{" "}
+      <Code>{`useLayoutEffect();`}</Code>, then paint to screen versus the
+      deffered effect: First <Code>{`render`}</Code>, second{" "}
+      <Code>{`render`}</Code>, paint to screen, then{" "}
       <Code>{`useEffect();`}</Code>. The most important aspect is that this hook
-      has access to the DOM before painting to screen.
+      has access to the DOM before painting to the screen. Therefore, unlike in{" "}
+      <Code>{`useEffect();`}</Code>, we should mutate the DOM utilizing this
+      hook. Since this mutation happens synchronously, it won't be visible to
+      the user.
     </Paragraph>
     <Paragraph>
-      Let's say take this extremely aribitary example of an authenticated
+      Let's take a look at this extremely aribitary example of an authenticated
       component that checks if a user is <Code>{`isAuthenticated`}</Code> before
       showing them a secret recipe:
       <SyntaxHighlighter>{useLayoutEffectExample}</SyntaxHighlighter>
     </Paragraph>
     <Paragraph>
-      Let's assume our users are super sneaky and they try to go directly to the
-      super secret routes without logging in.{" "}
+      Let's assume our users are sneaky and they try to go directly to one of
+      the super secret routes without logging in.{" "}
       <strong>What do you think will happen?</strong> Because{" "}
       <Code>{`useEffect();`}</Code> happens after painting, the{" "}
       <Code>{`SuperSecretSauce`}</Code> will briefly flash on their screens. If
       they're quick enough, they can snap a screenshot! However, if we utilize{" "}
       <Code>{`useLayoutEffect();`}</Code>, they won't be able to see anything at
       all! <strong>Why?</strong> Because <Code>{`useLayoutEffect();`}</Code> has
-      manipulated the DOM before painting to screen. Therefore our{" "}
-      <Code>{`SuperSecretDrink`}</Code> is safe from those sneaky snakes. Check
-      out an example here{" "}
-      <Button
-        as="a"
-        href="https://pvi3c.codesandbox.io/"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={styles.link}
-      >
-        useEffect vs useLayoutEffect
-      </Button>{" "}
-      .
+      manipulated the DOM before anything is painted to their screen. Therefore
+      our <Code>{`SuperSecretDrink`}</Code> is safe from those sneaky snakes.
+    </Paragraph>
+    <Paragraph>
+      Check out this example of <Code>{`useLayoutEffect();`}</Code> vs{" "}
+      <Code>{`useEffect();`}</Code>:{" "}
+      <iframe
+        src="https://codesandbox.io/embed/useeffect-vs-uselayouteffect-pvi3c?fontsize=14&view=preview"
+        title="useEffect vs useLayoutEffect"
+        style={{
+          width: "100%",
+          height: 500,
+          border: 0,
+          borderRadius: 4,
+          overflow: "hidden"
+        }}
+        sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+      />
+    </Paragraph>
+    <Title id="usememo" style={styles.title}>
+      <AnchorLink to="/hooks#usememo" />
+      useMemo
+    </Title>
+    <Paragraph>
+      <Paragraph style={styles.eqivs}>Class equilvalents:</Paragraph>
+      <ul style={styles.list}>
+        <ListItem>
+          A memoized value within a <Code>{`Pure Component`}</Code>
+        </ListItem>
+      </ul>
+    </Paragraph>
+    <Paragraph>
+      The <Code>{`useMemo();`}</Code> is a special use-case hook that acts
+      similar to the <Code>{`useCallback();`}</Code> hook, except instead of
+      memoizing the function, it memoizes a returned <Code>{`value`}</Code>.{" "}
+      <strong>Why is this important?</strong> Memoizing a <Code>{`value`}</Code>{" "}
+      can be beneficial if this <Code>{`value`}</Code> is derived from some
+      heavy calcuation. The <Code>{`value`}</Code> will only be recalcuated if
+      one of its <Code>{`[dependencies])`}</Code> has changed. Like{" "}
+      <Code>{`useCallback();`}</Code>, it's structured to accept a callback
+      function and an array of dependencies:{" "}
+      <Code>{`useMemo(() => {}, [dependencies])`}</Code>. However, unlike{" "}
+      <Code>{`useCallback();`}</Code>, if its array of{" "}
+      <Code>{`[dependencies])`}</Code> is empty, then this{" "}
+      <Code>{`value`}</Code> will be recalcuated for each new render! The
+      primary use-case should be to optimize a component's performance during
+      re-renders when we expect a <Code>{`value`}</Code> and its{" "}
+      <Code>{`[dependencies])`}</Code> to have not changed despite component
+      updates. A general rule of thumb should be to write the code to utilize a{" "}
+      <Code>{`useCallback();`}</Code> hook, and if there's a noticeable
+      performance degredation over time, then switch to a{" "}
+      <Code>{`useMemo();`}</Code> hook.
+    </Paragraph>
+    <Title id="useref" style={styles.title}>
+      <AnchorLink to="/hooks#useref" />
+      useRef
+    </Title>
+    <Paragraph>
+      <Paragraph style={styles.eqivs}>Equilvalents:</Paragraph>
+      <ul style={styles.list}>
+        <ListItem>
+          A mutatable <Code>{`createRef();`}</Code>
+        </ListItem>
+      </ul>
+    </Paragraph>
+    <Paragraph>
+      The <Code>{`useRef();`}</Code> hook acts <strong>somewhat</strong> similar
+      to React's <Code>{`createRef();`}</Code>, however, it's mutatable. The{" "}
+      <Code>{`useRef();`}</Code> hook initilizes a <Code>{`ref`}</Code> object{" "}
+      <Code>{`{}`}</Code> with a <Code>{`current`}</Code> property. This{" "}
+      <Code>{`current`}</Code> property can be used to store a mutatable value.{" "}
+      <strong>Why is this important?</strong> The <Code>{`ref`}</Code> object
+      will be the same instance despite re-renders and unlike{" "}
+      <Code>{`state`}</Code>, this value can be changed and it won't cause the
+      component to re-render. This is primarily useful to track something that
+      may affect <Code>{`state`}</Code>, but can't be attached to it.
+    </Paragraph>
+    <Paragraph>
+      For example, let's say we want to build a <Code>{`setInterval`}</Code>{" "}
+      timer that can be played, paused, and reset. We need to isolate the{" "}
+      <Code>{`setInterval`}</Code> from our <Code>{`state`}</Code>.{" "}
+      <strong>Why?</strong> Because we need <Code>{`setInterval`}</Code> to be
+      assigned to a statically referenced variable so that despite updates, it
+      remains the same <Code>{`setInterval`}</Code> we initiated. We don't want
+      multiple instances of <Code>{`setInterval`}</Code> every time we update{" "}
+      <Code>{`state`}</Code>. Therefore, <Code>{`useRef();`}</Code> is an
+      excellent use-case for <Code>{`setInterval`}</Code> as it stays consistent
+      across updates and it's mutatable -- we can{" "}
+      <Code>{`setInterval();`}</Code> and <Code>{`clearInterval();`}</Code> the
+      same <Code>{`ref`}</Code> object! To see it in action, check out the{" "}
+      <Link style={styles.altlink} to="/examples/misc#intervaltimer">
+        Interval Timer
+      </Link>{" "}
+      example.
     </Paragraph>
   </>
 );
