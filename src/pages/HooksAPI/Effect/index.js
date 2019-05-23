@@ -11,7 +11,8 @@ const ClickHandler = ({ children, isVisible, setVisible }) => {
   // creating a ref for our top-level "div"
   const wrapperRef = useRef();
 
-  // check if the clicked node contains a node within the "ref"
+  // check if the clicked node contains a node within the ref's
+  // HTML DOM Node list
   const handleClickOutside = useCallback(
     ({ target }) => {
       if (isVisible && wrapperRef && !wrapperRef.current.contains(target)) {
@@ -23,13 +24,13 @@ const ClickHandler = ({ children, isVisible, setVisible }) => {
 
   useEffect(
     () => {
-      // in this case, this adds a click listener after
+      // in this case, this adds a left click listener after
       // the render method has been painted (similar to a
       // deffered componentDidMount lifecycle)
       document.addEventListener("mousedown", handleClickOutside);
 
       return () => {
-        // in this case, this cleans up the click listener before
+        // in this case, this cleans up the left click listener before
         // the component has been unmounted (similar to the
         // componentWillUnmount lifecycle)
         document.removeEventListener("mousedown", handleClickOutside);

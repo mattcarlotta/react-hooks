@@ -14,9 +14,10 @@ import { AnchorLink, Line, Link } from "../../components/Navigation";
 import { contextExample, providerExample, useProviderExample } from "./Context";
 import { callbackExample } from "./Callback";
 import { useEffectExample } from "./Effect";
+import { useLayoutEffectExample } from "./Layout";
 
 const styles = {
-  altlink: { marginRight: "5px" },
+  altlink: { margin: "0" },
   eqivs: { paddingLeft: 20, marginBottom: 0 },
   line: { marginBottom: 20 },
   link: { textDecoration: "none" },
@@ -69,10 +70,10 @@ const HooksAPI = () => (
       <Paragraph style={styles.eqivs}>Class equilvalents:</Paragraph>
       <ul style={styles.list}>
         <ListItem>
-          <Code>{`Pure Component`}</Code>
+          Memoized functionality like <Code>{`Pure Component`}</Code>
         </ListItem>
         <ListItem>
-          <Code>{`shouldComponentUpdate`}</Code>
+          A custom <Code>{`shouldComponentUpdate`}</Code>
         </ListItem>
       </ul>
     </Paragraph>
@@ -250,8 +251,8 @@ const HooksAPI = () => (
       setting up and updating a component. Unlike{" "}
       <Code>{`componentDidMount`}</Code> and <Code>{`componentDidUpdate`}</Code>
       , the hook is deffered to be executed after the DOM has been painted.{" "}
-      <strong>What does this mean?</strong> It means, that the hook will not
-      block the browser from updating what the user sees.{" "}
+      <strong>What does this mean?</strong> It means, that the hook will
+      manipulate the DOM after updating what the user sees upon page load.{" "}
       <strong>Why is this important?</strong> This is important because
       sometimes you want to execute some code that doesn't need to prevent the{" "}
       <Code>{`render`}</Code> method from being painted. Examples will include{" "}
@@ -288,6 +289,98 @@ const HooksAPI = () => (
         Fetching and Updating Data
       </Link>{" "}
       example.
+    </Paragraph>
+    <Title id="useimperativehandle" style={styles.title}>
+      <AnchorLink to="/hooks#useimperativehandle" />
+      useImperativeHandle
+    </Title>
+    <Paragraph>
+      <Paragraph style={styles.eqivs}>Class equilvalents:</Paragraph>
+      <ul style={styles.list}>
+        <ListItem>(none)</ListItem>
+      </ul>
+    </Paragraph>
+    <Paragraph>
+      The <Code>{`useImperativeHandle();`}</Code> is a special use-case hook
+      that allows you to customize and instantiate a <Code>{`ref`}</Code> and
+      customize any of its <Code>event handlers</Code>. In simple terms, it
+      hoists the <Code>{`ref`}</Code>'s native DOM events like{" "}
+      <Code>{`blur`}</Code>, <Code>{`focus`}</Code>, <Code>{`keydown`}</Code>{" "}
+      and so on to be customizable within a functional component -- for a full
+      list of DOM events, please visit w3school's{" "}
+      <Button
+        as="a"
+        href="https://www.w3schools.com/jsref/dom_obj_event.asp"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={styles.link}
+      >
+        DOM Events
+      </Button>{" "}
+      documentation. This should be a considered a hack and a last resort to
+      handle DOM events. Since React exposes a lot of these{" "}
+      <Code>event handlers</Code> already, utilizing{" "}
+      <Code>{`useImperativeHandle();`}</Code> can be avoided.
+    </Paragraph>
+    <Title id="uselayouteffect" style={styles.title}>
+      <AnchorLink to="/hooks#uselayouteffect" />
+      useLayoutEffect
+    </Title>
+    <Paragraph>
+      <Paragraph style={styles.eqivs}>Class equilvalents:</Paragraph>
+      <ul style={styles.list}>
+        <ListItem>
+          <Code>{`componentDidMount`}</Code>
+        </ListItem>
+        <ListItem>
+          <Code>{`componentDidUpdate`}</Code>
+        </ListItem>
+        <ListItem>
+          <Code>{`componentWillUnmount`}</Code>
+        </ListItem>
+      </ul>
+    </Paragraph>
+    <Paragraph>
+      The <Code>{`useLayoutEffect();`}</Code> is a special use-case hook that
+      allows you to manipulate the DOM and/or calculate DOM mesaurements after
+      the first <Code>{`render`}</Code> has been called, but before anything is
+      painted to the browser. This is similar in usage to{" "}
+      <Code>{`useEffect();`}</Code>; however, this hook has a synchronous
+      effect: First <Code>{`render`}</Code>, then{" "}
+      <Code>{`useLayoutEffect();`}</Code>, second <Code>{`render`}</Code>, then
+      paint to screen versus the deffered effect: First <Code>{`render`}</Code>,
+      second <Code>{`render`}</Code>, paint to screen, then{" "}
+      <Code>{`useEffect();`}</Code>. The most important aspect is that this hook
+      has access to the DOM before painting to screen.
+    </Paragraph>
+    <Paragraph>
+      Let's say take this extremely aribitary example of an authenticated
+      component that checks if a user is <Code>{`isAuthenticated`}</Code> before
+      showing them a secret recipe:
+      <SyntaxHighlighter>{useLayoutEffectExample}</SyntaxHighlighter>
+    </Paragraph>
+    <Paragraph>
+      Let's assume our users are super sneaky and they try to go directly to the
+      super secret routes without logging in.{" "}
+      <strong>What do you think will happen?</strong> Because{" "}
+      <Code>{`useEffect();`}</Code> happens after painting, the{" "}
+      <Code>{`SuperSecretSauce`}</Code> will briefly flash on their screens. If
+      they're quick enough, they can snap a screenshot! However, if we utilize{" "}
+      <Code>{`useLayoutEffect();`}</Code>, they won't be able to see anything at
+      all! <strong>Why?</strong> Because <Code>{`useLayoutEffect();`}</Code> has
+      manipulated the DOM before painting to screen. Therefore our{" "}
+      <Code>{`SuperSecretDrink`}</Code> is safe from those sneaky snakes. Check
+      out an example here{" "}
+      <Button
+        as="a"
+        href="https://pvi3c.codesandbox.io/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={styles.link}
+      >
+        useEffect vs useLayoutEffect
+      </Button>{" "}
+      .
     </Paragraph>
   </>
 );
