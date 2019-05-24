@@ -285,9 +285,9 @@ const HooksAPI = () => (
       In the example above, we're simulating a deffered{" "}
       <Code>{`componentDidMount`}</Code> lifecycle. Since the event listener is
       not vital to displaying our component, it won't block browser updates (nor
-      will it alter the DOM in a way that the user can see the change).
-      Meanwhile, the <Code>{`componentWillUnmount`}</Code> lifecycle will be
-      executed like normal, however, the difference is that{" "}
+      will it alter the DOM in a way that the user will see a flashing UI
+      change). Meanwhile, the <Code>{`componentWillUnmount`}</Code> lifecycle
+      will be executed like normal, however, the difference is that{" "}
       <Code>{`useEffect();`}</Code> will <Code>{`return`}</Code> a cleanup
       function before unmounting. To see this in action, please see the{" "}
       <Link style={styles.altlink} to="/examples/forms/elements#select">
