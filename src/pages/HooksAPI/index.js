@@ -242,6 +242,10 @@ const HooksAPI = () => (
           A deffered <Code>{`componentDidUpdate`}</Code>
         </ListItem>
         <ListItem>
+          A deffered <Code>{`componentWillReceiveProps`}</Code> (deprecated
+          lifecycle)
+        </ListItem>
+        <ListItem>
           <Code>{`componentWillUnmount`}</Code>
         </ListItem>
       </ul>
