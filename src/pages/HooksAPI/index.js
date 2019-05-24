@@ -102,7 +102,7 @@ const HooksAPI = () => (
       <SyntaxHighlighter>{callbackExample}</SyntaxHighlighter>
       By using <Code>{`useCallback();`}</Code>, it will not only accept an{" "}
       <Code>{`event callback`}</Code>, but it will prevent an inner function{" "}
-      <Code>{`setValue();`}</Code> from being executed if a separate dependecy,{" "}
+      <Code>{`setValue();`}</Code> from being executed if a separate dependency,{" "}
       <Code>{`isDisabled`}</Code> or <Code>{`isSubmitting`}</Code>, is{" "}
       <Code>{`true`}</Code>. In addition, the <Code>{`Input`}</Code> component
       would not need to be re-rendered because the{" "}
@@ -302,10 +302,10 @@ const HooksAPI = () => (
         Fetching and Updating Data
       </Link>{" "}
       example. This example works by changing a <Code>{`useEffect();`}</Code>{" "}
-      dependecy (in this case, a <Code>{`ref`}</Code> dependecy). The hook sees
-      that the dependecy has changed from its previous render and re-renders the
-      component -- similar to how a <Code>{`prop`}</Code> change might trigger
-      the <Code>{`componentDidUpdate`}</Code> lifecycle.
+      dependency (in this case, a <Code>{`ref`}</Code> dependency). The hook
+      sees that the dependency has changed from its previous render and
+      re-renders the component -- similar to how a <Code>{`prop`}</Code> change
+      might trigger the <Code>{`componentDidUpdate`}</Code> lifecycle.
     </Paragraph>
     <Title id="useimperativehandle" style={styles.title}>
       <AnchorLink to="/hooks#useimperativehandle" />
