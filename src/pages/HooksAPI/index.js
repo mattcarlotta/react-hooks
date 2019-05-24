@@ -242,8 +242,7 @@ const HooksAPI = () => (
           A deffered <Code>{`componentDidUpdate`}</Code>
         </ListItem>
         <ListItem>
-          A deffered <Code>{`componentWillReceiveProps`}</Code> (deprecated
-          lifecycle)
+          A deffered <Code>{`componentWillReceiveProps`}</Code> (deprecated)
         </ListItem>
         <ListItem>
           <Code>{`componentWillUnmount`}</Code>
@@ -302,7 +301,11 @@ const HooksAPI = () => (
       <Link style={styles.altlink} to="/examples/misc#fetchingandupdatingdata">
         Fetching and Updating Data
       </Link>{" "}
-      example.
+      example. This example works by changing a <Code>{`useEffect();`}</Code>{" "}
+      dependecy (in this case, a <Code>{`ref`}</Code> dependecy). The hook sees
+      that the dependecy has changed from its previous render and re-renders the
+      component -- similar to how a <Code>{`prop`}</Code> change might trigger
+      the <Code>{`componentDidUpdate`}</Code> lifecycle.
     </Paragraph>
     <Title id="useimperativehandle" style={styles.title}>
       <AnchorLink to="/hooks#useimperativehandle" />
@@ -493,6 +496,7 @@ const HooksAPI = () => (
         </ListItem>
       </ul>
     </Paragraph>
+    <Paragraph>Description coming soon.</Paragraph>
   </>
 );
 
