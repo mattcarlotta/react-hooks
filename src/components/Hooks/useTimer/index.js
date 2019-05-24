@@ -4,10 +4,8 @@ import PropTypes from "prop-types";
 const useTimer = autoStart => {
   const autoStartRef = useRef(autoStart);
   const intervalRef = useRef();
-  const [values, setTimer] = useState({
-    currentTime: 0,
-    isRunning: false
-  });
+  const [currentTime, setTimer] = useState(0);
+  const [isRunning, setRunning] = useState(false);
 
   const clearTimeReset = useCallback(
     reset => {
@@ -15,27 +13,23 @@ const useTimer = autoStart => {
         clearInterval(intervalRef.current);
         intervalRef.current = undefined;
       }
-      setTimer(prevState => ({
-        currentTime: !reset ? prevState.currentTime : 0,
-        isRunning: false
-      }));
+
+      setRunning(false);
+      setTimer(prevState => (!reset ? prevState : 0));
     },
     [intervalRef]
   );
 
   const startTimer = useCallback(
     () => {
-      if (!intervalRef.current && !values.isRunning) {
+      if (!intervalRef.current) {
+        setRunning(true);
         intervalRef.current = setInterval(() => {
-          setTimer(prevState => ({
-            currentTime:
-              prevState.currentTime + 1 <= 59 ? prevState.currentTime + 1 : 1,
-            isRunning: true
-          }));
+          setTimer(prevState => (prevState + 1 <= 59 ? prevState + 1 : 1));
         }, 1000);
       }
     },
-    [intervalRef, values.isRunning]
+    [intervalRef, setRunning]
   );
 
   const pauseTimer = useCallback(
@@ -60,16 +54,17 @@ const useTimer = autoStart => {
       }
 
       return () => {
-        if (intervalRef.current && values.isRunning) {
+        if (intervalRef.current && isRunning) {
           resetTimer();
         }
       };
     },
-    [autoStartRef, intervalRef, resetTimer, startTimer, values.isRunning]
+    [autoStartRef, intervalRef, resetTimer, startTimer, isRunning]
   );
 
   return {
-    values,
+    currentTime,
+    isRunning,
     pauseTimer,
     resetTimer,
     startTimer

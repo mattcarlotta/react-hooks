@@ -17,10 +17,11 @@ const useTimer = autoStart => {
   const intervalRef = useRef();
 
   // utilize state to initialize "currentTime" and "isRunning"
-  const [values, setTimer] = useState({
-    currentTime: 0,
-    isRunning: autoStart || false
-  });
+  // we separate the two because "currentTime" is delayed by
+  // 1 second. if we combined both, then clicking the play/pause
+  // button will result in a one second delay as well.
+  const [currentTime, setTimer] = useState(0);
+  const [isRunning, setRunning] = useState(false);
 
   const clearTimerInterval = useCallback(reset => {
     // if the interval is still present
@@ -29,31 +30,28 @@ const useTimer = autoStart => {
       intervalRef.current = undefined; // remove it from ref.current
     }
 
+    setRunning(false);
+
     // if reset is true, set "currentTime" to 0, else pause time
-    setTimer(prevState => ({
-      currentTime: !reset ? prevState.currentTime : 0,
-      isRunning: false
-    }));
+    setTimer(prevState => (!reset ? prevState : 0));
     }
   }, [intervalRef]);
 
   // if play was clicked, check that the "intervalRef"
-  // doesn't already have an interval. If not, then
-  // create a 1000ms setInterval timer to update
-  // "currentTime" and "isRunning".
-  const startTimer = useCallback(() => {
-    if (!intervalRef.current) {
-      intervalRef.current = setInterval(() => {
-        setTimer(prevState => ({
-          currentTime:
-            prevState.currentTime + 1 <= 59
-              ? prevState.currentTime + 1
-              : 1,
-          isRunning: true
-        }));
-      }, 1000);
-    }
-  }, [intervalRef]);
+  // doesn't already have an interval. if not, then
+  // setRunning to true and create a 1000ms setInterval
+  // timer to update "currentTime".
+  const startTimer = useCallback(
+    () => {
+      if (!intervalRef.current) {
+        setRunning(true);
+        intervalRef.current = setInterval(() => {
+          setTimer(prevState => (prevState + 1 <= 59 ? prevState + 1 : 1));
+        }, 1000);
+      }
+    },
+    [intervalRef, setRunning]
+  );
 
   // if pause was clicked, clear the setInterval timer and pause time.
   const pauseTimer = useCallback(() => {
@@ -75,11 +73,11 @@ const useTimer = autoStart => {
       }
 
       return () => {
-        if (intervalRef.current && values.isRunning) {
+        if (intervalRef.current && isRunning) {
           resetTimer();
         }
       };
-    }, [autoStartRef, intervalRef, resetTimer, startTimer, values.isRunning]);
+    }, [autoStartRef, intervalRef, resetTimer, startTimer, isRunning]);
 
   return {
     currentTime,
@@ -93,7 +91,8 @@ const useTimer = autoStart => {
 // utilize the custom useTimer hook within a function.
 const IntervalTimer = () => {
   const {
-    values,
+    currentTime,
+    isRunning,
     pauseTimer,
     resetTimer,
     startTimer,
@@ -102,7 +101,7 @@ const IntervalTimer = () => {
   return (
     <Fragment>
       <p>Timer:</p>
-      {values.isRunning
+      {isRunning
         ? <button onClick={pauseTimer}>
             <FaPause />
           </button>
@@ -113,7 +112,7 @@ const IntervalTimer = () => {
       <div>
         <span>0:</span>
         <span>
-          {values.currentTime < 10 ? \`0\${values.currentTime}\` : values.currentTime}
+          {currentTime < 10 ? \`0\${currentTime}\` : currentTime}
         </span>
         <span>s</span>
       </div>
