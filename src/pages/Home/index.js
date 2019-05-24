@@ -96,14 +96,14 @@ const Home = () => (
     <Paragraph style={{ marginTop: 20 }}>
       Okay, but what does this left-hand statement{" "}
       <Code>{`const [value, setInputValue]`}</Code> mean? Thanks to ES6
-      (ECMAScript 6), we can deconstruct the array and define each of its
+      (ECMAScript 6), we can destructure the array and define each of its
       indices as a variable. So instead of:
       <SyntaxHighlighter margin="0">
         {examples.constructedArray}
       </SyntaxHighlighter>
-      We can simply deconstruct the array by its index position:
+      We can simply destructure the array by its index position:
       <SyntaxHighlighter margin="0">
-        {examples.deconstructedArray}
+        {examples.destructuredArray}
       </SyntaxHighlighter>
     </Paragraph>
     <Title id="understandingusecallbackfunctions" style={styles.title}>

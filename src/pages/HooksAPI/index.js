@@ -15,6 +15,7 @@ import { contextExample, providerExample, useProviderExample } from "./Context";
 import { callbackExample } from "./Callback";
 import { useEffectExample } from "./Effect";
 import { useLayoutEffectExample } from "./Layout";
+import { functionExample } from "./State";
 
 const styles = {
   altlink: { margin: "0" },
@@ -492,11 +493,74 @@ const HooksAPI = () => (
       <Paragraph style={styles.eqivs}>Equilvalents:</Paragraph>
       <ul style={styles.list}>
         <ListItem>
-          <Code>{`this.setState();`}</Code> with limitations
+          <Code>{`this.setState();`}</Code> without a callback function
         </ListItem>
       </ul>
     </Paragraph>
-    <Paragraph>Description coming soon.</Paragraph>
+    <Paragraph>
+      The <Code>{`useState();`}</Code> hook is a function that allows a
+      component to be re-render with different values. It's structured to accept{" "}
+      <Button
+        as="a"
+        href="https://www.w3schools.com/js/js_datatypes.asp"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={styles.link}
+      >
+        JavaScript Data Types
+      </Button>{" "}
+      , such as <Code>{`strings`}</Code>, <Code>{`booleans`}</Code>,{" "}
+      <Code>{`numbers`}</Code>, an <Code>{`object`}</Code>, a{" "}
+      <Code>{`Map`}</Code>, an <Code>{`array`}</Code>, and so on... and returns
+      the data type along with a function to update it. It's persistence is
+      determined by whether or not the component is still mounted in the DOM.
+      It's primary use-case will be to manipulate a component to update React's
+      virtual DOM. However, there are some limitations. First, it must be
+      defined within a function declaration <Code>{`function example();`}</Code>{" "}
+      or a function expression <Code>{`const example = () => {};`}</Code>{" "}
+      (personal preference on which to use). For example, we'll declare{" "}
+      <Code>{`useState();`}</Code> within an <Code>{`Input`}</Code> function's
+      scope to control a HTML <Code>{`input`}</Code> element:
+      <SyntaxHighlighter>{functionExample}</SyntaxHighlighter>
+      And secondly, unlike <Code>{`this.setState();`}</Code>, it can't be used
+      inside a <Code>{`class`}</Code> component. And lastly, it unfortunately
+      does not have a <Code>{`callback`}</Code> functionality:{" "}
+      <Code>{`this.setState({ value }, () => {});`}</Code>. In order to create a
+      similar <Code>{`callback`}</Code> functionality, we'll have to utilize the{" "}
+      <Code>{`useEffect`}</Code> hook!
+    </Paragraph>
+    <Paragraph>
+      To understand <Code>{`useState();`}</Code> better, let's deconstruct this
+      example: <Code>{`const [value, setValue] = useState("");`}</Code>. The
+      right-hand statement <Code>{`useState("");`}</Code> initializes a data
+      type variable as an empty string <Code>{`""`}</Code> and returns an{" "}
+      <Code>{`array`}</Code> with two indices. The left-hand statement{" "}
+      <Code>{`const [value, setValue]`}</Code> utilizes ES6 (ECMAScript 6) array
+      destructuring to name these indices, where the first index of the array{" "}
+      <Code>{`[0]`}</Code> contains the <Code>{`value`}</Code>, and the second
+      index of the array <Code>{`[1]`}</Code> contains the{" "}
+      <Code>{`setValue`}</Code> updater function. In simple terms, the array
+      returned by <Code>{`useState("");`}</Code> would be structured like so:{" "}
+      <Code>{`["", f()]`}</Code>.
+    </Paragraph>
+    <Paragraph>
+      Similar to a classes <Code>{`state`}</Code>, the <Code>{`value`}</Code>{" "}
+      contains <Code>{`state`}</Code> that is immutable (meaning, it'll be
+      overwritten by shallow copying previous <Code>{`state`}</Code> and then
+      updated with incoming <Code>{`state`}</Code>). Therefore we can imagine{" "}
+      <Code>{`value`}</Code> as being similar to{" "}
+      <Code>{`this.state.value`}</Code> and we should only update it with our
+      updater function! Meanwhile, the updater function{" "}
+      <Code>{`setValue`}</Code> is like a custom named{" "}
+      <Code>{`this.setState();`}</Code> function. It acts essentially the same
+      as <Code>{`this.setState();`}</Code> in that it updates our{" "}
+      <Code>{`value`}</Code> and causes our functional component to be
+      re-rendered. To see it in action, check out the{" "}
+      <Link style={styles.altlink} to="examples/forms/elements#input">
+        Input
+      </Link>{" "}
+      example.
+    </Paragraph>
   </>
 );
 

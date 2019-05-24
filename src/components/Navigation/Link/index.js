@@ -16,6 +16,7 @@ const StyledLink = styled(LinkComponent)`
   color: ${({ color, theme }) => handleStyleAttr(color, theme, "color")};
   background-color: ${({ color, theme }) =>
     handleStyleAttr(color, theme, "bg")};
+  white-space: nowrap;
   text-decoration: none;
   font-weight: bold;
   margin-right: 20px;

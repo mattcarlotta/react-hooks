@@ -58,7 +58,7 @@ const value = example[0]; // value === ""
 const setInputValue = example[1]; // setInputValue === f()
 `;
 
-export const deconstructedArray = `const [0, 1] = useState("");
+export const destructuredArray = `const [0, 1] = useState("");
 // 0 === value ("")
 // 1 === setInputValue (f())
 `;

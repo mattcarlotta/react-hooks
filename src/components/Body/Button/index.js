@@ -4,6 +4,7 @@ import StyledButton from "./Button";
 const Button = styled(StyledButton)`
   color: ${({ theme }) => theme.alt};
   background-color: ${({ theme }) => theme.base};
+  white-space: nowrap;
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
