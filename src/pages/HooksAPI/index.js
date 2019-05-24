@@ -476,6 +476,18 @@ const HooksAPI = () => (
       </Link>{" "}
       example.
     </Paragraph>
+    <Title id="usestate" style={styles.title}>
+      <AnchorLink to="/hooks#usestate" />
+      useState
+    </Title>
+    <Paragraph>
+      <Paragraph style={styles.eqivs}>Equilvalents:</Paragraph>
+      <ul style={styles.list}>
+        <ListItem>
+          <Code>{`this.setState();`}</Code> with limitations
+        </ListItem>
+      </ul>
+    </Paragraph>
   </>
 );
 

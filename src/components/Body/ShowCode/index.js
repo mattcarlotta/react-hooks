@@ -5,7 +5,6 @@ import React, {
   useEffect
 } from "react";
 import PropTypes from "prop-types";
-import { Transition } from "react-transition-group";
 import copy from "copy-to-clipboard";
 import { CopyButton, SyntaxHighlighter } from "../index";
 import Container from "./Container";
@@ -50,26 +49,14 @@ const ShowCode = ({ fileName, showCode }) => {
     [fileName]
   );
 
-  return (
-    <Transition
-      mountOnEnter
-      unmountOnExit
-      in={showCode}
-      timeout={{
-        enter: 350,
-        exit: 250
-      }}
-    >
-      {state => (
-        <Container state={state}>
-          <SyntaxHighlighter state={state} height="400px" language="javascript">
-            {loadedFile}
-          </SyntaxHighlighter>
-          <CopyButton copied={copied} onClick={handleClick} />
-        </Container>
-      )}
-    </Transition>
-  );
+  return showCode ? (
+    <Container>
+      <SyntaxHighlighter height="400px" language="javascript">
+        {loadedFile}
+      </SyntaxHighlighter>
+      <CopyButton copied={copied} onClick={handleClick} />
+    </Container>
+  ) : null;
 };
 
 ShowCode.propTypes = {

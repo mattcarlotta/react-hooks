@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import Highlighter from "./Highlighter";
 
 const StyledHighlighter = styled(Highlighter)`
@@ -14,29 +14,6 @@ const StyledHighlighter = styled(Highlighter)`
   overflow-y: auto;
   margin: ${({ margin }) => margin || "0 0 20px 0"} !important;
   transition: height 350ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  ${({ state }) =>
-    state &&
-    ((state === "entering" &&
-      css`
-        min-height: 0px;
-        height: ${({ height }) => height || "auto"};
-      `) ||
-      (state === "entered" &&
-        css`
-          min-height: 0px;
-          height: ${({ height }) => height || "auto"};
-        `) ||
-      (state === "exiting" &&
-        css`
-          min-height: 0px;
-          height: 0px;
-        `) ||
-      (state === "exited" &&
-        css`
-          min-height: 0px;
-          height: 0px;
-        `))}
 
   code {
     display: block;
