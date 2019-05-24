@@ -33,7 +33,7 @@ const useTimer = autoStart => {
     setRunning(false);
 
     // if reset is true, set "currentTime" to 0, else pause time
-    setTimer(prevState => (!reset ? prevState : 0));
+    setTimer(prevState => (reset ? 0 : prevState));
     }
   }, [intervalRef]);
 
