@@ -67,7 +67,7 @@ const HooksAPI = () => (
       useCallback
     </Title>
     <Paragraph>
-      <Paragraph style={styles.eqivs}>Class equilvalents:</Paragraph>
+      <Paragraph style={styles.eqivs}>Equilvalents:</Paragraph>
       <ul style={styles.list}>
         <ListItem>
           A memoized function within a <Code>{`Pure Component`}</Code>
@@ -113,7 +113,7 @@ const HooksAPI = () => (
       useContext
     </Title>
     <Paragraph>
-      <Paragraph style={styles.eqivs}>Class equilvalents:</Paragraph>
+      <Paragraph style={styles.eqivs}>Equilvalents:</Paragraph>
       <ul style={styles.list}>
         <ListItem>
           <Code>{`static contextType = MyContext`}</Code>
@@ -197,7 +197,7 @@ const HooksAPI = () => (
       useDebugValue
     </Title>
     <Paragraph>
-      <Paragraph style={styles.eqivs}>Class equilvalents:</Paragraph>
+      <Paragraph style={styles.eqivs}>Equilvalents:</Paragraph>
       <ul style={styles.list}>
         <ListItem>(none)</ListItem>
       </ul>
@@ -233,7 +233,7 @@ const HooksAPI = () => (
       useEffect
     </Title>
     <Paragraph>
-      <Paragraph style={styles.eqivs}>Class equilvalents:</Paragraph>
+      <Paragraph style={styles.eqivs}>Equilvalents:</Paragraph>
       <ul style={styles.list}>
         <ListItem>
           A deffered <Code>{`componentDidMount`}</Code>
@@ -312,7 +312,7 @@ const HooksAPI = () => (
       useImperativeHandle
     </Title>
     <Paragraph>
-      <Paragraph style={styles.eqivs}>Class equilvalents:</Paragraph>
+      <Paragraph style={styles.eqivs}>Equilvalents:</Paragraph>
       <ul style={styles.list}>
         <ListItem>(none)</ListItem>
       </ul>
@@ -344,7 +344,7 @@ const HooksAPI = () => (
       useLayoutEffect
     </Title>
     <Paragraph>
-      <Paragraph style={styles.eqivs}>Class equilvalents:</Paragraph>
+      <Paragraph style={styles.eqivs}>Equilvalents:</Paragraph>
       <ul style={styles.list}>
         <ListItem>
           <Code>{`componentDidMount`}</Code>
@@ -413,7 +413,7 @@ const HooksAPI = () => (
       useMemo
     </Title>
     <Paragraph>
-      <Paragraph style={styles.eqivs}>Class equilvalents:</Paragraph>
+      <Paragraph style={styles.eqivs}>Equilvalents:</Paragraph>
       <ul style={styles.list}>
         <ListItem>
           A memoized value within a <Code>{`Pure Component`}</Code>
