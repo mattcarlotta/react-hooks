@@ -251,14 +251,14 @@ const HooksAPI = () => (
       </ul>
     </Paragraph>
     <Paragraph>
-      The <Code>{`useEffect();`}</Code> hook is a function to include{" "}
-      <Code>{`event listeners`}</Code>, <Code>{`subscriptions`}</Code>,{" "}
-      <Code>{`analytics`}</Code>, and <Code>{`API calls`}</Code> to a update a
-      component. It's structured to accept a callback function and an array of
+      The <Code>{`useEffect();`}</Code> hook is a function to add{" "}
+      <Code>{`event listeners`}</Code>, <Code>{`subscriptions`}</Code>, and{" "}
+      <Code>{`API calls`}</Code> to update a component after it's already been
+      rendered. It's structured to accept a callback function and an array of
       dependencies: <Code>{`useEffect(() => {}, [dependencies])`}</Code>. If you
       don't provide an array of <Code>{`[dependencies])`}</Code>, then this hook
-      will only run once -- similiar to <Code>{`componentDidMount`}</Code> and{" "}
-      <Code>{`componentWillUnmount`}</Code> lifecycles. However, unlike the{" "}
+      will only run once -- similiar to the <Code>{`componentDidMount`}</Code>{" "}
+      and <Code>{`componentWillUnmount`}</Code> lifecycles. However, unlike the{" "}
       <Code>{`componentDidMount`}</Code> and <Code>{`componentDidUpdate`}</Code>{" "}
       lifecycles, the hook is deffered. <strong>What does this mean?</strong> It
       means that the hook will only be executed after the DOM has already been
@@ -267,12 +267,13 @@ const HooksAPI = () => (
       sometimes you want to execute some code that doesn't need to prevent the{" "}
       <Code>{`render`}</Code> method from being painted. In other words, we
       won't be <strong>mutating</strong> the DOM within this hook -- such as
-      adding a <Code>{`classList`}</Code> to an element nor adjusting its
-      styles. Since this hook is deffered, those DOM mutations will be visible
-      to the user and look inconsistent and unintentional. Meanwhile, subsequent
-      re-renders will <strong>not</strong> be deffered as React flushes the
-      previous render's effects. Therefore, make sure to clean up any residual
-      listeners or subscriptions. Otherwise, this may lead to memory leaks.
+      adding a <Code>{`classList`}</Code> to an element or adjusting its styles
+      after it's already been rendered. Since this hook is deffered, those DOM
+      mutations will be visible to the user and look inconsistent and
+      unintentional. Meanwhile, subsequent re-renders will <strong>not</strong>{" "}
+      be deffered as React flushes the previous render's effects. Therefore,
+      make sure to clean up any residual listeners or subscription; otherwise,
+      this may lead to memory leaks.
     </Paragraph>
     <Paragraph style={{ marginTop: 20 }}>
       For example, let's say we create a <Code>{`ShowAlert`}</Code> component

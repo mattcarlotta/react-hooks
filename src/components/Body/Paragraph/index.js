@@ -6,7 +6,7 @@ const Paragraph = styled.div`
   word-wrap: normal;
   /* overflow-wrap: break-word; */
   white-space: pre-wrap;
-  line-height: 40px;
+  line-height: 45px;
   letter-spacing: 1px;
 `;
 
