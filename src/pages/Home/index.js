@@ -33,7 +33,7 @@ const homeLinks = [
   { hash: "puttingthepiecestogether", name: "Putting the pieces together" }
 ];
 
-const Home = () => (
+const Home = React.memo(() => (
   <>
     <Helmet title="Home" />
     <Headline>React Hooks</Headline>
@@ -210,5 +210,6 @@ const Home = () => (
       example!
     </Paragraph>
   </>
-);
+));
+
 export default Home;

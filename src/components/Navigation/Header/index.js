@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link as NavigationLink } from "react-router-dom";
-import { FaAdjust, FaCube, FaGithub, FaReact } from "react-icons/fa";
+import { FaAdjust, FaGithub, FaReact } from "react-icons/fa";
+import CodesandboxSVG from "../../../images/codesandbox";
 import {
   ButtonContainer,
   Link,
@@ -26,7 +27,7 @@ const Header = ({ onToggleTheme }) => (
       <NavTitle>
         <NavigationLink to="/">
           <FaReact
-            style={{ verticalAlign: "middle", fontSize: 42, marginRight: 20 }}
+            style={{ verticalAlign: "middle", fontSize: 42, marginRight: 40 }}
           />
         </NavigationLink>
       </NavTitle>
@@ -79,7 +80,7 @@ const Header = ({ onToggleTheme }) => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaCube style={{ position: "relative", top: 3 }} />
+              <CodesandboxSVG style={{ position: "relative", top: "2px" }} />
             </ThemeButton>
           </ToolTip>
         </ButtonContainer>

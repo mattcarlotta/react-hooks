@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { FaCube, FaGithub } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import CodesandboxSVG from "../../images/codesandbox";
 import {
   Center,
   Button,
@@ -45,8 +46,8 @@ const Landing = () => (
       </Button>
       , but instead, intended to complement it. In addition, this entire website
       was created just utilizing hooks and is available to everyone (click the
-      Github <FaGithub /> or Codesandbox <FaCube /> links in the header to view
-      the source)!
+      Github <FaGithub /> or Codesandbox <CodesandboxSVG /> links in the header
+      to view the source)!
     </Paragraph>
     <SubTitle style={{ marginTop: 60 }}>What it covers</SubTitle>
     <Paragraph>

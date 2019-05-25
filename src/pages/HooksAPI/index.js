@@ -40,7 +40,7 @@ const exampleHookItems = [
   { hash: "usestate", name: "useState" }
 ];
 
-const HooksAPI = () => (
+const HooksAPI = React.memo(() => (
   <>
     <Helmet title="Hooks API" />
     <Headline>Hooks API</Headline>
@@ -562,6 +562,6 @@ const HooksAPI = () => (
       example.
     </Paragraph>
   </>
-);
+));
 
 export default HooksAPI;
