@@ -17,8 +17,9 @@ const initialState = {
 // create a custom useFetchData hook that returns an initial value
 // and a "refreshData" function.
 const useFetchData = () => {
-  // define an "isFetching" ref
+  // define an "isFetching" ref (see below for why)
   const isFetching = useRef(true);
+  // initialize "data" with "initialState"
   const [data, setData] = useState(initialState);
 
   // an asynchronous function that updates state with data or an error
@@ -53,13 +54,14 @@ const useFetchData = () => {
       setData(initialState);
       isFetching.current = true;
     },
-    [initialState, isFetching.current]
+    []
   );
 
   // due to asynchronous nature of data fetching, we must utilize
   // the "isFetching" ref to make sure our API is only called once.
   // by manipulating this mutatable ref, we can ensure
-  // "fetchData" consistency across repaints.
+  // "fetchData" is consistent across repaints. if we just tried to utilize
+  // state, the "fetchData" will be called twice.
   useEffect(
     () => {
       if (isFetching.current) {
@@ -67,7 +69,7 @@ const useFetchData = () => {
         fetchData();
       }
     },
-    [isFetching.current]
+    [isFetching.current] // eslint-disable-line react-hooks/exhaustive-deps
   );
 
   return {
@@ -85,29 +87,30 @@ const Placeholder = () => (
 // the data returned from the API.
 const DisplayData = ({ error, photos }) => (
   <div>
-    {(error || (photos && photos.length === 0))
-      ? <Fragment>
-          <h3>
-            <FaHeartBroken /> Uh oh, something went wrong.
-          </h3>
-          <p>{error}</p>
+    {error || (photos && photos.length === 0) ? (
+      <Fragment>
+        <h3>
+          <FaHeartBroken /> Uh oh, something went wrong.
+        </h3>
+        <p>{error}</p>
+      </Fragment>
+    ) : (
+      photos.map(({ albumId, id, title, url, thumbnailUrl }) => (
+        <Fragment key={id}>
+          <img src={thumbnailUrl} alt="example" />
+          <h3>ALBUM ID: {albumId}</h3>
+          <p>
+            <strong>TITLE:</strong> {title}
+          </p>
+          <p>
+            <strong>URL: </strong>
+            <a href={url} target="_blank">
+              {url}
+            </a>
+          </p>
         </Fragment>
-      : photos.map(({ albumId, id, title, url, thumbnailUrl }) => (
-          <Fragment key={id}>
-            <img src={thumbnailUrl} alt="example" />
-            <h3>ALBUM ID: {albumId}</h3>
-            <p>
-              <strong>TITLE:</strong> {title}
-            </p>
-            <p>
-              <strong>URL: </strong>
-              <a href={url} target="_blank">
-                {url}
-              </a>
-            </p>
-          </Fragment>
-        ))
-      )}
+      ))
+    )}
   </div>
 );
 
