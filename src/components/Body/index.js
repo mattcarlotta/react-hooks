@@ -8,6 +8,7 @@ export { default as ChevronIcon } from "./ChevronIcon";
 export { default as ClickBox } from "./ClickBox";
 export { default as ClickHandler } from "./ClickHandler";
 export { default as Code } from "./Code";
+export { default as CodesandboxButton } from "./CodesandboxButton";
 export { default as Column } from "./Column";
 export { default as CopyButton } from "./CopyButton";
 export { default as Container } from "./Container";

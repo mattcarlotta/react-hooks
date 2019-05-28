@@ -6,10 +6,10 @@ import React, {
 } from "react";
 import PropTypes from "prop-types";
 import copy from "copy-to-clipboard";
-import { CopyButton, SyntaxHighlighter } from "../index";
+import { CodesandboxButton, CopyButton, SyntaxHighlighter } from "../index";
 import Container from "./Container";
 
-const ShowCode = ({ fileName, showCode }) => {
+const ShowCode = ({ fileName, link, showCode }) => {
   const [loadedFile, setLoadedFile] = useState("");
   const [copied, setCopied] = useState(false);
 
@@ -54,6 +54,7 @@ const ShowCode = ({ fileName, showCode }) => {
       <SyntaxHighlighter height="400px" language="javascript">
         {loadedFile}
       </SyntaxHighlighter>
+      <CodesandboxButton link={link} />
       <CopyButton copied={copied} onClick={handleClick} />
     </Container>
   ) : null;
@@ -61,6 +62,7 @@ const ShowCode = ({ fileName, showCode }) => {
 
 ShowCode.propTypes = {
   fileName: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
   showCode: PropTypes.bool.isRequired
 };
 

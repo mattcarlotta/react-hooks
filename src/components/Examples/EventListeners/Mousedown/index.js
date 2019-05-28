@@ -28,7 +28,11 @@ const MousedownExample = () => {
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>
-      <ShowCode showCode={showCode} fileName="EventListeners/Mousedown.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-mousedown-example-jv3dp?fontsize=14"
+        showCode={showCode}
+        fileName="EventListeners/Mousedown.js"
+      />
     </>
   );
 };

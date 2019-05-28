@@ -27,7 +27,11 @@ const KeyListenerExample = () => {
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>
-      <ShowCode showCode={showCode} fileName="EventListeners/KeyListener.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-keydown-example-7koep?fontsize=14"
+        showCode={showCode}
+        fileName="EventListeners/KeyListener.js"
+      />
     </>
   );
 };

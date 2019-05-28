@@ -2,7 +2,6 @@ export default `import React, { useCallback, useEffect, useRef } from "react";
 
 // utilize useEffect and useRef with an event listener that
 // calls a useCallback function.
-
 const ClickHandler = ({ children }) => {
   const wrapperRef = useRef();
 
@@ -24,10 +23,6 @@ const ClickHandler = ({ children }) => {
   }, [handleClick]);
 
   return <div ref={wrapperRef}>{children}</div>;
-};
-
-ClickHandler.propTypes = {
-  children: PropTypes.any.isRequired
 };
 
 export default ClickHandler;
