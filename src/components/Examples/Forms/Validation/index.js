@@ -102,7 +102,11 @@ const ValidationExample = () => {
           </Column>
         </Row>
       </BlockContainer>
-      <ShowCode showCode={showCode} fileName="Forms/Validation.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hook-guide-field-validation-vugff?fontsize=14"
+        showCode={showCode}
+        fileName="Forms/Validation.js"
+      />
     </>
   );
 };

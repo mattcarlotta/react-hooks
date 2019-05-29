@@ -4,8 +4,8 @@ import { FaUserPlus, FaToggleOff, FaToggleOn } from "react-icons/fa";
 // create a custom useFormHandler hook that returns initial values
 // and a handleChange function to update the values.
 // the handleChange function will first deconstruct e.target.name and
-// e.target.value, then in the setValues callback function, it'll 
-// spread out any previous state before updating the changed [name] 
+// e.target.value, then in the setValues callback function, it'll
+// spread out any previous state before updating the changed [name]
 // property (ex. name="username") with an updated "value".
 const useFormHandler = initialState => {
   const [values, setValues] = useState(initialState);
@@ -22,11 +22,11 @@ const useFormHandler = initialState => {
   };
 };
 
-// create a custom toggle hook that returns an initial value and 
+// create a custom toggle hook that returns an initial value and
 // a callback function to update the value.
 const useToggle = initialValue => {
   const [value, setValue] = useState(initialValue);
-  const handleChange = useCallback(() => setValue(value => !value));
+  const handleChange = useCallback(() => setValue(value => !value), []);
   return [value, handleChange];
 };
 
@@ -42,8 +42,8 @@ const inputFields = [
 ];
 
 const selectOptions = [
-  "Canada", 
-  "United States", 
+  "Canada",
+  "United States",
 ];
 
 const addressTypes = [
@@ -51,7 +51,7 @@ const addressTypes = [
   "Business"
 ];
 
-// utilize the custom useFormHandler and useToggle hooks within 
+// utilize the custom useFormHandler and useToggle hooks within
 // a function. in addition, include a handleSubmit function that
 // handles the form when it has been submitted.
 const RegistrationForm = () => {
@@ -67,7 +67,7 @@ const RegistrationForm = () => {
     country: "",
     addressType: ""
   });
-  
+
   const [toggleState, toggleSwitch] = useToggle(false);
 
   const handleSubmit = e => {
@@ -102,18 +102,18 @@ const RegistrationForm = () => {
       </select>
       {addressTypes.map(type => (
         <span key={type}>
-          <input 
-            type="radio" 
+          <input
+            type="radio"
             id={type}
             name="addressType"
             value={type}
             onChange={handleChange}
             checked={type === values.addressType}
           />
-          <label htmlFor={type}/>{type}</label>
+          <label htmlFor={type}>{type}</label>
         </span>
       ))}
-      <button type="button" onClick={setToggleState}>
+      <button type="button" onClick={toggleSwitch}>
         {!toggleState ? <FaToggleOff /> : <FaToggleOn />}
       </button>
       <button type="submit">

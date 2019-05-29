@@ -105,7 +105,11 @@ const UploadFileExample = () => {
           </Column>
         </Row>
       </BlockContainer>
-      <ShowCode showCode={showCode} fileName="Forms/UploadFile.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-upload-form-7wpb1?fontsize=14"
+        showCode={showCode}
+        fileName="Forms/UploadFile.js"
+      />
     </>
   );
 };

@@ -12,7 +12,7 @@ const RemoveableField = ({
   handleChange,
   deleteField
 }) => {
-  return fields.map(({ name, value }, key) => (
+  return fields.map(({ name, value }) => (
     <Row key={name} style={{ marginBottom: 20 }}>
       <Column width={`${fieldsCount > 1 ? "85%" : "100%"}`}>
         <Input

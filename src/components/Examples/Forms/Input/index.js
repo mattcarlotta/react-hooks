@@ -35,7 +35,11 @@ const InputExample = () => {
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>
-      <ShowCode showCode={showCode} fileName="Forms/Input.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-input-urf41?fontsize=14"
+        showCode={showCode}
+        fileName="Forms/Input.js"
+      />
     </>
   );
 };

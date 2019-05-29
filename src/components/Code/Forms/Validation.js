@@ -39,7 +39,7 @@ export const validateFields = fields => {
   return { validatedFields, errors };
 };
 
-// create a custom "useFieldValidator" hook that returns an initial value 
+// create a custom "useFieldValidator" hook that returns an initial value
 // and 3 callback functions: to update, to reset, and to validate the values.
 const useFieldValidator = initialState => {
   const [values, setValues] = useState(initialState);
@@ -62,7 +62,7 @@ const useFieldValidator = initialState => {
       e.preventDefault();
 
       // utilize the "validateFields" function above
-      const { validatedFields, errors } = validateFields(values.fields);
+      const { validatedFields, errors } = useFieldValidator(values.fields);
 
       // update "fields" state with "validatedFields"
       setValues({ fields: validatedFields });
@@ -116,7 +116,7 @@ const ValidatedFields = () => {
           {error && <p>{error}</p>}
         </div>
        ))}
-      <button type="reset" onClick={resetValue}>
+      <button type="reset" onClick={resetValues}>
         <FaTrash />
       </button>
       <button type="submit">

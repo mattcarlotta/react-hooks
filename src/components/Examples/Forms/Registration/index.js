@@ -178,7 +178,11 @@ const RegistrationExample = () => {
           </Column>
         </Row>
       </BlockContainer>
-      <ShowCode showCode={showCode} fileName="Forms/Registration.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-registration-form-wz9xn?fontsize=14"
+        showCode={showCode}
+        fileName="Forms/Registration.js"
+      />
     </>
   );
 };

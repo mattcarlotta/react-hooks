@@ -1,6 +1,6 @@
 export default `import React, { useCallback, useState } from "react";
 import random from "lodash/random";
-import { MdAdd } from "react-icons/md";
+import { MdAdd, MdClose } from "react-icons/md";
 
 // this function creates a random string of variable characters and variable length
 const stringGenerator = (str, tlen) => {
@@ -15,7 +15,7 @@ const stringGenerator = (str, tlen) => {
 };
 
 // this creates a random string with [Aa-Zz,0-9,$/.] that is 8 characters long
-// NOTE: You can use an alternative approach such as the "uuid" npm package if 
+// NOTE: You can use an alternative approach such as the "uuid" npm package if
 // you don't want to handle this logic.
 const createRandomString = () =>
   stringGenerator(
@@ -23,15 +23,15 @@ const createRandomString = () =>
     8
   );
 
-// create a custom useDynamicFieldHandler hook that returns values and returns 3 
+// create a custom useDynamicFieldHandler hook that returns values and returns 3
 // functions: addField, deleteField, and handleChange.
 const useDynamicFieldHandler = initialState => {
   const [values, updateFields] = useState(initialState);
 
   // the addField function will not receive any parameters. in the updateFields callback
-  // it'll spread out any previous fields, before adding a new field object with a 
+  // it'll spread out any previous fields, before adding a new field object with a
   // random name (name needs to be unique to avoid naming collisons when updating the field
-  // via its "name" property), its position (not required), and an empty value. lastly, 
+  // via its "name" property), its position (not required), and an empty value. lastly,
   // it'll add 1 to the fieldsCount.
   const addField = useCallback(() => {
     updateFields(prevState => ({
@@ -47,10 +47,10 @@ const useDynamicFieldHandler = initialState => {
     }));
   }, []);
 
-  // the deleteField function will receive a "name" parameter from the field's delete 
-  // button onClick handler. then in the updateField's callback, it'll filter the fields 
+  // the deleteField function will receive a "name" parameter from the field's delete
+  // button onClick handler. then in the updateField's callback, it'll filter the fields
   // array comparing each "field.name" to the "name"; if found, it'll remove the object
-  // from the array, then, it'll map over this filtered array and update each field's 
+  // from the array, then, it'll map over this filtered array and update each field's
   // position. lastly, the fieldsCount will be deducted by 1.
   const deleteField = useCallback(name => {
     updateFields(prevState => ({
@@ -62,9 +62,9 @@ const useDynamicFieldHandler = initialState => {
   }, []);
 
   // the handleChange function will first deconstruct e.target.name and
-  // e.target.value, then in the updateFields callback function, it'll spread out any 
-  // previous state, then map over the fields array comparing the e.target.name with the 
-  // field.name. if the two are a match, it'll update the value; otherwise, it'll just 
+  // e.target.value, then in the updateFields callback function, it'll spread out any
+  // previous state, then map over the fields array comparing the e.target.name with the
+  // field.name. if the two are a match, it'll update the value; otherwise, it'll just
   // return the field.
   const handleChange = useCallback(({ target: { name, value } }) => {
     updateFields(prevState => ({
@@ -84,7 +84,7 @@ const useDynamicFieldHandler = initialState => {
 };
 
 
-// utilize the custom useDynamicFieldHandler. in addition, include a 
+// utilize the custom useDynamicFieldHandler. in addition, include a
 // handleSubmit function that handles the form when it has been submitted.
 const DynamicFieldForm = () => {
   const {
@@ -110,7 +110,7 @@ const DynamicFieldForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {values.fields.map(({ name, value }, key) => (
+      {values.fields.map(({ name, value }) => (
         <div key={name}>
           <input
             type="text"
@@ -119,14 +119,14 @@ const DynamicFieldForm = () => {
             onChange={handleChange}
             value={value}
           />
-            {fieldsCount > 1 && (
-              <Button onClick={() => deleteField(name)}>
+            {values.fieldsCount > 1 && (
+              <button onClick={() => deleteField(name)}>
                 <MdClose />
-              </Button>
+              </button>
             )}
         </div>
       ))}
-      <button type="button"><MdAdd/> Add Field</button>
+      <button type="button" onClick={addField}><MdAdd/> Add Field</button>
       <button type="submit">Submit</button>
     </form>
   );

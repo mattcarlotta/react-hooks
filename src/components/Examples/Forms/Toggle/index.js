@@ -38,7 +38,11 @@ const ToggleExample = () => {
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>
-      <ShowCode showCode={showCode} fileName="Forms/Toggle.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hook-guide-toggle-9frkq?fontsize=14"
+        showCode={showCode}
+        fileName="Forms/Toggle.js"
+      />
     </>
   );
 };

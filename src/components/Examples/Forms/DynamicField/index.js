@@ -103,7 +103,11 @@ const DynamicFieldExample = ({ innerRef }) => {
           </Column>
         </Row>
       </BlockContainer>
-      <ShowCode showCode={showCode} fileName="Forms/DynamicField.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-dynamic-fields-form-b1531?fontsize=14"
+        showCode={showCode}
+        fileName="Forms/DynamicField.js"
+      />
     </>
   );
 };

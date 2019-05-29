@@ -26,8 +26,8 @@ const useFileHandler = initialState => {
   };
 };
 
-// utilize the custom useFileHandler hook within a function. in addition, 
-// include a handleSubmit function that handles the form when it has 
+// utilize the custom useFileHandler hook within a function. in addition,
+// include a handleSubmit function that handles the form when it has
 // been submitted. NOTE: The "file" property within "imageFile" is
 // a FileList and it will not show up in an alert/console.log; however,
 // it's still there!
@@ -49,16 +49,20 @@ const UploadFile = () => {
         multiple={false}
         name="imageFile"
         onChange={handleChange}
-      />           
+      />
       {values.imageFile && values.imageFile.length > 0
-        ? values.imageFile.map({ name, preview, size }) => (
+        ? values.imageFile.map(({ name, preview, size }) => (
             <Fragment key={name}>
-              <img src={preview} />
+              <img alt="example.png" src={preview} />
               <p>{name} - {(size / 1024000).toFixed(2)}MB</p>
             </Fragment>
           ))
         : null
       }
+      <button type="button" onClick={resetValues}>
+        Reset
+      </button>
+      <button type="submit">Submit</button>
     </form>
   );
 };

@@ -19,11 +19,11 @@ const FormElements = () => (
       source code, click the <MdCode style={{ verticalAlign: "middle" }} />{" "}
       button.
     </Paragraph>
-    <ToggleExample />
+    <InputExample />
     <RadioGroupExample />
     <SelectExample />
     <SliderExample />
-    <InputExample />
+    <ToggleExample />
   </>
 );
 
