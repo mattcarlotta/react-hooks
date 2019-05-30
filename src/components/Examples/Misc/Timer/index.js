@@ -77,7 +77,11 @@ const TimerExample = () => {
           </Column>
         </Row>
       </BlockContainer>
-      <ShowCode showCode={showCode} fileName="Misc/Timer.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-interval-example-kj8ze?fontsize=14"
+        showCode={showCode}
+        fileName="Misc/Timer.js"
+      />
     </>
   );
 };

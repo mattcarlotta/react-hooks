@@ -111,7 +111,11 @@ const DragNDropExample = () => {
           </Column>
         </Row>
       </BlockContainer>
-      <ShowCode showCode={showCode} fileName="Misc/DragNDrop.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-drag-and-drop-xw804?fontsize=14"
+        showCode={showCode}
+        fileName="Misc/DragNDrop.js"
+      />
     </>
   );
 };

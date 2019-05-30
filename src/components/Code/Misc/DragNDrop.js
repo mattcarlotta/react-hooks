@@ -5,9 +5,9 @@ import { FaThumbtack } from "react-icons/fa";
 // initial task data
 const initialData = {
   tasks: {
-    "task-1": { 
-      id: "task-1", 
-      description: "Create an upload microservice." 
+    "task-1": {
+      id: "task-1",
+      description: "Create an upload microservice."
     },
     "task-2": {
       id: "task-2",
@@ -44,9 +44,9 @@ const useDragDropHandler = initialState => {
         const isSameContainer = sourceContainer === destinationContainer; // check if source and destination container are the same
 
         // remove a taskId from the source "taskIds" array via the sourceIndex
-        sourceIds.splice(sourceIndex, 1); 
+        sourceIds.splice(sourceIndex, 1);
 
-        // add a taskId (draggableId) to the source or destination "taskIds" array 
+        // add a taskId (draggableId) to the source or destination "taskIds" array
         if (isSameContainer) {
           sourceIds.splice(destinationIndex, 0, draggableId);
         } else {
@@ -101,30 +101,34 @@ const useDragDropHandler = initialState => {
 const DragDrop = ({ tasks, columns, handleChange }) => (
   <DragDropContext onDragEnd={handleChange}>
     {Object.values(columns).map(({ id, title, taskIds }) => (
-      <Droppable key={id} droppableId={droppableId}>
+      <Droppable key={id} droppableId={id}>
         {({ innerRef, droppableProps, placeholder }) => (
-          <div
-            ref={innerRef}
-            {...droppableProps}
-          >
+          <div ref={innerRef} {...droppableProps}>
             <h5>{title}</h5>
-            {taskIds && taskIds.length > 0 
-              ? taskIds.map((task, index) => (
-                  <Draggable key={task.id} draggableId={task.id} index={index}>
-                     {({ draggableProps, dragHandleProps, innerRef }) => (
-                        <div ref={innerRef} {...draggableProps} {...dragHandleProps}>
-                          <div>
-                            {task.description}
-                          </div>
-                        </div>
-                      )}
-                  </Draggable>
-                ))
-              : <div>
-                  <FaThumbtack />
-                  <br />
-                  No Tasks
-                </div>
+            {taskIds && taskIds.length > 0 ? (
+              taskIds.map((task, index) => (
+                <Draggable
+                  key={tasks[task].id}
+                  draggableId={tasks[task].id}
+                  index={index}
+                >
+                  {({ draggableProps, dragHandleProps, innerRef }) => (
+                    <div
+                      ref={innerRef}
+                      {...draggableProps}
+                      {...dragHandleProps}
+                    >
+                      <div>{tasks[task].description}</div>
+                    </div>
+                  )}
+                </Draggable>
+              ))
+            ) : (
+              <div>
+                <FaThumbtack />
+                <br />
+                No Tasks
+              </div>
             )}
             {placeholder}
           </div>
@@ -140,7 +144,7 @@ const DragDropExample = () => {
   const { values, handleChange, resetValues } = useDragDropHandler(initialData);
 
   return (
-    <Fragment>      
+    <Fragment>
       <DragDrop
         columns={values.columns}
         tasks={values.tasks}

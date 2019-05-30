@@ -1,4 +1,4 @@
-export default `import React {
+export default `import React, {
   Fragment,
   useRef,
   useState,
@@ -34,7 +34,6 @@ const useTimer = autoStart => {
 
     // if reset is true, set "currentTime" to 0, else pause time
     setTimer(prevState => (reset ? 0 : prevState));
-    }
   }, [intervalRef]);
 
   // if play was clicked, check that the "intervalRef"
