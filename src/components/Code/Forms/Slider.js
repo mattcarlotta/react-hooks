@@ -1,4 +1,4 @@
-export default `import React, { useCallback, useState } from "react";
+export default `import React, { Fragment, useCallback, useState } from "react";
 
 // create a custom event handler hook that returns an initial object
 // of values, a callback function to update the values and another
@@ -23,18 +23,21 @@ const Slider = () => {
   });
 
   return (
-    <span>
-      <sub>0°F</sub>
-      <input
-        type="range"
-        min="0"
-        max="100"
-        name="temperature"
-        value={value.temperature}
-        onChange={handleChange}
-      />
-      <sub>100°F</sub>
-    </span>
+    <Fragment>
+       <p>Current Temp: {value.temperature || 50}°F</p>
+       <span>
+         <sub>0°F</sub>
+         <input
+           type="range"
+           min="0"
+           max="100"
+           name="temperature"
+           value={value.temperature}
+           onChange={handleChange}
+         />
+         <sub>100°F</sub>
+       </span>
+     </Fragment>
   );
 };
 

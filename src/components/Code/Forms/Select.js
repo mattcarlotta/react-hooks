@@ -10,7 +10,7 @@ const useEventHandler = initialState => {
     ({ target: { name, value } }) => setValue({ [name]: value }),
     []
   );
-  const resetValue = useCallback(() => setValue(initialState), []);
+  const resetValue = useCallback(() => setValue(initialState), [initialState]);
 
   return {
     value,
@@ -19,9 +19,9 @@ const useEventHandler = initialState => {
   };
 };
 
-const options = [
-  "React.Component", 
-  "React.PureComponent", 
+const selectOptions = [
+  "React.Component",
+  "React.PureComponent",
   "React.StatelessComponent",
   "Pure Function"
 ];
@@ -41,7 +41,7 @@ const Select = () => {
         onChange={handleChange}
         value={value.component}
       >
-        {options.map(value => (
+        {selectOptions.map(value => (
           <option key={value} value={value}>
             {value}
           </option>

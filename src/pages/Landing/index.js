@@ -18,7 +18,7 @@ const styles = {
   title: { marginTop: 60 }
 };
 
-const Landing = React.memo(() => (
+const Landing = () => (
   <>
     <Helmet title="A Simple Guide to Hooks" />
     <Center>
@@ -66,6 +66,6 @@ const Landing = React.memo(() => (
       .
     </Paragraph>
   </>
-));
+);
 
 export default Landing;

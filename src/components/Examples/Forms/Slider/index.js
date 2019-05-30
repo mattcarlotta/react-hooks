@@ -37,7 +37,11 @@ const SliderExample = () => {
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>
-      <ShowCode showCode={showCode} fileName="Forms/Slider.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-slider-qi7xk?fontsize=14"
+        showCode={showCode}
+        fileName="Forms/Slider.js"
+      />
     </>
   );
 };

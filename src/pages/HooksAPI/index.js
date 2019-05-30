@@ -15,6 +15,7 @@ import { contextExample, providerExample, useProviderExample } from "./Context";
 import { callbackExample } from "./Callback";
 import { useEffectExample } from "./Effect";
 import { useLayoutEffectExample } from "./Layout";
+import { useReducerExample } from "./Reducer";
 import { functionExample } from "./State";
 
 const styles = {
@@ -36,11 +37,12 @@ const exampleHookItems = [
   { hash: "useimperativehandle", name: "useImperativeHandle" },
   { hash: "uselayouteffect", name: "useLayoutEffect" },
   { hash: "usememo", name: "useMemo" },
+  { hash: "usereducer", name: "useReducer" },
   { hash: "useref", name: "useRef" },
   { hash: "usestate", name: "useState" }
 ];
 
-const HooksAPI = React.memo(() => (
+const HooksAPI = () => (
   <>
     <Helmet title="Hooks API" />
     <Headline>Hooks API</Headline>
@@ -443,6 +445,81 @@ const HooksAPI = React.memo(() => (
       performance degredation over time, then switch to a{" "}
       <Code>{`useMemo();`}</Code> hook.
     </Paragraph>
+    <Title id="usereducer" style={styles.title}>
+      <AnchorLink to="/hooks#usereducer" />
+      useReducer
+    </Title>
+    <Paragraph>
+      <Paragraph style={styles.eqivs}>Equilvalents:</Paragraph>
+      <ul style={styles.list}>
+        <ListItem>(none)</ListItem>
+      </ul>
+    </Paragraph>
+    <Paragraph>
+      The <Code>{`useReducer();`}</Code> hook acts similar to{" "}
+      <Button
+        as="a"
+        href="https://redux.js.org/introduction/getting-started#basic-example"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={styles.link}
+      >
+        Redux
+      </Button>{" "}
+      in that you'll <Code>{`dispatch`}</Code> an <Code>{`action`}</Code> object
+      that contains a <Code>{`type`}</Code> that flows through a{" "}
+      <Code>{`reducer`}</Code> and based upon the string <Code>{`type`}</Code>{" "}
+      it will manipulate the <Code>{`state`}</Code> accordingly. The main
+      advantage of using <Code>{`useReducer();`}</Code> is that the{" "}
+      <Code>{`state`}</Code> can be very complex and yet it can still be
+      isolated/updated by a simple string <Code>{`type`}</Code>. Also, by
+      utilizing a <Code>{`switch/case`}</Code> statement, we can avoid a heavily
+      nested <Code>{`if/elseif/else`}</Code> block statement. If you're not
+      familar with Redux, then this all sounds rather confusing at first, but
+      it's actually quite simple once you understand the flow.
+    </Paragraph>
+    <Paragraph>
+      Lets imagine that we have a counter that has some <Code>{`state`}</Code>{" "}
+      and it needs to be manipulated in 3 ways: increased, decreased, and reset.
+      Now image a user clicks on a button. How can we tell which button was
+      pressed and how can we simplify the result of a click in a way to not only
+      manipulate our <Code>{`state`}</Code> but it can reusable for all of our
+      buttons? Simple. We'll assign each button an <Code>{`action`}</Code> that
+      contains a string <Code>{`type`}</Code> like "inc" for "increase" or "dec"
+      for "decrease". This <Code>{`action`}</Code> string <Code>{`type`}</Code>{" "}
+      then flows through a <Code>{`switch/case`}</Code> statement that checks
+      which <Code>{`case`}</Code> was clicked. Based upon the{" "}
+      <Code>{`case`}</Code>, it'll manipulate the <Code>{`state`}</Code>{" "}
+      accordingly. For example:
+      <SyntaxHighlighter>{useReducerExample}</SyntaxHighlighter>
+    </Paragraph>
+    <Paragraph>
+      The most important guidline to follow when using{" "}
+      <Code>{`useReducer();`}</Code> is if we want to change state, we must use{" "}
+      <Code>{`dispatch`}</Code> and, at the very least, pass it an object with
+      at a <Code>{`type`}</Code> property:{" "}
+      <Code>{`dispatch({ type: "example" })`}</Code>. To see this example in
+      action, check out the{" "}
+      <Link style={styles.altlink} to="/examples/misc#simplecounter">
+        Simple Counter
+      </Link>{" "}
+      example.
+    </Paragraph>
+    <Paragraph>
+      Now you might be thinking, what if we have a value that is more dynamic
+      than simply increasing or decreasing a value? How can we handle that?
+      Simple, we can leverage this <Code>{`action`}</Code> object by also
+      including a <Code>{`payload`}</Code> data type as well. This{" "}
+      <Code>{`payload`}</Code> might include a dynamically generated value that
+      updates <Code>{`state`}</Code> according the <Code>{`type`}</Code>. While
+      this is more of a Redux implementation, it's still possible to do with{" "}
+      <Code>{`useReducer();`}</Code> as well. To see this in action with Redux,
+      check out the{" "}
+      <Link style={styles.altlink} to="/examples/misc#reduxpersistence">
+        Redux Persistence
+      </Link>{" "}
+      example that accepts a user generated message <Code>{`payload`}</Code>.
+    </Paragraph>
     <Title id="useref" style={styles.title}>
       <AnchorLink to="/hooks#useref" />
       useRef
@@ -562,6 +639,6 @@ const HooksAPI = React.memo(() => (
       example.
     </Paragraph>
   </>
-));
+);
 
 export default HooksAPI;

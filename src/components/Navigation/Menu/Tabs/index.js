@@ -20,6 +20,7 @@ const exampleHookItems = [
   { hash: "useimperativehandle", name: "useImperativeHandle", link: hooks },
   { hash: "uselayouteffect", name: "useLayoutEffect", link: hooks },
   { hash: "usememo", name: "useMemo", link: hooks },
+  { hash: "usereducer", name: "useReducer", link: hooks },
   { hash: "useref", name: "useRef", link: hooks },
   { hash: "usestate", name: "useState", link: hooks }
 ];

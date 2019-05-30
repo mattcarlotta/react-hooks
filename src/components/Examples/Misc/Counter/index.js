@@ -62,7 +62,11 @@ const CounterExample = () => {
           </Column>
         </Row>
       </BlockContainer>
-      <ShowCode showCode={showCode} fileName="Misc/Counter.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-simple-counter-wvp3s?fontsize=14"
+        showCode={showCode}
+        fileName="Misc/Counter.js"
+      />
     </>
   );
 };

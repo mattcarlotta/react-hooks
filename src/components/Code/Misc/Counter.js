@@ -1,8 +1,8 @@
 export default `import React, { Fragment, useCallback, useReducer } from "react";
-import { FaMinus, FaPlus } from "react-icons/fa";
+import { FaMinus, FaPlus, FaTrash } from "react-icons/fa";
 
-// create a custom useReducer hook that returns an initial value, 
-// and 3 callback functions: decValue, incValue and resetValue. 
+// create a custom useReducer hook that returns an initial value,
+// and 3 callback functions: decValue, incValue and resetValue.
 const useCounter = initialState => {
   const reducer = (state = 0, { type }) => {
     switch (type) {
@@ -45,7 +45,7 @@ const Counter = () => {
       </button>
       <div>{value}</div>
       <button onClick={incValue}>
-        <FaMinus />
+        <FaPlus />
       </button>
       <button onClick={resetValue}>
         <FaTrash />

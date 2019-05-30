@@ -30,15 +30,15 @@ const RadioGroup = () => {
       <p>Favorite:</p>
       {options.map(color => (
         <span key={color}>
-          <input 
-            type="radio" 
+          <input
+            type="radio"
             id={color}
             name="favoriteColor"
             value={color}
             onChange={handleChange}
             checked={color === value.favoriteColor}
           />
-          <label htmlFor={color}/>{color}</label>
+          <label htmlFor={color}>{color}</label>
         </span>
       ))}
     </Fragment>

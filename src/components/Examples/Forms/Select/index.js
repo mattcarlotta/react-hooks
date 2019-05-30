@@ -46,7 +46,11 @@ const SelectExample = () => {
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>
-      <ShowCode showCode={showCode} fileName="Forms/Select.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-select-k94ro?fontsize=14"
+        showCode={showCode}
+        fileName="Forms/Select.js"
+      />
     </>
   );
 };
