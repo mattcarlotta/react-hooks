@@ -35,7 +35,11 @@ const ContextExample = () => {
         </Example>
         <ShowCodeButton showCode={showCode} toggleShowCode={toggleShowCode} />
       </FlexContainer>
-      <ShowCode showCode={showCode} fileName="Misc/Context.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-context-persistence-lqy0r?fontsize=14"
+        showCode={showCode}
+        fileName="Misc/Context.js"
+      />
     </>
   );
 };

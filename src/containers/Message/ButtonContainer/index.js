@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TextContainer = styled.div`
+const ButtonContainer = styled.div`
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
@@ -9,4 +9,4 @@ const TextContainer = styled.div`
   padding-left: 14px;
 `;
 
-export default TextContainer;
+export default ButtonContainer;

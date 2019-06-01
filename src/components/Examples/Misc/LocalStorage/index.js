@@ -74,7 +74,11 @@ const LocalStorageExample = () => {
           </Column>
         </Row>
       </BlockContainer>
-      <ShowCode showCode={showCode} fileName="Misc/LocalStorage.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-local-storage-persistence-ekl76?fontsize=14"
+        showCode={showCode}
+        fileName="Misc/LocalStorage.js"
+      />
     </>
   );
 };

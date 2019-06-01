@@ -17,7 +17,7 @@ import {
 } from "../../../Body";
 import { AnchorLink } from "../../../Navigation";
 import { useToggle } from "../../../Hooks";
-import { setMessage } from "../../../../actions/messageActions";
+import { hideMessage, setMessage } from "../../../../actions/messageActions";
 import { resetInput, updateInput } from "../../../../actions/inputActions";
 
 const styles = {
@@ -41,14 +41,22 @@ const styles = {
   }
 };
 
-const ReduxExample = ({ inputValue, resetInput, setMessage, updateInput }) => {
+const ReduxExample = ({
+  hideMessage,
+  inputValue,
+  resetInput,
+  setMessage,
+  showingMessage,
+  updateInput
+}) => {
   const [showCode, toggleShowCode] = useToggle(false);
 
   const handleChange = useCallback(
     ({ target: { value } }) => {
+      if (showingMessage) hideMessage();
       updateInput(value);
     },
-    [updateInput]
+    [hideMessage, showingMessage, updateInput]
   );
 
   const handleSubmit = useCallback(
@@ -57,10 +65,15 @@ const ReduxExample = ({ inputValue, resetInput, setMessage, updateInput }) => {
       if (inputValue && inputValue.length <= 150) {
         setMessage({ message: inputValue, type: "alert" });
       } else if (!inputValue) {
-        setMessage({
-          message: "You need to add a message first!",
-          type: "warning"
-        });
+        if (showingMessage) hideMessage();
+        setTimeout(
+          () =>
+            setMessage({
+              message: "You need to add a message first!",
+              type: "warning"
+            }),
+          300
+        );
       } else {
         setMessage({
           message: "Aaawwwhhh, you killed it! You killed my component...",
@@ -69,7 +82,7 @@ const ReduxExample = ({ inputValue, resetInput, setMessage, updateInput }) => {
       }
       resetInput();
     },
-    [inputValue, resetInput, setMessage]
+    [hideMessage, inputValue, resetInput, setMessage, showingMessage]
   );
 
   return (
@@ -110,19 +123,26 @@ const ReduxExample = ({ inputValue, resetInput, setMessage, updateInput }) => {
           </Column>
         </Row>
       </BlockContainer>
-      <ShowCode showCode={showCode} fileName="Misc/Redux.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-redux-persistence-05h18?fontsize=14"
+        showCode={showCode}
+        message="Due to the complexity of implementing and utilizing Redux, please see the codesandbox example instead."
+        fileName="Misc/Redux.js"
+      />
     </>
   );
 };
 
 ReduxExample.propTypes = {
+  hideMessage: PropTypes.func.isRequired,
   inputValue: PropTypes.string,
   resetInput: PropTypes.func.isRequired,
   setMessage: PropTypes.func.isRequired,
+  showingMessage: PropTypes.bool,
   updateInput: PropTypes.func.isRequired
 };
 
 export default connect(
-  state => ({ inputValue: state.input }),
-  { resetInput, setMessage, updateInput }
+  state => ({ inputValue: state.input, showingMessage: state.messages.show }),
+  { hideMessage, resetInput, setMessage, updateInput }
 )(ReduxExample);

@@ -9,7 +9,7 @@ import copy from "copy-to-clipboard";
 import { CodesandboxButton, CopyButton, SyntaxHighlighter } from "../index";
 import Container from "./Container";
 
-const ShowCode = ({ fileName, link, showCode }) => {
+const ShowCode = ({ fileName, link, message, showCode }) => {
   const [loadedFile, setLoadedFile] = useState("");
   const [copied, setCopied] = useState(false);
 
@@ -52,10 +52,14 @@ const ShowCode = ({ fileName, link, showCode }) => {
   return showCode ? (
     <Container>
       <SyntaxHighlighter height="400px" language="javascript">
-        {loadedFile}
+        {message || loadedFile}
       </SyntaxHighlighter>
       <CodesandboxButton link={link} />
-      <CopyButton copied={copied} onClick={handleClick} />
+      <CopyButton
+        style={{ visibility: !message ? "show" : "hidden " }}
+        copied={copied}
+        onClick={handleClick}
+      />
     </Container>
   ) : null;
 };
@@ -63,6 +67,7 @@ const ShowCode = ({ fileName, link, showCode }) => {
 ShowCode.propTypes = {
   fileName: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
+  message: PropTypes.string,
   showCode: PropTypes.bool.isRequired
 };
 

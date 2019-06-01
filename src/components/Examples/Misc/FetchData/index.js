@@ -76,7 +76,11 @@ const FetchDataExample = () => {
           </Column>
         </Row>
       </BlockContainer>
-      <ShowCode showCode={showCode} fileName="Misc/FetchData.js" />
+      <ShowCode
+        link="https://codesandbox.io/s/react-hooks-guide-fetching-and-updating-data-y3jks?fontsize=14"
+        showCode={showCode}
+        fileName="Misc/FetchData.js"
+      />
     </>
   );
 };
