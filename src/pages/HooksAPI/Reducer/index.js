@@ -1,6 +1,6 @@
 export const useReducerExample = `import React, { Fragment, useReducer } from "react";
 
-// here is our "reducer" that is passed some intial "state"
+// here is our "reducer" that is passed some initial "state"
 // and an "action" object. we compare the action's "type"
 // to one of the cases defined below and manipulate "state"
 // accordingly
