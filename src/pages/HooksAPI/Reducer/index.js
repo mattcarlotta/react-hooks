@@ -10,7 +10,7 @@ const reducer = (state, action) => {
       // this takes whatever is in "state" and adds 1
       return state + 1;
     case "dec":
-    // this takes whatever is in "state" and adds 0
+    // this takes whatever is in "state" and removes 1 down until 0
       return state > 0 ? state - 1 : 0;
     case "reset":
     // this resets "state" to 0
