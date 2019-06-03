@@ -17,7 +17,7 @@ const Theme = ({ children }) => {
         selectedTheme.name === "dark" ? { name: "light" } : { name: "dark" }
       );
     },
-    [selectedTheme.name]
+    [selectedTheme.name] // eslint-disable-line react-hooks/exhaustive-deps
   );
 
   return (

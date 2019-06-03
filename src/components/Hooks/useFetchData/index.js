@@ -34,18 +34,15 @@ const useFetchData = () => {
       setData(initialState);
       isFetching.current = true;
     },
-    [initialState, isFetching.current]
+    [isFetching.current] // eslint-disable-line react-hooks/exhaustive-deps
   );
 
-  useEffect(
-    () => {
-      if (isFetching.current) {
-        isFetching.current = false;
-        fetchData();
-      }
-    },
-    [isFetching.current]
-  );
+  useEffect(() => {
+    if (isFetching.current) {
+      isFetching.current = false;
+      fetchData();
+    }
+  }, [isFetching.current]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return {
     data,
