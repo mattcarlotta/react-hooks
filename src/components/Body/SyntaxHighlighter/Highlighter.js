@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Prism } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import atomDark from "react-syntax-highlighter/dist/styles/prism/atom-dark";
 
 const Highlighter = ({ className, children }) => (
   <Prism className={className} language="jsx" style={atomDark}>
