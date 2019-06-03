@@ -2,6 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import { FaGithub } from "react-icons/fa";
 import CodesandboxSVG from "../../images/codesandbox";
+import ReactHookLogo from "../../images/reactHookLogo.png";
 import {
   Center,
   Button,
@@ -22,6 +23,7 @@ const Landing = () => (
   <>
     <Helmet title="A Simple Guide to Hooks" />
     <Center>
+      <img src={ReactHookLogo} alt="ReactHookLogo.png" height="200px" />
       <Headline style={{ fontSize: 50, letterSpacing: 1 }}>
         React Hooks Guide
       </Headline>
