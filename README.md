@@ -6,7 +6,7 @@
 
 An educational website to help up-and-coming developers understand React’s newly introduced hooks. It offers example code with notes about current limitations and requirements when working with hooks. The underlying goal of this project is to implement hooks across the entire website while introducing technologies such as webpack lazy-loading, CSS in JS to control styles and themes, and working with CSS flex-boxes across multiplatform devices all while working within the confines of a <a href="https://codesandbox.io/">codesandbox</a>.
 
-<a href="https://jzmqvzzq0w.codesandbox.io/">Demo</a> | <a href="https://codesandbox.io/s/github/mattcarlotta/react-hooks/tree/master/">Source</a>
+<a href="https://react-hooks.mattcarlotta.io/">Production</a> | <a href="https://jzmqvzzq0w.codesandbox.io/">Demo</a> | <a href="https://codesandbox.io/s/github/mattcarlotta/react-hooks/tree/master/">Source</a>
 
 ## Packages Incorporated
 

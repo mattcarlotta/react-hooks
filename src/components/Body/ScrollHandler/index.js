@@ -3,19 +3,17 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 
 const ScrollHandler = ({ location: { hash }, children }) => {
-  useEffect(
-    () => {
-      const element = document.getElementById(hash.replace("#", ""));
+  useEffect(() => {
+    const currentHash = hash.replace("#", "");
+    const element = currentHash ? document.getElementById(currentHash) : null;
 
-      setTimeout(() => {
-        window.scrollTo({
-          behavior: element ? "smooth" : "auto",
-          top: element ? element.offsetTop : 0
-        });
-      }, 100);
-    },
-    [hash]
-  );
+    setTimeout(() => {
+      window.scrollTo({
+        behavior: element ? "smooth" : "auto",
+        top: element ? element.offsetTop : 0
+      });
+    }, 100);
+  }, [hash]);
 
   return children;
 };

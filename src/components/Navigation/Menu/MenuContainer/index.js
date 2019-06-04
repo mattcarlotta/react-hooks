@@ -17,7 +17,7 @@ const MenuContainer = styled.ul`
   list-style: none;
   border-left: 1px solid
     ${({ theme }) => (theme.name === "dark" ? "#292929" : "#ececec")};
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 
 export default MenuContainer;
