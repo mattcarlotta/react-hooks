@@ -56,7 +56,7 @@ const Landing = () => (
       This guide covers what each React hook does, how to implement it, it's
       current limitations, and how to leverage them to be reusable. From simple
       forms to event listeners to 3rd party package implementations, this guide
-      covers most of the basic needs that a developer will need for their
+      covers most of the basic fundamentals that a developer will need for their
       application.
     </Paragraph>
     <SubTitle style={{ marginTop: 60 }}>Contact</SubTitle>
