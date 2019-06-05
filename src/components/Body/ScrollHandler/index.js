@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 
-const ScrollHandler = ({ location: { hash }, children }) => {
+const ScrollHandler = ({ location, children }) => {
   useEffect(() => {
-    const currentHash = hash.replace("#", "");
+    const currentHash = location.hash.replace("#", "");
     const element = currentHash ? document.getElementById(currentHash) : null;
 
     setTimeout(() => {
@@ -13,14 +13,20 @@ const ScrollHandler = ({ location: { hash }, children }) => {
         top: element ? element.offsetTop : 0
       });
     }, 100);
-  }, [hash]);
+  }, [location]);
 
   return children;
 };
 
 ScrollHandler.propTypes = {
   children: PropTypes.node.isRequired,
-  hash: PropTypes.string
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+    search: PropTypes.string,
+    hash: PropTypes.string,
+    state: PropTypes.any,
+    key: PropTypes.string
+  }).isRequired
 };
 
 export default withRouter(ScrollHandler);
